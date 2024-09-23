@@ -1,4 +1,4 @@
-/*
+[[So sánh SQL server và Oracle 202407041240]]/*
 Generates a hierarchical Markdown document out of a visual layout of an article.
 Watch this video to understand how the script is intended to work:
 ![Excalidraw Writing Machine YouTube Video](https://youtu.be/zvRpCOZAUSs)
