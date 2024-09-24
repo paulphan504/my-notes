@@ -20,7 +20,7 @@
 	!
 	ip dhcp snooping vlan 1-2
 	no ip dhcp snooping information option
-	ip dhcp snooping database tftp://192.168.1.2/databasebinding
+	ip dhcp snooping database ==tftp://192.168.1.2/databasebinding==
 	ip dhcp snooping
 	interface GigabitEthernet0/0
 	 switchport trunk allowed vlan 1,2
