@@ -1,7 +1,7 @@
 ---
 title: Welcome to My Notes
 ---
-**this is my website**
+
 # [How to publish Obsidian notes with Quartz on GitHub Pages](https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages) 
 
 On this page, I describe how I publish [Plain text](https://notes.nicolevanderhoeven.com/Plain+text) notes online using:
@@ -426,5 +426,27 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 - [GitHub documentation](https://docs.github.com/)
 - [GitHub Pages documentation](https://docs.github.com/en/pages)
 - [Obsidian documentation](https://help.obsidian.md/Home)
+# FIX
 
-[Quartz](https://notes.nicolevanderhoeven.com/Quartz)
+- 
+- Can't use terminal ==npm==, I keep getting "==zsh: command not found: npm==" even after an OS re-install:
+  I don't remember what I had done, but every time I attempt to run a command (`npm install -g gulp`) in terminal, it returns a `zsh: command not found: npm`. This is a command I previously had no issue executing before.
+  
+  **Resolve**
+  First of all, install homebrew on you mac using the following command:
+	
+	```bash
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	```
+	
+	Now, you can use homebrew to install nodejs on your mac.
+	
+	
+	```bash
+	brew install node
+	```
+	
+	You can now use npm to install gulp or any other modules as npm and nodejs are part of the node package.
+
+
+
