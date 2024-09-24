@@ -452,7 +452,8 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	nvm install 20.5.1
 	nvm use 20.5.1
 	```
-- "punycode" error ![[Pasted image 20240924223624.png]]
+- "punycode" error
+  ![[Pasted image 20240924223624.png]]
 	**RESOLVE**
   git config --global http.postBuffer 157286400
   
