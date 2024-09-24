@@ -4,8 +4,6 @@ Watch this video to understand how the script is intended to work:
 ![Excalidraw Writing Machine YouTube Video](https://youtu.be/zvRpCOZAUSs)
 You can download the sample Obsidian Templater file from [here](https://gist.github.com/zsviczian/bf49d4b2d401f5749aaf8c2fa8a513d9)
 You can download the demo PDF document showcased in the video from [here](https://zsviczian.github.io/DemoArticle-AtomicHabits.pdf)
-![image](https://github.com/user-attachments/assets/c2461244-b95a-4131-91b4-892eb2992de8)
-
 
 ```js*/
 const selectedElements = ea.getViewSelectedElements();
