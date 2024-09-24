@@ -1,5 +1,4 @@
 ---
 title: Welcome to Quartz
-heading: "**PAULPHAN**"
 ---
-[[Untitled.canvas|Untitled]]
+[[node_modules/tsx/node_modules/@esbuild/darwin-x64/README|README]]
