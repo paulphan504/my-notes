@@ -428,7 +428,34 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 - [Obsidian documentation](https://help.obsidian.md/Home)
 # FIX
 
-- 
+- Show notification error but not error when run cmd "==npx quartz sync=="![[Pasted image 20240924223624.png]]
+  **Resolve**
+  **Reverting to node version 20.5.1 worked for me.** _(Incase you're frustrated and looking for a quick solution to get rid of the warning)_
+
+	Step 1. Install NVM
+	
+	_Windows_
+	
+	```
+	winget install CoreyButler.NVMforWindows
+	```
+	
+	_Linux_
+	
+	```
+	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+	```
+	
+	Step 2. NVM install and use node version 20.5.1
+	
+	```shell
+	nvm install 20.5.1
+	nvm use 20.5.1
+	```
+- "punycode" error ![[Pasted image 20240924223624.png]]
+	**RESOLVE**
+  git config --global http.postBuffer 157286400
+  
 - Can't use terminal ==npm==, I keep getting "==zsh: command not found: npm==" even after an OS re-install:
   I don't remember what I had done, but every time I attempt to run a command (`npm install -g gulp`) in terminal, it returns a `zsh: command not found: npm`. This is a command I previously had no issue executing before.
   
@@ -447,6 +474,8 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	```
 	
 	You can now use npm to install gulp or any other modules as npm and nodejs are part of the node package.
+- Need help with Quartz 4.0 logo
+  ![[Pasted image 20240924224850.png]]
 
 
 
