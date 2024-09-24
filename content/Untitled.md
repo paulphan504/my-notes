@@ -5,7 +5,7 @@ Watch this video to understand how the script is intended to work:
 You can download the sample Obsidian Templater file from [here](https://gist.github.com/zsviczian/bf49d4b2d401f5749aaf8c2fa8a513d9)
 You can download the demo PDF document showcased in the video from [here](https://zsviczian.github.io/DemoArticle-AtomicHabits.pdf)
 
-![alt text]([http://url/to/img.png](https://prnt.sc/dIs4tLjtBpMG))
+![alt text](https://prnt.sc/dIs4tLjtBpMG)
 
 ```js*/
 const selectedElements = ea.getViewSelectedElements();
