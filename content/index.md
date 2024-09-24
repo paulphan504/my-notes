@@ -452,10 +452,10 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	nvm install 20.5.1
 	nvm use 20.5.1
 	```
-- "punycode" error
+- "==punycode==" error
   ![[Pasted image 20240924223624.png]]
 	**RESOLVE**
-  git config --global http.postBuffer 157286400
+  "==git config --global http.postBuffer 157286400=="
   
 - Can't use terminal ==npm==, I keep getting "==zsh: command not found: npm==" even after an OS re-install:
   I don't remember what I had done, but every time I attempt to run a command (`npm install -g gulp`) in terminal, it returns a `zsh: command not found: npm`. This is a command I previously had no issue executing before.
