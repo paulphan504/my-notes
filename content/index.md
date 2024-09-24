@@ -475,8 +475,7 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	```
 	
 	You can now use npm to install gulp or any other modules as npm and nodejs are part of the node package.
-- Need help with Quartz 4.0 logo
-  ![[Pasted image 20240924224850.png]]
+- Need help with Quartz 4.0 logo ![[Pasted image 20240924224850.png]]
 
 
 
