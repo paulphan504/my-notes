@@ -3,6 +3,7 @@ title: Welcome to My Notes
 ---
 - [[CEH]]
 - [[DHCP SNOOPING]]
+- [SQL](obsidian://open?vault=my-notes&file=content%2Findex)
 # [How to publish Obsidian notes with Quartz on GitHub Pages](https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages) 
 
 On this page, I describe how I publish [Plain text](https://notes.nicolevanderhoeven.com/Plain+text) notes online using:
