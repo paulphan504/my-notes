@@ -1,8 +1,12 @@
 ---
 title: Welcome to My Notes
 ---
-- [CEH]
-  [test](https://paulphan504.github.io/my-notes/CEH/MODULE-3-Scanning-Networks)
+- [[CEH]]
+  [[MODULE 3 Scanning Networks]]
+  [[Note]]
+  [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]]
+- 
+
 
 # [How to publish Obsidian notes with Quartz on GitHub Pages](https://notes.nicolevanderhoeven.com/How+to+publish+Obsidian+notes+with+Quartz+on+GitHub+Pages) 
 
