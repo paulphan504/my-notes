@@ -1,0 +1,10 @@
+{
+	"nodes":[
+		{"id":"39e4e86ed69012fe","x":-1260,"y":-2120,"width":2600,"height":3640,"type":"group","label":"1"},
+		{"id":"5c3b5711dfc98c30","type":"group","x":-1240,"y":-2100,"width":2560,"height":3600,"label":"Untitled group"},
+		{"id":"22a0ac68c5e1ccab","type":"link","url":"https://genk.vn/","x":-1220,"y":-2080,"width":2520,"height":1600},
+		{"id":"23f1e10af5a53c6d","type":"link","url":"https://www.youtube.com/watch?v=I0k7kL9JcKc","x":-1220,"y":-360,"width":2520,"height":774},
+		{"id":"fb22326cbac77d74","type":"link","url":"https://paulphan504.github.io/my-notes/CEH/MODULE-3-Scanning-Networks","x":-1220,"y":480,"width":2520,"height":1000}
+	],
+	"edges":[]
+}
