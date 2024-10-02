@@ -6,4 +6,5 @@
 
 - Check again sure docker tag already create `docker images` ![[Pasted image 20241001174149.png]]
 - test after remove app virtual studio code on macos ventura ? 
+
 - test after shutdown macos ?  
