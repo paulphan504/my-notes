@@ -2,7 +2,7 @@
 
 - Istall *libreoffice*
 	```
-	```docker run -d \
+  docker run -d \
 	--name=libreoffice \
 	--security-opt seccomp=unconfined '#optional' \
 	-e PUID=1000 \
@@ -12,5 +12,4 @@
 	-p 3006:3001 \
 	--restart unless-stopped \
 	lscr.io/linuxserver/libreoffice:latest
-	```
 	```
