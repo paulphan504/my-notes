@@ -8,3 +8,5 @@
 - test after remove app virtual studio code on macos ventura ? 
 
 - test after shutdown macos ?  
+
+- test after reinstall virtual studio code on macos ?
