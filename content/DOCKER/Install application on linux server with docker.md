@@ -2,7 +2,7 @@
 
 - Istall *libreoffice*
 	```
-  docker run -d \
+	docker run -d \
 	--name=libreoffice \
 	--security-opt seccomp=unconfined \
 	-e PUID=1000 \
