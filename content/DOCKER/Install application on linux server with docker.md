@@ -13,6 +13,7 @@
 	--restart unless-stopped \
 	lscr.io/linuxserver/libreoffice:latest
 	```
+
 - Install *Obsidian*
   ```
 	docker run -d \
