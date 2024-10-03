@@ -1,6 +1,6 @@
 **Run in Terminal macos**
 
-- Istall *libreoffice*
+- Install *libreoffice*
 	```
 	docker run -d \
 	--name=libreoffice \
@@ -13,7 +13,7 @@
 	--restart unless-stopped \
 	lscr.io/linuxserver/libreoffice:latest
 	```
-- Istall *Obsidian*
+- Install *Obsidian*
   ```
 	docker run -d \
 	--name=obsidian
