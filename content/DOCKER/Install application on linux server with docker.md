@@ -28,4 +28,3 @@
 	--restart unless-stopped \
 	lscr.io/linuxserver/obsidian:latest
 	```
-	test
