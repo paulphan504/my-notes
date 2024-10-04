@@ -1,5 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<i>There are two rules for success: 1) Never tell everything you know.</i>
-<br><br>
-― Roger H. Lincoln
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.77">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1"><i>&lt;p&gt;&lt;strong&gt;Run in Terminal macos&lt;/strong&gt;&lt;/p&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;ul&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;li&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;p&gt;Install &lt;em&gt;libreoffice&lt;/em&gt;&lt;/p&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;pre&gt;&lt;code&gt; docker run -d \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>--name=libreoffice \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>--security-opt seccomp=unconfined \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>-e PUID=1000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>-e PGID=1000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>-e TZ=Etc/UTC \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>-p 3005:3000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>-p 3006:3001 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>--restart unless-stopped \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space"> </span>lscr.io/linuxserver/libreoffice:latest</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;/code&gt;&lt;/pre&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;/li&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;li&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;p&gt;Install &lt;em&gt;Obsidian&lt;/em&gt;&lt;/p&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;pre&gt;&lt;code&gt;<span class="Apple-converted-space">  </span>docker run -d \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>--name=obsidian</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-security-opt seccomp=unconfined \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-e PUID=1000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-e PGID=1000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-e TZ=Etc/UTC \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-p 3003:3000 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>-p 3004:3001 \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>--shm-size=&amp;quot;1gb&amp;quot; \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>--restart unless-stopped \</i></span></p>
+<p class="p1"><span class="s1"><i><span class="Apple-converted-space">  </span>lscr.io/linuxserver/obsidian:latest</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;/code&gt;&lt;/pre&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;/li&gt;</i></span></p>
+<p class="p1"><span class="s1"><i>&lt;/ul&gt;</i></span></p>
+</body>
 </html>
