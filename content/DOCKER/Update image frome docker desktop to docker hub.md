@@ -2,15 +2,13 @@
 ``` 
 	docker login 
 ``` 
-
 	 ![[Pasted image 20241001173456.png]]
 
 - Checks docker images information 
   ```` 
 	  docker images 
-  ```` 
-  
-	  ![[Pasted image 20241001173638.png]]
+  ````
+![[Pasted image 20241001173638.png]]
   
 - Create docker tag 
 ```
