@@ -1,20 +1,20 @@
 ---
 title: Welcome to My Notes
 ---
-- **Docker**
+- **Docker**:
 
 [[Update image frome docker desktop to docker hub]]
 
 [[Install application on linux server with docker]]
 
-- **CEH**
+- **CEH**:
 [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]]
 
 [[Note]]
 
 [[MODULE 3 Scanning Networks]]
 
-- **Obsidian**
+- **Obsidian**:
 [[Guide Install]]
 
 
