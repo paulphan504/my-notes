@@ -2,6 +2,7 @@
 ``` 
 docker login 
 ``` 
+ 
  ![[Pasted image 20241001173456.png]]
 
 - Checks docker images information 
