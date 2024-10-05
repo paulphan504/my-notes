@@ -10,7 +10,7 @@ title: Welcome to My Notes
 
 <span style="color:rgb(146, 208, 80)">[[Update image frome docker desktop to docker hub]].</span>
 
-[[Install application on linux server with docker]].
+<span style="color:rgb(0, 176, 240)">[[Install application on linux server with docker]].</span>
 
 ## **CEH**:
 [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
