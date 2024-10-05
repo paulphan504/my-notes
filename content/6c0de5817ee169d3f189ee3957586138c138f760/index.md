@@ -26,7 +26,18 @@ title: Welcome to My Notes
 [[DemoArticle-AtomicHabits.pdf]].
 
 
+## **NetworkAutomation**
+
+[[Master Network Automation With Python]].
+
+[[Mastering Python Network Automation (2023) PDF]].
 
 
 
+## **Obsidian**
 
+[[Guide Install]].
+
+## **SQL Compare**
+
+[[So sánh SQL server và Oracle 202407041240]]
