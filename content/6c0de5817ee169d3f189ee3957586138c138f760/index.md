@@ -2,11 +2,11 @@
 title: Welcome to My Notes
 ---
 
-## **Obsidian**:
+## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
 
-[[Guide Install]].
-
-## **Docker**:
+<span style="color:rgb(0, 0, 0)">[[Guide Install]].
+</span>
+## **<span style="color:rgb(112, 48, 160)"><span style="color:rgb(255, 0, 0)">Docker</span></span>**:
 
 [[Update image frome docker desktop to docker hub]].
 
