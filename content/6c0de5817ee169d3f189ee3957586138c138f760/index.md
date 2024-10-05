@@ -8,7 +8,7 @@ title: Welcome to My Notes
 </span>
 ## **<span style="color:rgb(112, 48, 160)"><span style="color:rgb(255, 0, 0)">Docker</span></span>**:
 
-[[Update image frome docker desktop to docker hub]].
+<span style="color:rgb(146, 208, 80)">[[Update image frome docker desktop to docker hub]].</span>
 
 [[Install application on linux server with docker]].
 
