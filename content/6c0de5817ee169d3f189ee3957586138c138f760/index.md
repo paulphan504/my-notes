@@ -1,8 +1,6 @@
 ---
 title: Welcome to My Notes
 ---
-[[[test]](obsidian://open?vault=my-notes&file=Excalidraw%2Ftest)]
-
 
 ## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
 
