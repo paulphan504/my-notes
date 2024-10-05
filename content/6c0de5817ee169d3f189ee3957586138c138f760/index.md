@@ -13,7 +13,7 @@ title: Welcome to My Notes
 <span style="color:rgb(0, 176, 240)">[[Install application on linux server with docker]].</span>
 
 ## **CEH**:
-[!tesst].[[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
+[tesst].[[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
 
 [[Note]].
 
