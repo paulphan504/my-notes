@@ -6,7 +6,7 @@
 		{"id":"5472069ef8b1a01b","type":"link","url":"https://zingmp3.vn/","x":6836,"y":-2127,"width":2608,"height":1370},
 		{"id":"23f1e10af5a53c6d","type":"link","url":"https://www.youtube.com/watch?v=I0k7kL9JcKc","x":-1051,"y":-2324,"width":2520,"height":1617,"color":"3"},
 		{"id":"9583f4845eedc6bd","type":"link","url":"https://chat.zalo.me/","x":-3125,"y":-2313,"width":1769,"height":1596},
-		{"id":"0295cd23f8e99123","x":-2819,"y":-4370,"width":1988,"height":1619,"type":"file","file":"content/Excalidraw/Drawing 2024-08-30 14.53.32.md"}
+		{"id":"0295cd23f8e99123","x":-2819,"y":-4370,"width":1988,"height":1619,"type":"file","file":"content/6c0de5817ee169d3f189ee3957586138c138f760/Excalidraw/Drawing 2024-08-30 14.53.32.md"}
 	],
 	"edges":[
 		{"id":"345127fe2f5f4045","fromNode":"3ccece2e7c8888e6","fromSide":"bottom","toNode":"9583f4845eedc6bd","toSide":"top"},
