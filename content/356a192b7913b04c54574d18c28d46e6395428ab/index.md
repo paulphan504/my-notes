@@ -41,3 +41,4 @@ title: Welcome MR.Lực
 ## **SQL Compare**
 
 [[So sánh SQL server và Oracle 202407041240]]
+

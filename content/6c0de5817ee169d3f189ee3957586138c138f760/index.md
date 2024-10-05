@@ -1,6 +1,7 @@
 ---
 title: Welcome to My Notes
 ---
+[[test]]
 
 ## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
 
