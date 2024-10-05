@@ -1,5 +1,5 @@
 ---
-title: Welcome to
+title: Welcome MR.Lực
 ---
 
 ## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
