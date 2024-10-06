@@ -17,7 +17,7 @@
 - Install *Obsidian*
   ```
 	docker run -d \
-	--name=obsidian
+	--name=obsidian \
 	--security-opt seccomp=unconfined \
 	-e PUID=1000 \
 	-e PGID=1000 \
