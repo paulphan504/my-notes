@@ -30,7 +30,8 @@
 	```
 
 - Install *Kali-linux*
-```docker run -d \
+```
+docker run -d \
 --name=kali-linux \
 --security-opt seccomp=unconfined '#optional' \
 -e PUID=1000 \
