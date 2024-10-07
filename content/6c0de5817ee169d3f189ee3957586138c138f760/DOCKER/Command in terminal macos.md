@@ -1,4 +1,4 @@
-**#[Show hidden files and folders within Mac terminal]**(https://stackoverflow.com/questions/71983948/show-hidden-files-and-folders-within-mac-terminal)
+[**Show hidden files and folders within Mac terminal**](https://stackoverflow.com/questions/71983948/show-hidden-files-and-folders-within-mac-terminal)
 Have you tried using the -a flag for ls?
 
 1. To list all files (including hidden files): `$ ls -a`
