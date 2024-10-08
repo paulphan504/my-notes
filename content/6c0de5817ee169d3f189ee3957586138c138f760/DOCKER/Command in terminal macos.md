@@ -12,3 +12,6 @@ Use `ls --help` in your terminal to review all available flags.
 
 test new location
 
+can sync two vault ?
+
+
