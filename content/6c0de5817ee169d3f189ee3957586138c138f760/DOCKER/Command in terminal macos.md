@@ -12,4 +12,3 @@ Use `ls --help` in your terminal to review all available flags.
 
 
 
-
