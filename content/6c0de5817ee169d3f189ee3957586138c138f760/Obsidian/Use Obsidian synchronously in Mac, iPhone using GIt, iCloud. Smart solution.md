@@ -50,5 +50,4 @@ Inside of your Obsidian app -> Settings -> Obsidian Git -> Authentication/Commit
 ### Fix:
 
 - **Option 1:** Can use "<mark style="background: #FFF3A3A6;">Access Token</mark>" setup in **github** for authenticator in plugin <mark style="background: #FFF3A3A6;">Git</mark> on **Obsidian**.
-- **Option 2:** [[Rcovery Data Source]]. 
-  *unadvantage*: lost of time for sync **Vault** with **Icloud**
+- **Option 2:** [[Rcovery Data Source]].  ( *unadvantage*: lost of time for sync **Vault** with **Icloud** )
