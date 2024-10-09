@@ -46,3 +46,8 @@ Once cloning is completed, open your iOS Obsidian app, find cloned folder/files 
 If you set your Obsidian Git plugin `Pull updates on startup` turned on, your iPhone will show you an error that is failed to pull/push once you open the app. That's because you didn't login to your Git on your iOS Obsidian app.  
 
 Inside of your Obsidian app -> Settings -> Obsidian Git -> Authentication/Commit Author enter your username on GitHub, type in your password. Restart your Obsidian, it will work perfectly.
+
+### Fix:
+
+- **Option 1:** Can use "<mark style="background: #FFF3A3A6;">Access Token</mark>" setup in **github** for authenticator in plugin <mark style="background: #FFF3A3A6;">Git</mark> on **Obsidian**.
+- **Option 2:** [[Rcovery Data Source]].
