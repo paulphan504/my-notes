@@ -47,4 +47,4 @@ docker run -d \
 lscr.io/linuxserver/kali-linux:latest
 ```
 
-T
+Tư
