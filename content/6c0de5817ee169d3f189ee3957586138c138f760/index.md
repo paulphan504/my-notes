@@ -6,6 +6,10 @@ title: Welcome to My Notes
 
 [[Guide Install]].
 
+[[Rcovery Data Source]]].
+
+[[Use Obsidian synchronously in Mac, iPhone using GIt, iCloud. Smart solution]].
+
 ## **<span style="color:rgb(112, 48, 160)"><span style="color:rgb(255, 0, 0)">Docker</span></span>**:
 
 <mark style="background: #FF5582A6;">[[Update image frome docker desktop to docker hub]].</mark>
