@@ -1,5 +1,5 @@
 
-If Vault obsidian fails with a "Do Not Push" message, it can perform a restore of the stored data and perform an update of the changed contents.
+##### If Vault obsidian fails with a "Do Not Push" message, it can perform a restore of the stored data and perform an update of the changed contents.
 
 `OS/Users/ptp/my-notes` 
 
