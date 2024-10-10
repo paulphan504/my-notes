@@ -49,3 +49,7 @@ title: Welcome to My Notes
 [[Startup-config-switch-dhcp-server-snooping]].
 
 [[Case-Study-DHCP-Snooping-202407151052]].
+
+### **Image**:
+
+[[Pasted image 20240705161929.png]]
