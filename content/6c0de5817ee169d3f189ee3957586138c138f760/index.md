@@ -50,7 +50,7 @@ title: Welcome to My Notes
 
 [[Case-Study-DHCP-Snooping-202407151052]].
 
-### **Image**:
+### <mark style="background: #BBFABBA6;">**Image**:</mark>
 
 [[image]].
 
