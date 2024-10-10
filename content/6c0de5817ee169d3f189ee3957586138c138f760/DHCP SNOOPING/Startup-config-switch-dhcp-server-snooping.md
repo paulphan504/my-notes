@@ -1,4 +1,5 @@
 #####  **Backup config:**
+
 no ip dhcp conflict logging "*intercept create conflict logging*"
 	ip dhcp excluded-address 192.168.1.10 192.168.1.20 *"exclude range ip address not assign for dhcp client automatic"*
 	!
