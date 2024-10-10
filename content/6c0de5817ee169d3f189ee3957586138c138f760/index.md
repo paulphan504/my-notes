@@ -40,7 +40,7 @@ title: Welcome to My Notes
 
 ## <mark style="background: #CACFD9A6;">**SQL Compare**</mark>
 
-[[So sánh SQL server và Oracle 202407041240]]
+[[So sánh SQL server và Oracle 202407041240]].
 
 ### <mark style="background: #FFB8EBA6;">**LAB**</mark>
 
