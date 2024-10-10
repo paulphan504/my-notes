@@ -2,9 +2,9 @@
 
 ``` 
 	no ip dhcp conflict logging "*intercept create conflict logging*"
-	ip dhcp excluded-address 192.168.1.10 192.168.1.20 "exclude range ip       address not assign for dhcp client automatic"
+	ip dhcp excluded-address 192.168.1.10 192.168.1.20 "exclude range ip address not assign for dhcp client automatic"
 	!
-	ip dhcp pool 1 "Create new pool for dhcp server name '1' "
+	ip dhcp pool 1 "Create new pool for dhcp server name '1'"
 	 utilization mark high 80 log *"monitor pool dhcp server, if utilization percentage threshold 80 will create log notification show for administration"*
 	 utilization mark low 60 log *"monitor pool dhcp server, if utilization percentage below 80 will create log notification show for administration"*
 	 network 192.168.1.0 255.255.255.0
