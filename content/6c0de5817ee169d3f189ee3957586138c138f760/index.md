@@ -41,3 +41,11 @@ title: Welcome to My Notes
 ## <mark style="background: #CACFD9A6;">**SQL Compare**</mark>
 
 [[So sánh SQL server và Oracle 202407041240]]
+
+### **LAB**
+
+[[202407022236 dhcp lab]].
+
+[[Startup-config-switch-dhcp-server-snooping]].
+
+[[Case-Study-DHCP-Snooping-202407151052]].
