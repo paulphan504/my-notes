@@ -42,7 +42,7 @@ title: Welcome to My Notes
 
 [[So sánh SQL server và Oracle 202407041240]]
 
-### **LAB**
+### <mark style="background: #FFB8EBA6;">**LAB**</mark>
 
 [[202407022236 dhcp lab]].
 
