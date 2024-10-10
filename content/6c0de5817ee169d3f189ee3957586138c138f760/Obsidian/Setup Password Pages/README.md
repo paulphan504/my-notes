@@ -6,6 +6,8 @@ This small project is a byproduct of my [Tumbless blogging platform](https://git
 
 ## Setup
 
+[File location](/Users/ptp/Library/Mobile Documents/iCloud~md~obsidian/Documents/my-notes/content/6c0de5817ee169d3f189ee3957586138c138f760/Obsidian/Setup Password Pages)
+
 0. Upload the `index.html` document and the background image to your static hosting service.
 0. Load it up in your browser, enter the password of your choice
 0. It will show "wrong password", never mind. Copy the section of the URL after the # sign.
