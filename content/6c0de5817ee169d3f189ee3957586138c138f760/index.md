@@ -25,20 +25,20 @@ title: Welcome to My Notes
 
 [[MODULE 3 Scanning Networks]].
 
-## <mark style="background: #ADCCFFA6;">**Excalidraw**</mark>
+## <mark style="background: #ADCCFFA6;">**Excalidraw:**</mark>
 
 [[Drawing 2024-08-30 14.53.32]].
 
 [[DemoArticle-AtomicHabits.pdf]].
 
 
-## <mark style="background: #D2B3FFA6;">**NetworkAutomation**</mark>
+## <mark style="background: #D2B3FFA6;">**NetworkAutomation:**</mark>
 
 [[Master Network Automation With Python]].
 
 [[Mastering Python Network Automation (2023) PDF]].
 
-## <mark style="background: #CACFD9A6;">**SQL Compare**</mark>
+## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
 [[So sánh SQL server và Oracle 202407041240]].
 
