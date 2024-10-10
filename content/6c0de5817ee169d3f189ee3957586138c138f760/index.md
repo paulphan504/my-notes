@@ -52,4 +52,5 @@ title: Welcome to My Notes
 
 ### **Image**:
 
-[[Pasted image 20240705161929.png]]
+[[image]].
+
