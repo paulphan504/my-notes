@@ -34,9 +34,17 @@ title: Welcome to My Notes
 
 ## <mark style="background: #D2B3FFA6;">**NetworkAutomation:**</mark>
 
-[[Master Network Automation With Python]].
+[[CCNP-SPCOR-350-501-Official-Cert-Guide-stamped.pdf]].
 
-[[Mastering Python Network Automation (2023) PDF]].
+[[CCNP_and_CCIE_Data_Center_Core_DCCOR_350_601_Official_Cert_Guide.pdf]].
+
+[[Cisco_ACI_Deployment_CookBook_1704536075.pdf]].
+
+[[[devops.pdf]].
+
+[[Learning+Ceph+2nd+Edition+1787127915.pdf]].
+
+[[Mastering Python Network Automation (2023).pdf]].
 
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
