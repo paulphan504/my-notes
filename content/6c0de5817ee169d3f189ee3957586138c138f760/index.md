@@ -18,6 +18,8 @@ title: Welcome to My Notes
 
 [[Command in terminal macos]].
 
+[[Server Monitoring with Prometheus and Grafana in linux]].
+
 ## <mark style="background: #BBFABBA6;">**CEH**:</mark>
 [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
 
