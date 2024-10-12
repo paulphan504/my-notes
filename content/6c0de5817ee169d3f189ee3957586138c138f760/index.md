@@ -40,7 +40,7 @@ title: Welcome to My Notes
 
 [[Cisco_ACI_Deployment_CookBook_1704536075.pdf]].
 
-[[[devops.pdf]].
+[[devops.pdf]].
 
 [[Learning+Ceph+2nd+Edition+1787127915.pdf]].
 
