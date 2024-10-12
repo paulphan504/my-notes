@@ -21,7 +21,7 @@ title: Welcome to My Notes
 ## <mark style="background: #BBFABBA6;">**CEH**:</mark>
 [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
 
-[[Note]].
+[[content/6c0de5817ee169d3f189ee3957586138c138f760/CEH/Note]].
 
 [[MODULE 3 Scanning Networks]].
 
