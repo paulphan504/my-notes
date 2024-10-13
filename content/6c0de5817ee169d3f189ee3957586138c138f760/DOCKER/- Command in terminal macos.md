@@ -18,6 +18,12 @@ cd ~/Library/Mobile\ Documents/
 
 ![[Pasted image 20241008205715.png]]
 
+**Command login ubuntu/linux container with Terminal on macos**.
+```
+docker ps 
+docker exec -u 0 -it "INPUT_NAMES_CONTAINER" bash
+```
+![[Pasted image 20241013120221.png]]
 
 
 
