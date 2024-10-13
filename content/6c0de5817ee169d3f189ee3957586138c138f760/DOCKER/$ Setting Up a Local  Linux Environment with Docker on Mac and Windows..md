@@ -35,4 +35,4 @@ To restart the container named "my-ubuntu-container" later, use the following co
 docker start my-ubuntu-container
 ```
 
-Step 5: Login linux container [[$ Command in terminal macos]]
+Step 5: Login linux container [[$ Command in terminal macos.]]

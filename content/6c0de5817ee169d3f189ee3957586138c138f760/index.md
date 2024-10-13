@@ -12,15 +12,15 @@ title: Welcome to My Notes
 
 ## <mark style="background: #FF5582A6;">**Docker**:</mark>
 
-[[$ Update image frome docker desktop to docker hub]].
+[[$ Update image frome docker desktop to docker hub.]].
 
-[[$ Install application on linux server with docker]].
+[[$ Install application on linux server with docker.]].
 
-[[$ Command in terminal macos]].
+[[$ Command in terminal macos.]].
 
-[[$ Server Monitoring with Prometheus and Grafana in linux]].
+[[$ Server Monitoring with Prometheus and Grafana in linux.]].
 
-[[$ Setting Up a Local  Linux Environment with Docker on Mac and Windows]].
+[[$ Setting Up a Local  Linux Environment with Docker on Mac and Windows.]].
 
 ## <mark style="background: #BBFABBA6;">**CEH**:</mark>
 [[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
