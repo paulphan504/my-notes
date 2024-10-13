@@ -36,3 +36,9 @@ docker start my-ubuntu-container
 ```
 
 Step 5: Login linux container [[$ Command in terminal macos.]]
+
+Step 6: install libraries nessecseries for linux container
+```
+apt install wget
+apt install sudo
+```
