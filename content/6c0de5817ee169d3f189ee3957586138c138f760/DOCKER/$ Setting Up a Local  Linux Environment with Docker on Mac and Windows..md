@@ -21,7 +21,7 @@ docker pull ubuntu
 
 Step 3: Run Ubuntu Container
 
-Run the following command to start a Docker container based on the Ubuntu 20.04 image:  
+Run the following command to start a Docker container based on the Ubuntu image:  
 
 ```
 docker run -it --name my-ubuntu-container ubuntu
@@ -35,10 +35,14 @@ To restart the container named "my-ubuntu-container" later, use the following co
 docker start my-ubuntu-container
 ```
 
-Step 5: Login linux container [[$ Command in terminal macos.]]
+Step 5: Login linux container [[$ Command in terminal macos & linux.]]
 
 Step 6: install libraries nessecseries for linux container
 ```
+apt update
+apt upgrade
+sudo apt install net-tools
+apt install iproute2 -y "install control interface network"
 apt install wget
 apt install sudo
 apt install systemctl

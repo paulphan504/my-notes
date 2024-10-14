@@ -16,7 +16,7 @@ title: Welcome to My Notes
 
 [[$ Install application on linux server with docker.]].
 
-[[$ Command in terminal macos.]].
+[[$ Command in terminal macos & linux.]].
 
 [[$ Server Monitoring with Prometheus and Grafana in linux.]].
 

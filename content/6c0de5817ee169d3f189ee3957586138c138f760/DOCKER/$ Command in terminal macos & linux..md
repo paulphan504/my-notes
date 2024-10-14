@@ -39,3 +39,26 @@ chmod 754 "name directory or file"
 
 ```
 ![[Pasted image 20241013224308.png]]
+
+##### [How To View System Users in Linux on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-view-system-users-in-linux-on-ubuntu)
+
+```
+less /etc/passwd  "list all user in ubuntu linux"
+
+cut -d : -f 1 /etc/passwd  "list user only name"
+
+less /etc/group  "view all group"
+
+cut -d : -f 1 /etc/group "list group only name"
+
+w "show list user login"
+
+who "show list user login"
+
+```
+
+##### [How To Restrict Log In Capabilities of Users on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-restrict-log-in-capabilities-of-users-on-ubuntu)
+
+```
+less /etc/passwd | grep messagebus "restrict user with namw"
+```
