@@ -48,4 +48,5 @@ apt install sudo
 apt install systemctl
 apt install chown
 apt install nano
+sudo apt install inetutils-ping "install ping services"
 ```
