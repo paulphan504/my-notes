@@ -70,7 +70,7 @@ sudo apt update
 sudo apt install openssh-server "Install OpenSSH Server"
 sudo nano /etc/ssh/sshd_config "Edit SSH Configuration, reference image show below "
 service restart ssh
-services start ssh
+service start ssh
 passwd "change password login ubuntu container"
 ssh username@your_server_ip "remote login thought ssh with syntax"
 ```
