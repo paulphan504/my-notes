@@ -55,6 +55,10 @@ w "show list user login"
 
 who "show list user login"
 
+sudo whoami "show user running"
+
+groups "show group running"
+
 ```
 
 ##### [How To Restrict Log In Capabilities of Users on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-restrict-log-in-capabilities-of-users-on-ubuntu)
