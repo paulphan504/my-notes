@@ -51,4 +51,7 @@ apt install nano
 sudo apt install inetutils-ping "install ping services"
 sudo apt install openssh-client
 sudo apt install openssh-server
+mkdir /var/run/sshd && chmod 0755 /var/run/sshd "create sshd directories for sshd servies"
+sudo apt _install_ sysvbanner "install banner services"
+
 ```
