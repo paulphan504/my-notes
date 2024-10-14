@@ -41,12 +41,14 @@ Step 6: install libraries nessecseries for linux container
 ```
 apt update
 apt upgrade
+apt install sudo
 sudo apt install net-tools
 apt install iproute2 -y "install control interface network"
 apt install wget
-apt install sudo
 apt install systemctl
-apt install chown
+apt install coreutils "install chown help change ownership file or directories"
 apt install nano
 sudo apt install inetutils-ping "install ping services"
+sudo apt install openssh-client
+sudo apt install openssh-server
 ```
