@@ -18,7 +18,7 @@ cd ~/Library/Mobile\ Documents/
 
 ![[Pasted image 20241008205715.png]]
 
-**Command login ubuntu/linux container with Terminal on macos**.
+##### **Command login ubuntu/linux container with Terminal on macos**.
 ```
 docker ps 
 docker exec -u 0 -it "INPUT_NAMES_CONTAINER" bash
@@ -26,4 +26,16 @@ docker exec -u 0 -it "INPUT_NAMES_CONTAINER" bash
 ![[Pasted image 20241013120221.png]]
 
 
+##### **[Show and change permission directory in linux terminal](https://hcc.unl.edu/docs/handling_data/data_storage/linux_file_permissions/#:~:text=Type%20the%20command%20ls%20%2Dl,a%20file%20or%20a%20directory.)**
 
+permission infomation:
+- read = 4
+- write = 2
+- execute = 1
+
+```
+ls -l
+chmod 754 "name directory or file"
+
+```
+![[Pasted image 20241013224308.png]]

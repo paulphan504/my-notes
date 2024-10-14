@@ -11,20 +11,20 @@ Step 1: Install Docker Desktop
 3. Drag the Docker icon to the Applications folder to install Docker Desktop.
 4. Open Docker Desktop from the Applications folder.
 
-Step 2: Pull Ubuntu 20.04 Image
+Step 2: Pull Ubuntu Image
 
-Open Terminal and run the following command to pull the Ubuntu 20.04 image from Docker Hub:  
+Open Terminal and run the following command to pull the Ubuntu image from Docker Hub:  
 
 ```
-docker pull ubuntu:20.04
+docker pull ubuntu
 ```
 
-Step 3: Run Ubuntu 20.04 Container
+Step 3: Run Ubuntu Container
 
 Run the following command to start a Docker container based on the Ubuntu 20.04 image:  
 
 ```
-docker run -it --name my-ubuntu-container ubuntu:20.04
+docker run -it --name my-ubuntu-container ubuntu
 ```
 
 Step 4: Restarting the Container
@@ -41,4 +41,7 @@ Step 6: install libraries nessecseries for linux container
 ```
 apt install wget
 apt install sudo
+apt install systemctl
+apt install chown
+apt install nano
 ```
