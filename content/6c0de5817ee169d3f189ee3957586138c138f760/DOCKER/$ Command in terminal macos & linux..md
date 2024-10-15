@@ -79,3 +79,12 @@ passwd "change password login ubuntu container"
 ssh username@your_server_ip "remote login thought ssh with syntax"
 ```
 ![[Pasted image 20241014221457.png]]
+
+##### [How to remove file, folder with terminal on macos/linux.](https://docs.oracle.com/cd/E19253-01/806-7612/files-20/index.html)
+
+```
+rmdir "folder_name" 'remove and empty directory'
+rm -r "folder_name" 'remove directory and all its contents'
+rm -rf "folder_name" 'remove directory and all its contents, not use if don't sure'
+
+```
