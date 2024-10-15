@@ -1,4 +1,4 @@
-**Reference:**
+**Refer:**
 [Link](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 ##### Remove docker container:
