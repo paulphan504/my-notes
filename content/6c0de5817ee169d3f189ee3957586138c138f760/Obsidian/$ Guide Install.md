@@ -220,7 +220,7 @@ Quartz needs certain [properties](https://notes.nicolevanderhoeven.com/obsidian
 
 In Obsidian, create a note in `templates` called `note` (or whatever you want it to be called). In that note, copy this:
 
-```
+```bash
 ---
 title: "How to publish Obsidian notes with Quartz on GitHub Pages"
 draft: false
@@ -245,13 +245,13 @@ Before you publish your site online, you should verify that it all works on your
 
 Then, in your terminal, run this command:
 
-```
+```bash
 npx quartz build --serve
 ```
 
 You should see a block of text that includes this line:
 
-```
+```bash
 Started a Quartz server listening at http://localhost:8080
 ```
 
@@ -269,7 +269,7 @@ Now that you've verified that your site renders correctly locally, it's time to 
 
 Run this command:
 
-```
+```bash
 npx quartz sync
 ```
 
@@ -283,7 +283,7 @@ At this point, you are able to view a site (the rendered HTML version of your Ma
 
 From your terminal, run:
 
-```
+```bash
 touch .github/workflows/deploy.yml
 ```
 
@@ -295,7 +295,7 @@ Make sure hidden files are visible
 
 The blank file should have opened in your default text editor. Now copy and paste this into it:
 
-```
+```bash
 name: Deploy Quartz site to GitHub Pages
  
 on:
@@ -357,7 +357,7 @@ Under _Source_, select _GitHub Actions_.
 
 Then, go back to your terminal and sync. Remember, that's:
 
-```
+```bash
 npx quartz sync
 ```
 
@@ -383,7 +383,7 @@ Select _A - Address record_ under _Type_.
 
 In _Answer_, paste this:
 
-```
+```bash
 185.199.108.153
 ```
 
@@ -395,7 +395,7 @@ Click Add.
 
 Do this three more times, adding these three more A records for your domain, one by one:
 
-```
+```bash
 185.199.109.153
 185.199.110.153
 185.199.111.153
@@ -435,19 +435,19 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	
 	_Windows_
 	
-	```
+	```bash
 	winget install CoreyButler.NVMforWindows
 	```
 	
 	_Linux_
 	
-	```
+	```bash
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 	```
 	
 	Step 2. NVM install and use node version 20.5.1
 	
-	```shell
+	```bash
 	nvm install 20.5.1
 	nvm use 20.5.1
 	```

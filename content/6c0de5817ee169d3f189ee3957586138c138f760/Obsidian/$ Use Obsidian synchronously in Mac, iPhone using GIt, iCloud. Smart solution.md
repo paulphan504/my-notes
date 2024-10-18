@@ -25,7 +25,7 @@ We're not just cloning into your local Mac directory but into your iCloud -> Obs
 Using terminal, direct to iCloud folder -> Obsidian isn't pretty easy.  
 So, to make it easier, open terminal and type in terminal command below:
 
-```shell
+```bash
 $ cd ~
 $ ln -s Library/Mobile\ Documents/iCloud~md~obsidian/Documents/ Obsidian
 $ cd Obsidian
