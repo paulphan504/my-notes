@@ -6,32 +6,33 @@
 ***Command use:***
 
 - *Check container running in docker desktop* .
-``` 
+```bash
   docker ps 
   ```
 - *Install docker compose*.
-```
+```bash
 sudo apt-get install docker-compose -y
 ```
 - Check id user use in configuration file docker compose yml.
-```
+```bash
 id -u
 ```
 - *Create directory for project*  ![[Pasted image 20241011151520.png]]
-```
+```bash
 mkdir -p promgrafnode/prometheus
 mkdir -p promgrafnode/grafana/provisioning
 touch promgrafnode/docker-compose.yml
 touch promgrafnode/prometheus/prometheus.yml
 ```
 - *Install services whith docker conpose file yml*, copy all command below to <mark style="background: #FFF3A3A6;">docker-compose.yml</mark> file.
-```
+```bash
 cd promgrafnode\
 nano docker-compose.yml
 ```
   
   **note:** remember change <mark style="background: #FFF3A3A6;">ID</mark> user. if you want setup <mark style="background: #FFF3A3A6;">static ip</mark> for containers can refernce [link ](https://www.howtogeek.com/devops/how-to-assign-a-static-ip-to-a-docker-container/)
-```version: '3.8' 
+```bash
+version: '3.8' 
 networks: 
   monitoring: 
     driver: bridge 
@@ -111,22 +112,22 @@ services:
       - monitoring
 ```
 - *Run docker compose file create all services in docker-compose file.* 
-```
+```bash
 docker-compose up -d
 ```
 - *Check container already up after finish download and run*.
-```
+```bash
 docker-compose ps
 ```
 - *Setup Metrics forwarding form prometheus to grafana with infomation insert to <mark style="background: #FFF3A3A6;">grafana.yml file</mark>*.
-```
+```bash
 cd promgrafnode\grafana\
 nano grafana.yml
 ```
 
 **note:** copy and paste all command below and remember change information <mark style="background: #FFB86CA6;">ip address matching with ip services setup before.</mark>
 
-```
+```bash
 global: 
 
   scrape_interval: 1m
@@ -165,7 +166,7 @@ scrape_configs:
 ```
 
 - *Stop and Start prometheus container for apply configure file prometheus.yml*.
-```
+```bash
 docker stop prometheus
 docker start prometheus
 ```
