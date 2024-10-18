@@ -18,7 +18,7 @@ title: Welcome to My Notes
 
 [[$ Command in terminal macos & linux.]].
 
-[[$ Server Monitoring with Prometheus and Grafana in linux.]].
+[[$ Server Monitoring with Prometheus and Grafana in linux with docker compose file .yml.]].
 
 [[$ Setting Up a Local  Linux Environment with Docker on Mac and Windows.]].
 
