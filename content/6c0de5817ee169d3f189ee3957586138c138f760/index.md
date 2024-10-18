@@ -6,9 +6,9 @@ title: Welcome to My Notes
 
 [[$ Guide Install]].
 
-[[Rcovery Data Source]].
+[[$ Rcovery Data Source]].
 
-[[Use Obsidian synchronously in Mac, iPhone using GIt, iCloud. Smart solution]].
+[[$ Use Obsidian synchronously in Mac, iPhone using GIt, iCloud. Smart solution]].
 
 ## <mark style="background: #FF5582A6;">**Docker**:</mark>
 
