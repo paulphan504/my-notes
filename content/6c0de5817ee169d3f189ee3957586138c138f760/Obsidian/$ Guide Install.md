@@ -427,7 +427,7 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 - [Obsidian documentation](https://help.obsidian.md/Home)
 # FIX
 
-- Show notification error but not error when run cmd "==npx quartz sync=="![[Pasted image 20240924223624.png]]
+- Show notification error in VisualCode but not error when run cmd "==npx quartz sync=="![[Pasted image 20240924223624.png]]
   **Resolve**
   **Reverting to node version 20.5.1 worked for me.** _(Incase you're frustrated and looking for a quick solution to get rid of the warning)_
 
@@ -474,7 +474,7 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	```
 	
 	You can now use npm to install gulp or any other modules as npm and nodejs are part of the node package.
-- Need help with Quartz 4.0 logo ![[Pasted image 20240924224850.png]]
+- Need help with Quartz 4.0 logo [LinkRefer](https://www.reddit.com/r/ObsidianMD/comments/1dpfz77/need_help_with_quartz_40_logo/?rdt=45668) ![[Pasted image 20241018152918.png]] ![[Pasted image 20241018153024.png]]
 
 - lỗi không thể push thay đổi lên web online 
   
