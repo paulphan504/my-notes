@@ -14,7 +14,7 @@ title: Welcome to My Notes
 
 [[$ Update image frome docker desktop to docker hub.]].
 
-[[$ Install application on linux server with docker.]].
+[[$ Install  Docker Containers on Docker Desktop.]].
 
 [[$ Command in terminal macos & linux.]].
 
@@ -23,11 +23,11 @@ title: Welcome to My Notes
 [[$ Setting Up a Local  Linux Environment with Docker on Mac and Windows.]].
 
 ## <mark style="background: #BBFABBA6;">**CEH**:</mark>
-[[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
+[[$ Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
 
-[[content/6c0de5817ee169d3f189ee3957586138c138f760/CEH/Note]].
+[[$ Note]].
 
-[[MODULE 3 Scanning Networks]].
+[[$ MODULE 3 Scanning Networks]].
 
 ## <mark style="background: #ADCCFFA6;">**Excalidraw:**</mark>
 
@@ -38,21 +38,21 @@ title: Welcome to My Notes
 
 ## <mark style="background: #D2B3FFA6;">**NetworkAutomation:**</mark>
 
-[[CCNP-SPCOR-350-501-Official-Cert-Guide-stamped.pdf]].
+[[$ CCNP-SPCOR-350-501-Official-Cert-Guide-stamped.pdf]].
 
-[[CCNP_and_CCIE_Data_Center_Core_DCCOR_350_601_Official_Cert_Guide.pdf]].
+[[$ CCNP_and_CCIE_Data_Center_Core_DCCOR_350_601_Official_Cert_Guide.pdf]].
 
-[[Cisco_ACI_Deployment_CookBook_1704536075.pdf]].
+[[$ Cisco_ACI_Deployment_CookBook_1704536075.pdf]].
 
-[[devops.pdf]].
+[[$ devops.pdf]].
 
-[[Learning+Ceph+2nd+Edition+1787127915.pdf]].
+[[$ Learning+Ceph+2nd+Edition+1787127915.pdf]].
 
-[[Mastering Python Network Automation (2023).pdf]].
+[[$ Mastering Python Network Automation (2023).pdf]].
 
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
-[[So sánh SQL server và Oracle 202407041240]].
+[[$ So sánh SQL server và Oracle 202407041240]].
 
 ### <mark style="background: #FFB8EBA6;">**LAB:**</mark>
 

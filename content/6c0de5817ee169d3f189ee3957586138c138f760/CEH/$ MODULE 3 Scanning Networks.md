@@ -1,5 +1,5 @@
 
-[[Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]]
+[[$ Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]]
 1. SW:
    - để xác định hiệu năng của một thiết bị sw có thể dựa vào nhiều yếu tố như : phần cứng (Ram, CPU), khả năng lưu trữ của bảng Mac, tốc độ của cổng kết nối & cổng uplink
      - case study: 
