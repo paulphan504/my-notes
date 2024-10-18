@@ -15,7 +15,7 @@ Step 2: Pull Ubuntu Image
 
 Open Terminal and run the following command to pull the Ubuntu image from Docker Hub:  
 
-```
+```bash
 docker pull ubuntu
 ```
 
@@ -23,7 +23,7 @@ Step 3: Run Ubuntu Container
 
 Run the following command to start a Docker container based on the Ubuntu image:  
 
-```
+```bash
 docker run -it --name my-ubuntu-container ubuntu
 ```
 
@@ -31,14 +31,14 @@ Step 4: Restarting the Container
 
 To restart the container named "my-ubuntu-container" later, use the following command:  
 
-```
+```bash
 docker start my-ubuntu-container
 ```
 
 Step 5: Login linux container [[$ Command in terminal macos & linux.]]
 
 Step 6: install libraries nessecseries for linux container
-```
+```bash
 apt update
 apt upgrade
 apt install sudo
