@@ -285,7 +285,7 @@ Copy snippet
 
 Close nano and save the changes to the file. Proceed to reload the daemon with:
 
-```extend
+```
 sudo systemctl daemon-reload
 ```
 
@@ -293,7 +293,7 @@ Copy snippet
 
 And finally enable the `node_exporter` service with the following command:
 
-```bash
+```
 sudo systemctl enable node_exporter
 ```
 
@@ -301,7 +301,7 @@ Copy snippet
 
 And then start the service:
 
-```bash
+```
 sudo systemctl start node_exporter
 ```
 
@@ -361,3 +361,19 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 9100 -j ACCEPT
 Copy snippet
 
 Happy monitoring.
+
+#### [Implement cAdvisor as a container](https://www.kubecost.com/kubernetes-devops-tools/cadvisor/)
+
+Run the following command to create a cAdvisor container in Docker:
+```
+```
+sudo docker run \
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:rw \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --publish=8080:8080 \
+  --detach=true \
+  --name=cadvisor \
+  gcr.io/cadvisor/cadvisor:v0.39.3
+```
