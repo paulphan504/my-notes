@@ -301,7 +301,7 @@ Copy snippet
 
 And then start the service:
 
-```
+```bash
 sudo systemctl start node_exporter
 ```
 
