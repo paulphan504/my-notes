@@ -366,7 +366,6 @@ Happy monitoring.
 
 Run the following command to create a cAdvisor container in Docker:
 ```
-```
 sudo docker run \
   --volume=/:/rootfs:ro \
   --volume=/var/run:/var/run:rw \
