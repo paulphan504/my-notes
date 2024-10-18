@@ -5,7 +5,7 @@
  docker run -it --name prometheus -p 9090:9090 ubuntu:20.04 "remember pull image ubuntu:20.04 in docker desktop befor run this command for create new container run ubuntu os "
 ```
 - Login container with terminal on macos.
-```
+```bash
 docker exec -it prometheus /bin/sh 
 ```
 
@@ -13,8 +13,8 @@ docker exec -it prometheus /bin/sh
 
 Update the apt package list to prepare the system for further installations.
 
-```
-$ sudo apt update
+```bash
+ sudo apt update
 ```
 
 ##### 2. Download and Install Prometheus
@@ -25,97 +25,97 @@ If you decide to install a different version of Prometheus, please note the vers
 
 Download the Prometheus release package.
 
-```
-$ wget https://github.com/prometheus/prometheus/releases/download/v2.27.1/prometheus-2.27.1.linux-amd64.tar.gz
+```bash
+ wget https://github.com/prometheus/prometheus/releases/download/v2.27.1/prometheus-2.27.1.linux-amd64.tar.gz
 ```
 
 Extract the downloaded archive.
 
-```
-$ tar xvf prometheus-2.27.1.linux-amd64.tar.gz
+```bash
+ tar xvf prometheus-2.27.1.linux-amd64.tar.gz
 ```
 
 Change directory to the extracted archive.
 
-```
-$ cd prometheus-2.27.1.linux-amd64
+```bash
+ cd prometheus-2.27.1.linux-amd64
 ```
 
 Create the configuration file directory.
 
-```
-$ sudo mkdir -p /etc/prometheus
+```bash
+ sudo mkdir -p /etc/prometheus
 ```
 
 Create the data directory.
 
-```
-$ sudo mkdir -p /var/lib/prometheus
+```bash
+ sudo mkdir -p /var/lib/prometheus
 ```
 
 Move the binary files `prometheus` and `promtool` to `/usr/local/bin/`.
 
-```
-$ sudo mv prometheus promtool /usr/local/bin/
+```bash
+ sudo mv prometheus promtool /usr/local/bin/
 ```
 
 Move console files in `console` directory and library files in `console_libraries` directory to `/etc/prometheus/` directory.
 
-```
-$ sudo mv consoles/ console_libraries/ /etc/prometheus/
+```bash
+ sudo mv consoles/ console_libraries/ /etc/prometheus/
 ```
 
 Move the template configuration file `prometheus.yml` to `/etc/prometheus/` directory
 
-```
-$ sudo mv prometheus.yml /etc/prometheus/prometheus.yml
+```bash
+ sudo mv prometheus.yml /etc/prometheus/prometheus.yml
 ```
 
 Verify the installed version of Prometheus.
 
-```
-$ prometheus --version
+```bash
+ prometheus --version
 ```
 
 Verify the installed version of promtool.
 
-```
-$ promtool --version
+```bash
+ promtool --version
 ```
 
 ##### 3. Configure System Group and User
 
 Create a `prometheus` group.
 
-```
-$ sudo groupadd --system prometheus
+```bash
+ sudo groupadd --system prometheus
 ```
 
 Create a user `prometheus` and assign it to the created `prometheus` group.
 
-```
-$ sudo useradd -s /sbin/nologin --system -g prometheus prometheus
+```bash
+ sudo useradd -s /sbin/nologin --system -g prometheus prometheus
 ```
 
 Set the ownership of Prometheus files and data directories to the `prometheus` group and user.
 
-```
-$ sudo chown -R prometheus:prometheus /etc/prometheus/  /var/lib/prometheus/
+```bash
+ sudo chown -R prometheus:prometheus /etc/prometheus/  /var/lib/prometheus/
 
-$ sudo chmod -R 775 /etc/prometheus/ /var/lib/prometheus/
+ sudo chmod -R 775 /etc/prometheus/ /var/lib/prometheus/
 ```
 
 ##### 4. Configure Systemd Service
 
 Create a systemd service file for Prometheus to start at boot time.
 
-```
-$ sudo nano /etc/systemd/system/prometheus.service
+```bash
+ sudo nano /etc/systemd/system/prometheus.service
 ```
 
 Add the following lines to the file and save it:
 
-```
+```bash
 [Unit]
 Description=Prometheus
 Wants=network-online.target
@@ -139,27 +139,27 @@ WantedBy=multi-user.target
 
 Start the Prometheus service.
 
-```
-$ sudo systemctl start prometheus
+```bash
+ sudo systemctl start prometheus
 ```
 
 Enable the Prometheus service to run at system startup.
 
-```
-$ sudo systemctl enable prometheus
+```bash
+ sudo systemctl enable prometheus
 ```
 
 Check the status of the Prometheus service.
 
-```
-$ sudo systemctl status prometheus
+```bash
+ sudo systemctl status prometheus
 ```
 
 ##### Access Your Server
 
 Access the Prometheus interface through your browser at port 9090. For example:
 
-```
+```bash
 http://localhost:9090
 ```
 
@@ -167,11 +167,11 @@ http://localhost:9090
 
 ##### **Install linux ubuntu v20.04.**
  
- ```
+ ```bash
  docker run -it --name node-exporter -p 9100:9100 ubuntu:20.04 "remember pull image ubuntu:20.04 in docker desktop befor run this command for create new container run ubuntu os "
 ```
 - Login container with terminal on macos.
-```
+```bash
 docker exec -it node_exporter /bin/sh 
 ```
 
@@ -237,7 +237,7 @@ Copy snippet
 
 As a good practice, create an user in the system for Node Exporter:
 
-```extend
+```bash
 sudo useradd --no-create-home --shell /bin/false node_exporter
 ```
 
@@ -263,7 +263,7 @@ Copy snippet
 
 And paste the following content in the file:
 
-```extend
+```bash
 [Unit]
 Description=Node Exporter
 Wants=network-online.target
@@ -285,7 +285,7 @@ Copy snippet
 
 Close nano and save the changes to the file. Proceed to reload the daemon with:
 
-```
+```bash
 sudo systemctl daemon-reload
 ```
 
@@ -293,7 +293,7 @@ Copy snippet
 
 And finally enable the `node_exporter` service with the following command:
 
-```
+```bash
 sudo systemctl enable node_exporter
 ```
 
@@ -365,7 +365,7 @@ Happy monitoring.
 #### [Implement cAdvisor as a container](https://www.kubecost.com/kubernetes-devops-tools/cadvisor/)
 
 Run the following command to create a cAdvisor container in Docker:
-```
+```bash
 sudo docker run \
   --volume=/:/rootfs:ro \
   --volume=/var/run:/var/run:rw \
