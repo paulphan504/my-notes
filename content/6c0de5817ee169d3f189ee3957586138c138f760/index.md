@@ -4,7 +4,7 @@ title: Welcome to My Notes
 
 ## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
 
-[[- Guide Install]].
+[[$ Guide Install]].
 
 [[Rcovery Data Source]].
 
