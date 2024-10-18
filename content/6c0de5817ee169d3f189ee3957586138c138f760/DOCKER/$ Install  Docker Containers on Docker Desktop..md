@@ -1,7 +1,7 @@
 **Run in Terminal macos**
 
 - Install *libreoffice*
-	```
+	```bash
 	docker run -d \
 	--name=libreoffice \
 	--security-opt seccomp=unconfined \
@@ -15,7 +15,7 @@
 	```
 
 - Install *Obsidian*
-  ```
+  ```bash
 	docker run -d \
 	--name=obsidian \
 	--security-opt seccomp=unconfined \
@@ -30,7 +30,7 @@
 	```
 
 - Install *Kali-linux*
-```
+```bash
 docker run -d \
 --name=kali-linux \
 --security-opt seccomp=unconfined '#optional' \
