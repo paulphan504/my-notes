@@ -162,3 +162,202 @@ Access the Prometheus interface through your browser at port 9090. For example:
 ```
 http://localhost:9090
 ```
+
+#### [How to install Prometheus Node Exporter on Ubuntu 20.04](https://ourcodeworld.com/articles/read/1686/how-to-install-prometheus-node-exporter-on-ubuntu-2004)
+
+##### **Install linux ubuntu v20.04.**
+ 
+ ```
+ docker run -it --name node-exporter -p 9100:9100 ubuntu:20.04 "remember pull image ubuntu:20.04 in docker desktop befor run this command for create new container run ubuntu os "
+```
+- Login container with terminal on macos.
+```
+docker exec -it node_exporter /bin/sh 
+```
+
+##### 1. Download Node Exporter
+
+As first step, you need to download the Node Exporter binary which is [available for Linux in the official Prometheus website here](https://prometheus.io/download/#node_exporter). In the website, you will find a table with the list of available builds. Of our interest in this case, is the `node_exporter` build for Linux AMD64:
+
+![Node Exporter Ubuntu Linux](https://cdn.ourcodeworld.com/public-media/gallery/gallery-623f7f70cb966.png)
+
+In this case the latest available version is the 1.3.1. Copy the `.tar.gz` URL and download it somewhere in your server using wget or cURL:
+
+```bash
+wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
+```
+
+Copy snippet
+
+##### 2. Extract Node Exporter and move binary 
+
+After downloading the latest version of Node Exporter, proceed to extract the content of the downloaded tar using the following command:
+
+```bash
+tar xvf node_exporter-1.3.1.linux-amd64.tar.gz
+```
+
+Copy snippet
+
+The content of the zip will be extracted in the current directory, the extracted directory will contain 3 files:
+
+- LICENSE (license text file)
+- node_exporter (binary)
+- NOTICE (license text file)
+
+You only need to move the binary file `node_exporter` to the `/usr/local/bin` directory of your system. Switch to the node_exporter directory:
+
+```bash
+cd node_exporter-1.3.1.linux-amd64
+```
+
+Copy snippet
+
+And then copy the binary file with the following command:
+
+```bash
+sudo cp node_exporter /usr/local/bin
+```
+
+Copy snippet
+
+Then you can remove the directory that we created after extracting the zip file content:
+
+```bash
+# Exit current directory
+cd ..
+
+# Remove the extracted directory
+rm -rf ./node_exporter-1.3.1.linux-amd64
+```
+
+Copy snippet
+
+##### 3. Create Node Exporter User
+
+As a good practice, create an user in the system for Node Exporter:
+
+```extend
+sudo useradd --no-create-home --shell /bin/false node_exporter
+```
+
+Copy snippet
+
+And set the owner of the binary `node_exporter` to the recently created user:
+
+```bash
+sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
+```
+
+Copy snippet
+
+##### 4. Create and start the Node Exporter service
+
+The Node Exporter service should always start when the server boots so it will always be available to be scrapped for information. Create the `node_exporter.service` file with nano:
+
+```bash
+sudo nano /etc/systemd/system/node_exporter.service
+```
+
+Copy snippet
+
+And paste the following content in the file:
+
+```extend
+[Unit]
+Description=Node Exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/usr/local/bin/node_exporter
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Copy snippet
+
+Close nano and save the changes to the file. Proceed to reload the daemon with:
+
+```extend
+sudo systemctl daemon-reload
+```
+
+Copy snippet
+
+And finally enable the `node_exporter` service with the following command:
+
+```bash
+sudo systemctl enable node_exporter
+```
+
+Copy snippet
+
+And then start the service:
+
+```bash
+sudo systemctl start node_exporter
+```
+
+Copy snippet
+
+##### 5. Test the Node Exporter service
+
+As last step, access your server through the web browser at port 9100 and browse the metrics (**http://your_server_ip:9100/metrics**). You should get an output in the browser similar to:
+
+```bash
+# HELP go_gc_duration_seconds A summary of the pause duration of garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 2.5948e-05
+go_gc_duration_seconds{quantile="0.25"} 2.9566e-05
+go_gc_duration_seconds{quantile="0.5"} 3.0488e-05
+go_gc_duration_seconds{quantile="0.75"} 3.2111e-05
+go_gc_duration_seconds{quantile="1"} 0.000232387
+go_gc_duration_seconds_sum 1.454063444
+go_gc_duration_seconds_count 23486
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 9
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.17.3"} 1
+# HELP go_memstats_alloc_bytes Number of bytes allocated and still in use.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 2.365264e+06
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated, even if freed.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 5.0367212352e+10
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.897095e+06
+```
+
+Copy snippet
+
+If you get some information at the mentioned URL, then your service has been properly configured and it's ready to be scrapped by Prometheus.
+
+##### If port 9100 is unreachable
+
+As we mentioned previously, by default the node exporter service will run on the port 9100 of your server. If after starting the service, the service is unreachable, do not forget to open the port 9100 in your Ubuntu server. If you are using UFW (Uncomplicated Firewall), you can easily open this port using the following instruction:
+
+```bash
+sudo ufw allow 9100
+```
+
+Copy snippet
+
+Alternatively if you are using IPTABLES, use the following command to allow incoming traffic on that port instead:
+
+```bash
+sudo iptables -I INPUT -p tcp -m tcp --dport 9100 -j ACCEPT
+```
+
+Copy snippet
+
+Happy monitoring.
