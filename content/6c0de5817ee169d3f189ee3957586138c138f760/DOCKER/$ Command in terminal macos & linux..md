@@ -12,14 +12,14 @@ Use `ls --help` in your terminal to review all available flags.
 
 #### [How to CD (move, delete, show) to Your iCloud Drive on a Mac](https://www.wikihow.com/CD-to-iCloud-Drive-on-Mac)
 
-```
+```bash
 cd ~/Library/Mobile\ Documents/
 ```
 
 ![[Pasted image 20241008205715.png]]
 
 ##### **Command login ubuntu/linux container with Terminal on macos**.
-```
+```bash
 docker ps 
 docker exec -u 0 -it "INPUT_NAMES_CONTAINER" bash
 ```
@@ -33,7 +33,7 @@ permission infomation:
 - write = 2
 - execute = 1
 
-```
+```bash
 ls -l
 chmod 754 "name directory or file"
 
@@ -42,7 +42,7 @@ chmod 754 "name directory or file"
 
 ##### [How To View System Users in Linux on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-view-system-users-in-linux-on-ubuntu)
 
-```
+```bash
 less /etc/passwd  "list all user in ubuntu linux"
 
 cut -d : -f 1 /etc/passwd  "list user only name"
@@ -63,13 +63,13 @@ groups "show group running"
 
 ##### [How To Restrict Log In Capabilities of Users on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-restrict-log-in-capabilities-of-users-on-ubuntu)
 
-```
+```bash
 less /etc/passwd | grep messagebus "restrict user with namw"
 ```
 
 ##### [How to Enable SSH with Password Authentication on Ubuntu](https://medium.com/@ravidevops2470/how-to-enable-ssh-with-password-authentication-on-ubuntu-22-04-a7cbdf476d8b)
 
-```
+```bash
 sudo apt update  
 sudo apt install openssh-server "Install OpenSSH Server"
 sudo nano /etc/ssh/sshd_config "Edit SSH Configuration, reference image show below "
@@ -82,9 +82,9 @@ ssh username@your_server_ip "remote login thought ssh with syntax"
 
 ##### [How to remove file, folder with terminal on macos/linux.](https://docs.oracle.com/cd/E19253-01/806-7612/files-20/index.html)
 
-```
-rmdir "folder_name" 'remove and empty directory'
-rm -r "folder_name" 'remove directory and all its contents'
-rm -rf "folder_name" 'remove directory and all its contents, not use if don't sure'
+```bash
+rmdir folder_name 'remove and empty directory'
+rm -r folder_name 'remove directory and all its contents'
+rm -rf folder_name 'remove directory and all its contents, not use if unsure'
 
 ```
