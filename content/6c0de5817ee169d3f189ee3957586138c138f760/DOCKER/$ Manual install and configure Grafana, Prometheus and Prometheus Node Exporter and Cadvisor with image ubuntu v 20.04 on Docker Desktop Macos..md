@@ -1,6 +1,6 @@
 ##### [ Install Prometheus Server on Ubuntu 20.04](https://docs.vultr.com/install-prometheus-server-on-ubuntu-20-04):
  ##### **Install linux ubuntu v20.04.**
- 
+ [[$ Create and manage volumes]] represent with container (you can run many container in one volume if you like).
  ```bash
  docker run -it --name prometheus -p 9090:9090 ubuntu:20.04 "remember pull image ubuntu:20.04 in docker desktop befor run this command for create new container run ubuntu os "
 ```
