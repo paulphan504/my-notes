@@ -13,10 +13,8 @@ cd node_exporter-*.*-amd64
 
 list start container project grafpromnodecadvisor. ![[Pasted image 20241018113632.png]]
 
+Orbstack
+https://www.youtube.com/watch?v=aJe7CvQ-aM8
 
-- setup vscode on cloud.
-https://youtu.be/1ZfO149BJvg?si=XX1rOE41z0aXnsN-
-
-
-- orbstack compare with docker desktop
-https://youtu.be/aJe7CvQ-aM8?si=07SWvNoVqbUKVbZx
+VScode
+https://www.youtube.com/watch?v=1ZfO149BJvg&t=208s
