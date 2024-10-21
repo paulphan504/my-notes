@@ -18,3 +18,6 @@ https://www.youtube.com/watch?v=aJe7CvQ-aM8
 
 VScode
 https://www.youtube.com/watch?v=1ZfO149BJvg&t=208s
+
+Intruduce youself trainer by youtuber Lucy
+https://www.youtube.com/watch?v=QgjkjsqAzvo
