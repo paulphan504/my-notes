@@ -114,3 +114,8 @@ cd /
 cd Applications
 rm -r Google\ Docs.app/ "remove google doc on applications"
 ```
+
+[Install nvim editor.](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+```bash
+brew install neovim
+```
