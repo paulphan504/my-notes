@@ -88,3 +88,16 @@ rm -r folder_name 'remove directory and all its contents'
 rm -rf folder_name 'remove directory and all its contents, not use if unsure'
 
 ```
+
+Open List tree directory  and show all infomation.
+
+```bash 
+ls -1 -la "you can show ls --help for many"
+```
+
+[Install wget service on terminal with brew.](https://www.cyberciti.biz/faq/howto-install-wget-om-mac-os-x-mountain-lion-mavericks-snow-leopard/)
+```bash
+brew install wget
+
+```
+
