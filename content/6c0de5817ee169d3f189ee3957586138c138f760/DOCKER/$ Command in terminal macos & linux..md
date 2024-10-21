@@ -104,5 +104,13 @@ brew install wget
 Open file and applications in terminal.
 
 ```bash
+cd Downloads
 open -a Google\ Chrome phan\ tan-phong-cv.pdf "open file pdf with google chrome"
+```
+
+Delete apps on terminal.
+```bash
+cd /
+cd Applications
+rm -r Google\ Docs.app/ "remove google doc on applications"
 ```
