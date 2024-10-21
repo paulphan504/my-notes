@@ -101,3 +101,8 @@ brew install wget
 
 ```
 
+Open file and applications in terminal.
+
+```bash
+open -a Google\ Chrome phan\ tan-phong-cv.pdf "open file pdf with google chrome"
+```
