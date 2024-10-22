@@ -129,7 +129,7 @@ sudo shutdown -r now
 
 Close apps with terminal.
 ```bash
-killall -a firefox "close app firefox"
-killall -a Google\ Chrome "close app chrome"
-killall -a Activity\ Monitor "close service Monitor on macos"
+killall firefox "close app firefox"
+killall Google\ Chrome "close app chrome"
+killall Activity\ Monitor "close service Monitor on macos"
 ```
