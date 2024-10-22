@@ -54,5 +54,4 @@ sudo apt install openssh-server
 mkdir /var/run/sshd && chmod 0755 /var/run/sshd "create sshd directories for sshd servies"
 sudo apt _install_ sysvbanner "install banner services"
 apt install ufw "install firewall"
-
 ```
