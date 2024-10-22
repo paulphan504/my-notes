@@ -80,7 +80,9 @@ ssh username@your_server_ip "remote login thought ssh with syntax"
 ```
 ![[Pasted image 20241014221457.png]]
 
-##### [How to remove file, folder with terminal on macos/linux.](https://docs.oracle.com/cd/E19253-01/806-7612/files-20/index.html)
+##### [How to remove file, folder with 
+
+terminal on macos/linux.](https://docs.oracle.com/cd/E19253-01/806-7612/files-20/index.html)
 
 ```bash
 rmdir folder_name 'remove and empty directory'
@@ -133,4 +135,4 @@ killall firefox "close app firefox"
 killall Google\ Chrome "close app chrome"
 killall Activity\ Monitor "close service Monitor on macos"
 ```
-
+A
