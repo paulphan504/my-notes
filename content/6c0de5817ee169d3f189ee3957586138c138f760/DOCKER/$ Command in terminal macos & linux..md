@@ -119,3 +119,4 @@ rm -r Google\ Docs.app/ "remove google doc on applications"
 ```bash
 brew install neovim
 ```
+

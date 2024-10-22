@@ -64,5 +64,5 @@ title: Welcome to My Notes
 
 ### <mark style="background: #BBFABBA6;">**Image**:</mark>
 
-[[image]].
+[[content/6c0de5817ee169d3f189ee3957586138c138f760/image/image]].
 
