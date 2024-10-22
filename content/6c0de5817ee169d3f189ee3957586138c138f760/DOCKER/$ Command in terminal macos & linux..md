@@ -36,7 +36,6 @@ permission infomation:
 ```bash
 ls -l
 chmod 754 "name directory or file"
-
 ```
 ![[Pasted image 20241013224308.png]]
 
