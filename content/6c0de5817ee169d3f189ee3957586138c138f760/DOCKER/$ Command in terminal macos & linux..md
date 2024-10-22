@@ -136,3 +136,8 @@ killall Google\ Chrome "close app chrome"
 killall Activity\ Monitor "close service Monitor on macos"
 ```
 
+Show all process with terminal on mac.
+```bash
+top -o cpu "show all services running on you macbook, you can type top --help show more about infomation "
+
+```
