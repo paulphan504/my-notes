@@ -1,6 +1,11 @@
 ---
 title: Welcome to My Notes
 ---
+## <mark style="background: #D2B3FFA6;">Linux:</mark>
+
+[[LPIC-1 Linux Professional Institute Certification Study Guide, 5th Edition.pdf]].
+
+[[LPIC-2 Linux Professional Institute Certification Study Guide, 2nd Edition.pdf]].
 
 ## <mark style="background: #FFF3A3A6;"><mark style="background: #FFB86CA6;">**Obsidian**:</mark></mark>
 
