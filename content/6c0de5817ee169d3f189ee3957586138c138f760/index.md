@@ -27,6 +27,16 @@ title: Welcome to My Notes
 
 [[$ Setting Up a Local  Linux Environment with Docker on Mac and Windows.]].
 
+[[$ Manual install and configure Grafana, Prometheus and Prometheus Node Exporter and Cadvisor with image ubuntu v 20.04 on Docker Desktop Macos.]].
+
+[[$ Back Up and Share Docker Volumes with This Extension]].
+
+[[How to setup corlors icons for Terminal and Iterm2]].
+
+[[$ Update image frome docker desktop to docker hub.]].
+
+[[$ Create and manage volumes]].
+
 ## <mark style="background: #BBFABBA6;">**CEH**:</mark>
 [[$ Park_Foreman_Vulnerability_Management,_Auerbach_Publications_2019.pdf]].
 
