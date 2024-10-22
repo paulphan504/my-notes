@@ -104,6 +104,8 @@ brew install wget
 Open file and applications in terminal.
 
 ```bash
+open -a Google\ chrome "open app chrome"
+open -a firefox "open app firefox"
 cd Downloads
 open -a Google\ Chrome phan\ tan-phong-cv.pdf "open file pdf with google chrome"
 ```
@@ -120,3 +122,7 @@ rm -r Google\ Docs.app/ "remove google doc on applications"
 brew install neovim
 ```
 
+Shutdown macos with terminal command.
+```bash
+sudo shutdown -r now
+```
