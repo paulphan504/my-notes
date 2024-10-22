@@ -57,7 +57,6 @@ who "show list user login"
 sudo whoami "show user running"
 
 groups "show group running"
-
 ```
 
 ##### [How To Restrict Log In Capabilities of Users on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-restrict-log-in-capabilities-of-users-on-ubuntu)
@@ -87,7 +86,6 @@ terminal on macos/linux.](https://docs.oracle.com/cd/E19253-01/806-7612/files-20
 rmdir folder_name 'remove and empty directory'
 rm -r folder_name 'remove directory and all its contents'
 rm -rf folder_name 'remove directory and all its contents, not use if unsure'
-
 ```
 
 Open List tree directory  and show all infomation.
@@ -99,7 +97,6 @@ ls -1 -la "you can show ls --help for many"
 [Install wget service on terminal with brew.](https://www.cyberciti.biz/faq/howto-install-wget-om-mac-os-x-mountain-lion-mavericks-snow-leopard/)
 ```bash
 brew install wget
-
 ```
 
 Open file and applications in terminal.
@@ -138,5 +135,4 @@ killall Activity\ Monitor "close service Monitor on macos"
 Show all process with terminal on mac.
 ```bash
 top -o cpu "show all services running on you macbook, you can type top --help show more about infomation "
-
 ```
