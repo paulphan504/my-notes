@@ -1,55 +1,42 @@
 Dynamic Routing: incloude 2 kind Distance Vector & Link-State
-1. Distance Vector: nhận thông tin Routing từ Neighbor
-và sau đó tính toán lại dựa vào thông tin mà neighbor đã gửi.
-- Loop-Routing -> chống loop Split Horizon
-- Tin tưởng hoàn toàn vào neighbor, khi update Routing
-thì phải chờ vào neighbor update (những neighbor là những
-router kết nối trực tiếp và chạy cùng giao thức Routing 
-thuộc họ Distance Vector)
-- 2 giao thức phổ biến:  
-	a. RIP (Broadcast)/RIPv2 (Multicast)
-		Metric: Hop Count
-		AD: 120
-		Loop-Routing -> chống loop Split Horizon
---> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
-		Update Timer: 30s/lần
-		Khi 1 subnet bị Down:
-	+ Router của subnet bị Down sẽ lập tức bật Subnet bị Down là Routing Poisoning mà không cần phải đợi 30s/lần (Update Timer)
-	+ Router có subnet bị Down sẽ gửi Poisoning Reverse cho các Router kết nối trực tiếp chạy định tuyến RIP (Neighbor) 
-	+ Các Router nhận Poisoning Reverse sẽ vào chế độ Holdown Time (180s)
-	+ Nếu sau thời gian Holdown Time(180s) vẫn chưa nhận được
-thông tin Route bị Down -> Up thì chờ thêm 1 khoảng Flush Time (60s)
---> xóa Route bị Down ra khỏi bảng định tuyến (Routing table)
+1. *Distance Vector:* nhận thông tin Routing từ Neighbor và sau đó tính toán lại dựa vào thông tin mà neighbor đã gửi.
+	- Loop-Routing -> chống loop Split Horizon
+	- Tin tưởng hoàn toàn vào neighbor, khi update Routing thì phải chờ vào neighbor update (những neighbor là những router kết nối trực tiếp và chạy cùng giao thức Routing thuộc họ Distance Vector)
+	- *2 giao thức phổ biến:*  
+	  
+		**a.** RIP (Broadcast)/RIPv2 (Multicast)
+			Metric: Hop Count
+			AD: 120
+			Loop-Routing -> chống loop Split Horizon
+			--> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
+			Update Timer: 30s/lần
+			Khi 1 subnet bị Down:
+		+ Router của subnet bị Down sẽ lập tức bật Subnet bị Down là Routing Poisoning mà không cần phải đợi 30s/lần (Update Timer)
+		+ Router có subnet bị Down sẽ gửi Poisoning Reverse cho các Router kết nối trực tiếp chạy định tuyến RIP (Neighbor) 
+		+ Các Router nhận Poisoning Reverse sẽ vào chế độ Holdown Time (180s)
+		+ Nếu sau thời gian Holdown Time(180s) vẫn chưa nhận được thông tin Route bị Down -> Up thì chờ thêm 1 khoảng Flush Time (60s)--> xóa Route bị Down ra khỏi bảng định tuyến (Routing table)
 
-	b. EIGRP (Multicast) của Cisco
-	là sự kết hợp giữa Distance Vector - Link State
-	-> Hybrid Routing (tốc độ Hội tụ mạng - thiết lập Neighbor
-		cực kỳ nhanh)
-Juniper, HP, Draytek, Peplink --> không có giao thức EIGRP
+		*b. EIGRP (Multicast) của Cisco*
+		
+		là sự kết hợp giữa Distance Vector - Link State -> Hybrid Routing (tốc độ Hội tụ mạng - thiết lập Neighbor cực kỳ nhanh) Juniper, HP, Draytek, Peplink --> không có giao thức EIGRP
 
-------------------------------------------------------------------------------------------------------------------------
 2. Link-State: trạng thái của Link
-B1. Gửi toàn bộ thông tin trạng thái của các Interface tham gia vào OSPF
---> Tất cả các Router trong mạng đều nhận được thông tin này.
-Ví dụ: có 4 router tham gia định tuyến họ Link-state
-thì 4 Router sẽ gửi thông tin của chính nó cho toàn bộ Router trong
-mạng tham gia vào định tuyến họ Link-State (LSA - Link State advertise)
---> gửi thông tin thô (thông tin ban đầu từ các Router)
-B2. Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất 
-đến các Subnet (đường có Metric thấp nhất -> là best Route)
+   
+	*B1.* Gửi toàn bộ thông tin trạng thái của các Interface tham gia vào OSPF --> Tất cả các Router trong mạng đều nhận được thông tin này.
+	Ví dụ: có 4 router tham gia định tuyến họ Link-state thì 4 Router sẽ gửi thông tin của chính nó cho toàn bộ Router trong mạng tham gia vào định tuyến họ Link-State (LSA - Link State advertise) --> gửi thông tin thô (thông tin ban đầu từ các Router)
+	
+	*B2.* Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất  đến các Subnet (đường có Metric thấp nhất -> là best Route)
 
 ------------------------------------------------------------------------------------------------------------------------
-1. Giới thiệu giao thức định tuyến OSPF: 
+1. **<mark style="background: #BBFABBA6;">Giới thiệu giao thức định tuyến OSPF:</mark>** 
 - Giao thức thuộc họ Link-State
 	+ Các Router sẽ gửi thông tin trạng thái của các interface tham gia vào OSPF cho các Router khác bằng gói LSA 
 	+ Khi nhận LSA đầy đủ từ tất cả các Router sẽ đưa vào bảng Topological Database để tính toán.
-	+ Sử dụng thuật toán Dijktra để tính toán ra được thông tin định tuyến tốt nhất đến tất cả các Destination.
-	--> Việc tính toán sử dụng Cost để tính ra thông tin bảng định tuyến
-- AD: 110
-- Thuật toán: Dijktra để tính toán Best Route
-- LSA - LinkState Advertise (quảng bá thông tin trạng thái cổng)
-- LSU - LinkState Update (Update bảng định tuyến dựa vào
-các thông số của LSA bằng thuật toán Dijktra)
+	+ Sử dụng thuật toán Dijktra để tính toán ra được thông tin định tuyến tốt nhất đến tất cả các Destination. --> Việc tính toán sử dụng Cost để tính ra thông tin bảng định tuyến
+	- AD: 110
+	- Thuật toán: Dijktra để tính toán Best Route
+	- LSA - LinkState Advertise (quảng bá thông tin trạng thái cổng)
+	- LSU - LinkState Update (Update bảng định tuyến dựa vào các thông số của LSA bằng thuật toán Dijktra)
 
 Link-State OSPF:
 - Network của subnet (Ip interface) tham gia vào OSPF
