@@ -1,4 +1,4 @@
-Dynamic Routing: gồm 2 họ Distance Vector & Link-State
+Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 1. Distance Vector: nhận thông tin Routing từ Neighbor
 và sau đó tính toán lại dựa vào thông tin mà neighbor đã gửi.
 - Loop-Routing -> chống loop Split Horizon
@@ -11,7 +11,7 @@ thuộc họ Distance Vector)
 		Metric: Hop Count
 		AD: 120
 		Loop-Routing -> chống loop Split Horizon
---> chống Loop dựa vào cơ chế, nhận Route từ cổng nàothì không gửi lại thông tin Route vào cổng đã nhận
+--> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
 		Update Timer: 30s/lần
 		Khi 1 subnet bị Down:
 	+ Router của subnet bị Down sẽ lập tức bật Subnet bị Down là Routing Poisoning mà không cần phải đợi 30s/lần (Update Timer)
@@ -61,7 +61,9 @@ thì sẽ không liên lạc được với nhau
 		. Các Router thuộc các Area khác Area 0 muốn giao tiếp được 
 với nhau phải thông qua Area 0
 2. Các thông số OSPF
+   
 	A. Router-id: đại diện khi các Router khác kết nối và thiết lập neighbor với nó.
+	
 		a. Auto: Chọn Router-ID dựa vào IP lớn nhất trên các Interface.
 		Ví dụ cho trường hợp Auto: có 2 trường hợp
 		TH1: không có interface Loopback 0
