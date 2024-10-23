@@ -65,6 +65,7 @@ title: Welcome to My Notes
 
 [[$ Mastering Python Network Automation (2023).pdf]].
 
+##### **<mark style="background: #BBFABBA6;">CCNA</mark>**
 
 | [[Day 1.1 - Network Basis]] | [[Day 1b - DNS inside.JPG]] |
 | --------------------------- | --------------------------- |
