@@ -84,18 +84,4 @@ title: Welcome to My Notes
 
 ## <mark style="background: #BBFABBA6;">**Image**:</mark>
 
-[[content/6c0de5817ee169d3f189ee3957586138c138f760/image/image]].
-
-
-
-
-Done
-Pushina to
-https://github.com/paulphan504/my-
-notes.git
-POST git-receive-pack (chunked)
-error: RPC failed; HTTP 400 curl 22 The
-requested URL returned error: 400
-send-pack: unexpected disconnect while
-reading sideband packet
-fatal: the remote end hung up unexpectedly
+[[content/6c0de5817ee169d3f189ee3957586138c138f760/image/image|image]].
