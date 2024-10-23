@@ -4,9 +4,9 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	- Tin tưởng hoàn toàn vào neighbor, khi update Routing thì phải chờ vào neighbor update (những neighbor là những router kết nối trực tiếp và chạy cùng giao thức Routing thuộc họ Distance Vector)
 	- *<mark style="background: #FFB86CA6;">2 giao thức phổ biến:</mark>*  
 	  
-		**<mark style="background: #FFF3A3A6;">a. RIP (Broadcast)/RIPv2 (Multicast)</mark>**
-			Metric: Hop Count
-			AD: 120
+		**<mark style="background: #FFF3A3A6;">a. RIP (Broadcast)/RIPv2 (Multicast):</mark>**
+			Metric: Hop Count.
+			AD: 120.
 			Loop-Routing -> chống loop Split Horizon
 			--> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
 			Update Timer: 30s/lần
