@@ -19,11 +19,10 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 
 2. <mark style="background: #FFB8EBA6;">Link-State:</mark> trạng thái của Link
 	- *B1.* 
-		  Gửi toàn bộ thông tin trạng thái của các Interface tham gia vào OSPF --> Tất cả các Router trong mạng đều nhận được thông tin này.
-		- Ví dụ: 
-			  có 4 router tham gia định tuyến họ Link-state thì 4 Router sẽ gửi thông tin của chính nó cho toàn bộ Router trong mạng tham gia vào định tuyến họ Link-State (LSA - Link State advertise) --> gửi thông tin thô (thông tin ban đầu từ các Router)
+		- Gửi toàn bộ thông tin trạng thái của các Interface tham gia vào OSPF --> Tất cả các Router trong mạng đều nhận được thông tin này.
+		- Ví dụ: có 4 router tham gia định tuyến họ Link-state thì 4 Router sẽ gửi thông tin của chính nó cho toàn bộ Router trong mạng tham gia vào định tuyến họ Link-State (LSA - Link State advertise) --> gửi thông tin thô (thông tin ban đầu từ các Router)
 	- *B2.* 
-		  Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất  đến các Subnet (đường có Metric thấp nhất -> là best Route)
+		-  Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất  đến các Subnet (đường có Metric thấp nhất -> là best Route)
 
 ------------------------------------------------------------------------------------------------------------------------
 <mark style="background: #BBFABBA6;">1. **Giới thiệu giao thức định tuyến OSPF:** </mark>
