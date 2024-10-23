@@ -1,1 +1,1 @@
-[[rice-flowers-g440381ab8_640.jpg]]
+![[rice-flowers-g440381ab8_640.jpg]]
