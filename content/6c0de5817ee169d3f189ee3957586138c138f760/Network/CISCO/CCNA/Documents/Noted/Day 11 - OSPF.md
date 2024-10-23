@@ -6,11 +6,15 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	  
 		**<mark style="background: #FFF3A3A6;">a. RIP (Broadcast)/RIPv2 (Multicast):</mark>**
 			Metric: Hop Count.
+			
 			AD: 120.
-			Loop-Routing -> chống loop Split Horizon
-			--> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
+			
+			Loop-Routing -> chống loop Split Horizon --> chống Loop dựa vào cơ chế, nhận Route từ cổng nào thì không gửi lại thông tin Route vào cổng đã nhận
+			
 			Update Timer: 30s/lần
+			
 			Khi 1 subnet bị Down:
+			
 		+ Router của subnet bị Down sẽ lập tức bật Subnet bị Down là Routing Poisoning mà không cần phải đợi 30s/lần (Update Timer)
 		+ Router có subnet bị Down sẽ gửi Poisoning Reverse cho các Router kết nối trực tiếp chạy định tuyến RIP (Neighbor) 
 		+ Các Router nhận Poisoning Reverse sẽ vào chế độ Holdown Time (180s)
