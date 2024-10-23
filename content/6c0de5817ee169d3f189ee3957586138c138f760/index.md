@@ -65,10 +65,17 @@ title: Welcome to My Notes
 
 [[$ Mastering Python Network Automation (2023).pdf]].
 
+> [!Day]
+> 
+---
 
-| [[Day 1.1 - Network Basis]]                  | [[Day 2.2 - IP for Host _ CIDR]] |     |
-| -------------------------------------------- | -------------------------------- | --- |
-| [[Day 3.2c - CDP-LLDP-Telnet-ResetPWRouter]] | [[Day 2.1 - Subnetting IP]]      |     |
+
+
+
+| [[Day 1.1 - Network Basis]]                  
+| [[Day 2.2 - IP for Host _ CIDR]] 
+| [[Day 3.2c - CDP-LLDP-Telnet-ResetPWRouter]] 
+| [[Day 2.1 - Subnetting IP]]   
 
 
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
