@@ -1,10 +1,10 @@
 Dynamic Routing: incloude 2 kind Distance Vector & Link-State
-1. *Distance Vector:* nhận thông tin Routing từ Neighbor và sau đó tính toán lại dựa vào thông tin mà neighbor đã gửi.
+1. *<mark style="background: #FFB8EBA6;">Distance Vector:</mark>* nhận thông tin Routing từ Neighbor và sau đó tính toán lại dựa vào thông tin mà neighbor đã gửi.
 	- Loop-Routing -> chống loop Split Horizon
 	- Tin tưởng hoàn toàn vào neighbor, khi update Routing thì phải chờ vào neighbor update (những neighbor là những router kết nối trực tiếp và chạy cùng giao thức Routing thuộc họ Distance Vector)
-	- *2 giao thức phổ biến:*  
+	- *<mark style="background: #FFB86CA6;">2 giao thức phổ biến:</mark>*  
 	  
-		**a.** RIP (Broadcast)/RIPv2 (Multicast)
+		**<mark style="background: #FFF3A3A6;">a. RIP (Broadcast)/RIPv2 (Multicast)</mark>**
 			Metric: Hop Count
 			AD: 120
 			Loop-Routing -> chống loop Split Horizon
@@ -16,11 +16,11 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 		+ Các Router nhận Poisoning Reverse sẽ vào chế độ Holdown Time (180s)
 		+ Nếu sau thời gian Holdown Time(180s) vẫn chưa nhận được thông tin Route bị Down -> Up thì chờ thêm 1 khoảng Flush Time (60s)--> xóa Route bị Down ra khỏi bảng định tuyến (Routing table)
 
-		*b. EIGRP (Multicast) của Cisco*
+		*<mark style="background: #FFF3A3A6;">b. EIGRP (Multicast) của Cisco</mark>*
 		
 		là sự kết hợp giữa Distance Vector - Link State -> Hybrid Routing (tốc độ Hội tụ mạng - thiết lập Neighbor cực kỳ nhanh) Juniper, HP, Draytek, Peplink --> không có giao thức EIGRP
 
-2. Link-State: trạng thái của Link
+2. <mark style="background: #FFB8EBA6;">Link-State:</mark> trạng thái của Link
    
 	*B1.* Gửi toàn bộ thông tin trạng thái của các Interface tham gia vào OSPF --> Tất cả các Router trong mạng đều nhận được thông tin này.
 	Ví dụ: có 4 router tham gia định tuyến họ Link-state thì 4 Router sẽ gửi thông tin của chính nó cho toàn bộ Router trong mạng tham gia vào định tuyến họ Link-State (LSA - Link State advertise) --> gửi thông tin thô (thông tin ban đầu từ các Router)
@@ -28,7 +28,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	*B2.* Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất  đến các Subnet (đường có Metric thấp nhất -> là best Route)
 
 ------------------------------------------------------------------------------------------------------------------------
-1. **<mark style="background: #BBFABBA6;">Giới thiệu giao thức định tuyến OSPF:</mark>** 
+<mark style="background: #BBFABBA6;">1. **Giới thiệu giao thức định tuyến OSPF:** </mark>
 - Giao thức thuộc họ Link-State
 	+ Các Router sẽ gửi thông tin trạng thái của các interface tham gia vào OSPF cho các Router khác bằng gói LSA 
 	+ Khi nhận LSA đầy đủ từ tất cả các Router sẽ đưa vào bảng Topological Database để tính toán.
@@ -38,16 +38,15 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	- LSA - LinkState Advertise (quảng bá thông tin trạng thái cổng)
 	- LSU - LinkState Update (Update bảng định tuyến dựa vào các thông số của LSA bằng thuật toán Dijktra)
 
-Link-State OSPF:
-- Network của subnet (Ip interface) tham gia vào OSPF
-- Area: 
-	+ Area 0: Backbone của OSPF
-	+ Area còn lại:
-		. Nếu Router biên (Border Router) của Area khác Area 0
-thì sẽ không liên lạc được với nhau
-		. Các Router thuộc các Area khác Area 0 muốn giao tiếp được 
-với nhau phải thông qua Area 0
-2. Các thông số OSPF
+	Link-State OSPF:
+	- Network của subnet (Ip interface) tham gia vào OSPF
+	- Area: 
+		+ Area 0: Backbone của OSPF
+		+ Area còn lại:
+			. Nếu Router biên (Border Router) của Area khác Area 0 thì sẽ không liên lạc được với nhau
+			. Các Router thuộc các Area khác Area 0 muốn giao tiếp được với nhau phải thông qua Area 0
+			
+<mark style="background: #BBFABBA6;">2. Các thông số OSPF</mark>
    
 	A. Router-id: đại diện khi các Router khác kết nối và thiết lập neighbor với nó.
 	
