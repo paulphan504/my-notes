@@ -65,11 +65,17 @@ title: Welcome to My Notes
 
 [[$ Mastering Python Network Automation (2023).pdf]].
 
+
+| [[Day 1.1 - Network Basis]]                  | [[Day 2.2 - IP for Host _ CIDR]] |     |
+| -------------------------------------------- | -------------------------------- | --- |
+| [[Day 3.2c - CDP-LLDP-Telnet-ResetPWRouter]] | [[Day 2.1 - Subnetting IP]]      |     |
+
+
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
 [[$ So sánh SQL server và Oracle 202407041240]].
 
-### <mark style="background: #FFB8EBA6;">**LAB:**</mark>
+## <mark style="background: #FFB8EBA6;">**LAB:**</mark>
 
 [[202407022236 dhcp lab]].
 
@@ -77,7 +83,7 @@ title: Welcome to My Notes
 
 [[Case-Study-DHCP-Snooping-202407151052]].
 
-### <mark style="background: #BBFABBA6;">**Image**:</mark>
+## <mark style="background: #BBFABBA6;">**Image**:</mark>
 
 [[content/6c0de5817ee169d3f189ee3957586138c138f760/image/image]].
 
