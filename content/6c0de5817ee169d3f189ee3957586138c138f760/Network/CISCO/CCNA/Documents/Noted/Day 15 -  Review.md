@@ -62,7 +62,7 @@ ____________________________________
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address <IP-DHCP-Server>)
 
    4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng.
-      - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
+    - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
 5. STP: chống loop trong môi trường Layer 2.
