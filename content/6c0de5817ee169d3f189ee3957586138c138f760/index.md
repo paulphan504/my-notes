@@ -66,14 +66,11 @@ title: Welcome to My Notes
 [[$ Mastering Python Network Automation (2023).pdf]].
 
 ##### **<mark style="background: #BBFABBA6;">CCNA</mark>**
-	[[Day 15 -  Review]]
-	
-	[[CCNA 200-301 Official Cert Guide - Volume 1.pdf]]
-	
-	[[CCNA 200-301 vol2.pdf]] 
-	
-	
-	 
+
+[[CCNA 200-301 Official Cert Guide - Volume 1.pdf]]
+
+[[CCNA 200-301 vol2.pdf]] 
+
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
 [[$ So sánh SQL server và Oracle 202407041240]].
