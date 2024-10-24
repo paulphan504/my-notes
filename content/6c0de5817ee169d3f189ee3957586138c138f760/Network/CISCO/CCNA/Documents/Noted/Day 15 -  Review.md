@@ -1,7 +1,7 @@
 **<mark style="background: #BBFABBA6;">Module 1: Network Basic (Foundation)</mark>**
 - Mô hình TCP/IP - OSI:
-+ Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
-+ Góc nhìn tổng thể của tất cả lĩnh vực của IT.
+	+ Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
+	+ Góc nhìn tổng thể của tất cả lĩnh vực của IT.
 
 OSI mô hình 7 lớp:
 
@@ -18,45 +18,54 @@ ____________________________________
 
 **<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
 1. VLAN, Trunking:
-	a. VLAN	
-	Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
-		Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
-	Switch(config)#switchport mode access
-	Switch(config)#switchport access vlan vlan-id
+	- a. VLAN	
+		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
+		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
+	  ```bash
+		Switch(config)#switchport mode access
+		Switch(config)#switchport access vlan vlan-id
+		```
+
+	- b. Trunking
+		- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
+		- Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
+		- Trunking: ISL (Cisco), Dot1q (Standard)
+		```bash
+		Switch(config)#switchport trunk encapsulation dot1q
+		Switch(config)#switchport mode trunk
+		```
 	
-	b. Trunking
-	- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
-	Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
-	Trunking: ISL (Cisco), Dot1q (Standard)
-	Switch(config)#switchport trunk encapsulation dot1q
-	Switch(config)#switchport mode trunk
-	
-	c. VTP: đồng bộ VLAN trên switch Cisco
-	Switch(config)#vtp domain abc.com
-	Switch(config)#vtp mode server/client
-	VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
+	- c. VTP: đồng bộ VLAN trên switch Cisco
+	  ```bash
+	  	Switch(config)#vtp domain abc.com
+		Switch(config)#vtp mode server/client
+	```
+		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
 	d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
+	```bash
 	Router(config)#interface f0/0.10
 	Router(config)#encapsulation dot1q 10
 	Router(config)#ip address 172.16.10.1 255.255.255.0
+```
 
 2. CDP - LLDP: dùng để xem thông tin của thiết bị 
+	```bash
 	Router(config)#cdp run
 	Router(config)#lldp run
-	
 	Router#show cdp neighbor
+	```
 
 3. DHCP: 1 tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
-	-> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
-	-> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address <IP-DHCP-Server>)
+	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
+	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address <IP-DHCP-Server>)
 
-4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng:
-	- Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
+   4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng.
+      - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
 5. STP: chống loop trong môi trường Layer 2.
-	Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
+	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
 	-> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
 	Bước 1: bầu chọn Root Switch
