@@ -1,18 +1,15 @@
-Module 1: Network Basic (Foundation)
+**Module 1: Network Basic (Foundation)**
 - Mô hình TCP/IP - OSI:
 + Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
 + Góc nhìn tổng thể của tất cả lĩnh vực của IT.
 
 OSI mô hình 7 lớp:
-      OSI		TCP/IP
-7. Application    |
-6. Presentation   |   Application    
-5. Session	  |__________________
-4. Transport      |   Transport
-3. Network        |   Internet
-2. Datalink       |   Network Access 
-1. Physical       | 
-__________________|__________________
+
+| OSI	        <br>                                                                                                                     | TCP/IP                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| 7. Application  <br>6. Presentation  <br>5. Session	  <br>4. Transport     <br>3. Network       <br>2. Datalink      <br>1. Physical | <br>Application<br><br>Transport<br>Internet<br>Network Access |
+
+____________________________________
 Hub n port    = 1 Broadcast Domain, 1 Collision Domain
 Switch n port = 1 Broadcast Domain, n Collision Domain
 Router n port = n Broadcast Domain, n Collision Domain
