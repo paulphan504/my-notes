@@ -136,3 +136,8 @@ Show all process with terminal on mac.
 ```bash
 top -o cpu "show all services running on you macbook, you can type top --help show more about infomation "
 ```
+
+How to change multiple files name with terminal on macos.
+```bash
+
+```
