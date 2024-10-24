@@ -176,7 +176,7 @@ ____________________________________
 	    Router(config-if)#ip ospf network point-to-point
 	    ```
 	
-	- d. Cost của OSPF: ````
+	- d. Cost của OSPF: ```
 			reference BW (10^8)
 		Cost = _____________________
 			Interface BW
