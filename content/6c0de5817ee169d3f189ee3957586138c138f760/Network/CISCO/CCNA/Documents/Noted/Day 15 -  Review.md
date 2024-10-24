@@ -1,9 +1,9 @@
 **<mark style="background: #BBFABBA6;">Module 1: Network Basic (Foundation)</mark>**
-- Mô hình TCP/IP - OSI:
+- **Mô hình TCP/IP - OSI:**
 	+ Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
 	+ Góc nhìn tổng thể của tất cả lĩnh vực của IT.
 
-OSI mô hình 7 lớp:
+**OSI mô hình 7 lớp:**
 
 | OSI	        <br>                                                                                                                     | TCP/IP                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
@@ -17,7 +17,7 @@ ____________________________________
 - ARP phân giải IP thành MAC: trong toàn bộ quá trình thì IP không đổi chỉ có MAC là thay đổi trong từng phân đoạn.
 
 **<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
-1. VLAN, Trunking:
+1. **VLAN, Trunking:**
 	- a. VLAN	
 		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
 		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
@@ -50,21 +50,21 @@ ____________________________________
 		Router(config)#ip address 172.16.10.1 255.255.255.0
 		```
 
-2. CDP - LLDP: dùng để xem thông tin của thiết bị
+2. **CDP - LLDP:** dùng để xem thông tin của thiết bị
    ```bash
    		Router(config)#cdp run
 		Router(config)#lldp run
 		Router#show cdp neighbor
 	```
-3. DHCP: tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
+3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
-4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng.
+4. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
     - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
-5. STP: chống loop trong môi trường Layer 2.
+5. **STP:** chống loop trong môi trường Layer 2.
 	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
 	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
@@ -98,7 +98,7 @@ ____________________________________
 		```
 		- Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
 
-6. Tăng tính dự phòng (High Redundancy):
+6. **Tăng tính dự phòng (High Redundancy):**
 	- a. Cable: Etherchannel - port channel
 		- Cisco: PAgP (desirable - auto)
 		- Standard: LaCP (active - passive)
@@ -113,7 +113,7 @@ ____________________________________
 		- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
 		- --> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
 
-7. Security Layer2 (bắt nguồn tại ngay công ty)
+7. **Security Layer2** (bắt nguồn tại ngay công ty)
 	- a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
 		Mục tiêu:
 		- Chuyển Switch thành Hub để capture thông tin.
@@ -148,9 +148,9 @@ ____________________________________
 	- d. DHCP snooping - ARP spoofing: 
 	  - giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP (cấm đặt IP tĩnh trên các port cấu hình dhcp snooping - khi vi phạm sẽ tác động Err-disable). --> Trusted port trunk để nhận DHCP từ uplink, không nhận DHCP từ downlink.
 
-<mark style="background: #BBFABBA6;">Module3: Routing</mark>
+**<mark style="background: #BBFABBA6;">Module3: Routing</mark>**
 
-1. Static Route: 
+1. **Static Route:** 
    - việc định tuyến hoàn toàn chủ động theo ý muốn của người quản trị.
 	- -> dễ cấu hình cho các mô hạng nhỏ và vừa 
 	- -> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
@@ -160,7 +160,7 @@ ____________________________________
 	- Khắc phục:
 		- Luôn marking lại câu lệnh static route.
 	
-2. Dynamic Route: OSPF
+2. **Dynamic Route: OSPF**
 	- a. Router-id: 
 	  - IP đại diện cho Router khi thiết lập neighbor giữa các Router tham gia OSPF (chọn ra IP lớn nhất trong các interface để làm router-id khi không cấu hình router-id).
 	- b. DR-BDR: 
@@ -199,7 +199,7 @@ ____________________________________
 		```bash
 		Router(config-if)#ip ospf cost 10 
 		```
-3. Access Control List (ACL):
+3. **Access Control List (ACL):**
 	- Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng theo mong muốn của người quản trị.
 	- a. Tác động của ACL: Cấm (Deny) và Cho phép (Permit)
 	- b. Dạng của ACL: 
@@ -227,7 +227,7 @@ ____________________________________
 		
 		Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
 		```
-4.  Network Address Translation (NAT): 
+4.  **Network Address Translation (NAT):** 
    - chuyển đổi IP/port-A sang IP/port-B
 	- Source NAT: nếu >1 thì định nghĩa = ACL
 	- Destination NAT: nếu >1 thì định nghĩa = POOL
@@ -265,7 +265,7 @@ ____________________________________
 	
 					Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
 				  ```
-5. IPv6: 
+5. **IPv6:** 
 	- Trên interface sẽ có 2 IPv6
 	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC --> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface --> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
 	- Mục tiêu của địa chỉ Link-Local là để nhận biết giữa các Router với nhau.
@@ -296,7 +296,7 @@ ____________________________________
 	R2(config)#int g0/0
 	R2(config-if)#ipv6 ospf 1 area 0
 	```
-6. VPN (GRE Tunnel):
+6. **VPN (GRE Tunnel):**
 	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel 1 inteface tunnel bao gồm:
 		- Tunnel Source
 		- Tunnel Destination
