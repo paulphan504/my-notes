@@ -43,28 +43,30 @@ ____________________________________
 		```
 		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
-	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
+	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk):
+		 - gán vlan (layer 2) lên port của Router (Layer 3)
 		```bash
 		Router(config)#interface f0/0.10
 		Router(config)#encapsulation dot1q 10
 		Router(config)#ip address 172.16.10.1 255.255.255.0
 		```
 
-2. **CDP - LLDP:** dùng để xem thông tin của thiết bị
+2. **CDP - LLDP:** dùng để xem thông tin của thiết bị.
+
    		```bash
    		Router(config)#cdp run
 		Router(config)#lldp run
 		Router#show cdp neighbor
 		```
-3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
+4. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
-4. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
+5. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
     - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
-5. **STP:** chống loop trong môi trường Layer 2.
+6. **STP:** chống loop trong môi trường Layer 2.
 	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
 	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
@@ -98,7 +100,7 @@ ____________________________________
 		```
 		- Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
 
-6. **Tăng tính dự phòng (High Redundancy):**
+7. **Tăng tính dự phòng (High Redundancy):**
 	- a. Cable: Etherchannel - port channel
 		- Cisco: PAgP (desirable - auto)
 		- Standard: LaCP (active - passive)
@@ -113,7 +115,7 @@ ____________________________________
 		- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
 		- --> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
 
-7. **Security Layer2** (bắt nguồn tại ngay công ty)
+8. **Security Layer2** (bắt nguồn tại ngay công ty)
 	- a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
 		Mục tiêu:
 		- Chuyển Switch thành Hub để capture thông tin.
