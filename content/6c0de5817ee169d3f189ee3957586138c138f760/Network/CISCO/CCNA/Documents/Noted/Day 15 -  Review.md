@@ -182,17 +182,24 @@ ____________________________________
 	    Router(config-if)#ip ospf network point-to-point
 	    ```
 	
-	- d. Cost của OSPF: ```
+	- d. Cost của OSPF: 
+		```bash
 			reference BW (10^8)
 		Cost = _____________________
 			Interface BW
+			```
 		
 		Có thể thay đổi Refernce BW trong mode Router
+		```bash
 		Router(config)#router ospf 1
 		Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
+		```
+		
 		
 		Việc thay đổi Cost để tối ưu định tuyến theo 1 đường naò đó thì vào interface để cấu hình.
-		Router(config-if)#ip ospf cost 10 ```
+		```bash
+		Router(config-if)#ip ospf cost 10 
+		```
 	
 3. Access Control List (ACL):
 	Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng 
