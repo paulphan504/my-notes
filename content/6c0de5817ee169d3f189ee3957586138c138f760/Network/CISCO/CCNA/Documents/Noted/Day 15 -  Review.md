@@ -188,106 +188,101 @@ ____________________________________
 		Cost = _____________________
 			Interface BW
 			```
-		
 		Có thể thay đổi Refernce BW trong mode Router
 		```bash
 		Router(config)#router ospf 1
 		Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
 		```
-		
-		
 		Việc thay đổi Cost để tối ưu định tuyến theo 1 đường naò đó thì vào interface để cấu hình.
 		```bash
 		Router(config-if)#ip ospf cost 10 
 		```
-	
 3. Access Control List (ACL):
-	Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng 
-	theo mong muốn của người quản trị.
-	a. Tác động của ACL: Cấm (Deny) và Cho phép (Permit)
-	b. Dạng của ACL: 
-	- Standard: chỉ có thể định nghĩa duy nhất source IP (destination IP mặc định là ANY)
-	--> thường dùng để phân loại subnet, phân loại VLAN (Classification)
-	- Extended: định nghĩa bao gồm: protocol (ip/icmp/tcp/udp), source IP, destination IP, port-ID/ping/time-exceeded/...
-	--> thường dùng để lọc traffic (Filter)
+	- Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng theo mong muốn của người quản trị.
+	- a. Tác động của ACL: Cấm (Deny) và Cho phép (Permit)
+	- b. Dạng của ACL: 
+		- Standard: chỉ có thể định nghĩa duy nhất source IP (destination IP mặc định là ANY)
+		--> thường dùng để phân loại subnet, phân loại VLAN (Classification)
+		- Extended: định nghĩa bao gồm: protocol (ip/icmp/tcp/udp), source IP, destination IP, port-ID/ping/time-exceeded/...
+		--> thường dùng để lọc traffic (Filter)
+		
+		VD: viết ACL để thực hiện các nội dung sau:
+		- VLAN10: được truy cập web và ping (các phần còn lại k được truy cập).
+		- VLAN20: được truy cập tất cả dịch vụ.
+		- VLAN30: cấm truy cập web và traceroute.
+		172.16.VLAN-ID.0/24
+		```bash
+		Router(config)#ip access-list extended Local_LAN
+		Router(config-acl)#permit tcp   172.16.10.0 0.0.0.255 any eq www
+		Router(config-acl)#permit icmp 172.16.10.0  0.0.0.255 any 
+		Router(config-acl)#deny   ip   172.16.10.0  0.0.0.255 any
+		
+		Router(config-acl)#permit ip   172.16.20.0 0.0.0.255  any
+		
+		Router(config-acl)#deny   tcp  172.16.30.0 0.0.0.255  any eq www
+		Router(config-acl)#deny   icmp 172.16.30.0 0.0.0.255  any traceroute
+		Router(config-acl)#permit ip   172.16.30.0 0.0.0.255  any
+		
+		Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
+		```
+4.  Network Address Translation (NAT): 
+   - chuyển đổi IP/port-A sang IP/port-B
+	- Source NAT: nếu >1 thì định nghĩa = ACL
+	- Destination NAT: nếu >1 thì định nghĩa = POOL
+		- a. Static NAT: 1 -> 1
+			- Source:       n IP-A = 1 -> không định nghĩa ACL
+			- Destination:  n IP-B = 1 -> không định nghĩa Pool
+			  ```bash
+			  Router(config)#ip nat inside source static 172.16.1.1 100.0.0.1
+			  ```
+		- b. Dynamic NAT: n IP-A -> n IP-B
+			- Source:      n IP-A > 1 -> định nghĩa ACL
+			- Destination: n IP-B > 1 -> định nghĩa Pool
+			172.16.1.1 - 172.16.1.12 sang IP 100.0.0.2 - 100.0.0.13
+			```bash
+				Router(config)#ip access-list standard NAT-1.1-1.12
+				Router(config-acl)#permit 172.16.1.0 0.0.0.15
+				Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 subnet-mask 255.255.255.240
+				Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 prefix-length 28
+				Router(config)#ip nat inside source list NAT-1.1-1.12 MY_POOL 
+			```
+		- c. NAT overload: n IP-A -> 1 IP-B
+			- Source:       n IP-A > 1 -> định nghĩa ACL
+			- Destination:  n IP-B = 1 -> không định nghĩa Pool
 	
-	VD: viết ACL để thực hiện các nội dung sau:
-	- VLAN10: được truy cập web và ping (các phần còn lại k được truy cập).
-	- VLAN20: được truy cập tất cả dịch vụ.
-	- VLAN30: cấm truy cập web và traceroute.
-	172.16.VLAN-ID.0/24
+				- 172.16.1.0/24 NAT ra ngoài với interface g0/0 kết nối với nhà mạng
+				- 172.16.2.0/24 NAT ra ngoài với IP Public còn lại 100.0.0.14
+				  ```bash
+					Router(config)#ip access-list standard Internet_1.0
+					Router(config-acl)#permit 172.16.1.0 0.0.0.255
 	
-	Router(config)#ip access-list extended Local_LAN
-	Router(config-acl)#permit tcp   172.16.10.0 0.0.0.255 any eq www
-	Router(config-acl)#permit icmp 172.16.10.0  0.0.0.255 any 
-	Router(config-acl)#deny   ip   172.16.10.0  0.0.0.255 any
+					Router(config)#ip nat inside source list Internet_1.0 interface g0/0 overload
 	
-	Router(config-acl)#permit ip   172.16.20.0 0.0.0.255  any
+					Router(config)#ip access-list standard Internet_2.0
+					Router(config-acl)#permit 172.16.1.0 0.0.0.255
 	
-	Router(config-acl)#deny   tcp  172.16.30.0 0.0.0.255  any eq www
-	Router(config-acl)#deny   icmp 172.16.30.0 0.0.0.255  any traceroute
-	Router(config-acl)#permit ip   172.16.30.0 0.0.0.255  any
-	
-	Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
-	
-4. Network Address Translation (NAT): chuyển đổi IP/port-A sang IP/port-B
-	Source NAT: nếu >1 thì định nghĩa = ACL
-	Destination NAT: nếu >1 thì định nghĩa = POOL
-	
-	a. Static NAT: 1 -> 1
-	- Source:       n IP-A = 1 -> không định nghĩa ACL
-	- Destination:  n IP-B = 1 -> không định nghĩa Pool
-	
-	Router(config)#ip nat inside source static 172.16.1.1 100.0.0.1
-	
-	b. Dynamic NAT: n IP-A -> n IP-B
-	- Source:      n IP-A > 1 -> định nghĩa ACL
-	- Destination: n IP-B > 1 -> định nghĩa Pool
-	172.16.1.1 - 172.16.1.12 sang IP 100.0.0.2 - 100.0.0.13
-	Router(config)#ip access-list standard NAT-1.1-1.12
-	Router(config-acl)#permit 172.16.1.0 0.0.0.15
-	
-	Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 subnet-mask 255.255.255.240
-	Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 prefix-length 28
-	
-	Router(config)#ip nat inside source list NAT-1.1-1.12 MY_POOL 
-	
-	C. NAT overload: n IP-A -> 1 IP-B
-	- Source:       n IP-A > 1 -> định nghĩa ACL
-	- Destination:  n IP-B = 1 -> không định nghĩa Pool
-	
-	172.16.1.0/24 NAT ra ngoài với interface g0/0 kết nối với nhà mạng
-	172.16.2.0/24 NAT ra ngoài với IP Public còn lại 100.0.0.14
-	Router(config)#ip access-list standard Internet_1.0
-	Router(config-acl)#permit 172.16.1.0 0.0.0.255
-	
-	Router(config)#ip nat inside source list Internet_1.0 interface g0/0 overload
-	
-	Router(config)#ip access-list standard Internet_2.0
-	Router(config-acl)#permit 172.16.1.0 0.0.0.255
-	
-	Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
-	
+					Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
+				  ```
 5. IPv6: 
-	Trên interface sẽ có 2 IPv6
-	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64
-	EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC
-	--> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface
-	--> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
-	Mục tiêu của địa chỉ Link-Local là để nhận biết giữa các Router với nhau.
+	- Trên interface sẽ có 2 IPv6
+	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC --> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface --> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
+	- Mục tiêu của địa chỉ Link-Local là để nhận biết giữa các Router với nhau.
+	- 1 IPv6 cấu hình lên Interface (IPv6 này dùng để định tuyến) --> mỗi Interface phải có địa chỉ IPv6 khác nhau.
 	
-	- 1 IPv6 cấu hình lên Interface (IPv6 này dùng để định tuyến)
-	--> mỗi Interface phải có địa chỉ IPv6 khác nhau.
-	
-	Bật IPv6:
-	Router(config)#ipv6 unicast routing
+	- Bật IPv6: 
+	  ```bash
+	  Router(config)#ipv6 unicast routing
+	  ```
 	sau khi gõ câu lệnh này thì các interface của Router sẽ sinh ra địa chỉ Link-Local EUI-64
 	
-	Static Route:
-	Router(config)#ipv6 route <destination IPv6> /subnet "ipv6-next-hop"
+	- Static Route:
+		```bash
+		Router(config)#ipv6 route <destination IPv6> /subnet "ipv6-next-hop"
+		```
 	
-	Dynamic Route:
-	R1(config)#ipv6 router ospf 1
+	- Dynamic Route:
+	  ```bash
+	  R1(config)#ipv6 router ospf 1
 	R1(config-router)#router-id 1.1.1.1
 	
 	R1(config)#int g0/0
@@ -298,28 +293,27 @@ ____________________________________
 	
 	R2(config)#int g0/0
 	R2(config-if)#ipv6 ospf 1 area 0
-	
+	```
 6. VPN (GRE Tunnel):
-	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel
-	1 inteface tunnel bao gồm:
-	- Tunnel Source
-	- Tunnel Destination
-	- IP của Tunnel
-	
-	--> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
-	
-	R1(config)#int tunnel 12
-	R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
-	R1(config-if)#tunnel destination 200.0.0.1
-	R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
-	R1(config-if)#ip address 192.168.12.1 255.255.255.0
-	
-	
-	R2(config)#int tunnel 12
-	R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
-	R2(config-if)#tunnel destination 100.0.0.1
-	R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
-	R2(config-if)#ip address 192.168.12.2 255.255.255.0
+	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel 1 inteface tunnel bao gồm:
+		- Tunnel Source
+		- Tunnel Destination
+		- IP của Tunnel --> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
+		  ```bash
+		  	R1(config)#int tunnel 12
+			R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
+			R1(config-if)#tunnel destination 200.0.0.1
+			R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+			R1(config-if)#ip address 192.168.12.1 255.255.255.0
+			
+			
+			R2(config)#int tunnel 12
+			R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
+			R2(config-if)#tunnel destination 100.0.0.1
+			R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+			R2(config-if)#ip address 192.168.12.2 255.255.255.0
+```
+
 
 
 
