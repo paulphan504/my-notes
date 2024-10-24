@@ -68,11 +68,13 @@ ____________________________________
 	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
 	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
-	Bước 1: bầu chọn Root Switch
-	1. Priority: thấp nhất là tốt nhất (cách nhau n +/- 4096, mặc định priority Switch = 32768)
-	2. MAC: thấp nhất là tốt nhất. --> Toàn bộ port của Root Switch là DP (Designated Port)
+	Bước 1: 
+	-  bầu chọn Root Switch
+	-  Priority: thấp nhất là tốt nhất (cách nhau n +/- 4096, mặc định priority Switch = 32768)
+	-  MAC: thấp nhất là tốt nhất. --> Toàn bộ port của Root Switch là DP (Designated Port)
 	
-	Bước 2: bầu chọn Root Port
+	Bước 2:
+	-  bầu chọn Root Port
 	- Tính theo Cost: Cost tính từ Root Switch đến các port còn lại, Cost nào thấp nhất là tốt nhất (Root Port - RP).
 	
 	Bước 3: Block port (port tệ nhất) - Block all VLAN trên phân đoạn này.
