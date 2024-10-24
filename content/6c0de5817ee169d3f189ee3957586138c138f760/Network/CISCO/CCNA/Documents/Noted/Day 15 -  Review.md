@@ -188,7 +188,9 @@ ____________________________________
 		Cost = _____________________
 			Interface BW
 			```
+			
 		Có thể thay đổi Refernce BW trong mode Router
+		
 		```bash
 		Router(config)#router ospf 1
 		Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
