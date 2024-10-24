@@ -46,6 +46,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	<mark style="background: #BBFABBA6;">2. Các thông số OSPF</mark>
 
 	A. Router-id: đại diện khi các Router khác kết nối và thiết lập neighbor với nó.
+	
 		a. Auto: Chọn Router-ID dựa vào IP lớn nhất trên các Interface.
 		Ví dụ cho trường hợp Auto: có 2 trường hợp
 		TH1: không có interface Loopback 0
