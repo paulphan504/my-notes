@@ -21,7 +21,7 @@ ____________________________________
 	- a. VLAN	
 		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
 		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
-	  ```bash
+	  	```bash
 		Switch(config)#switchport mode access
 		Switch(config)#switchport access vlan vlan-id
 		```
@@ -37,7 +37,7 @@ ____________________________________
 	
 	- c. VTP: 
 		- đồng bộ VLAN trên switch Cisco
-	  ```bash
+	  	```bash
 		Switch(config)#vtp domain abc.com
 		Switch(config)#vtp mode server/client
 		```
@@ -51,11 +51,11 @@ ____________________________________
 		```
 
 2. **CDP - LLDP:** dùng để xem thông tin của thiết bị
-   ```bash
+   		```bash
    		Router(config)#cdp run
 		Router(config)#lldp run
 		Router#show cdp neighbor
-	```
+		```
 3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
@@ -167,12 +167,10 @@ ____________________________________
 	  - trong phân đoạn Broadcast MultiAccess thì sẽ có bầu chọn DR và BDR
 		- DR: đảm nhiệm nhận toàn bộ LSA từ các DR-OTHER (224.0.0.5) và trả lời lại thông tin định tuyến cho các DR-OTHER (224.0.0.6)
 		- BDR: chỉ nhận LSA từ các DR-OTHER (224.0.0.5) và chỉ trả lời khi DR bị Down.
-		
 		- DR chỉ có giá trị trong 1 phân đoạn mạng, nên việc cấu hình DR và BDR là vào interface để chỉnh Priority.
 		- Priority Default = 1
 		- Priority = 0 (không được tham gia bình chọn DR)
 		- Priority = 255 (giá trị lớn nhất)
-		
 		- Router(config-if)#ip ospf priority 255 (chắc chắn là DR)
 		- Router(config-if)#ip ospf priority 0  (không được tham gia bầu chọn DR)
 	
@@ -187,7 +185,7 @@ ____________________________________
 			reference BW (10^8)
 		Cost = _____________________
 			Interface BW
-			```
+		```
 			
 		Có thể thay đổi Refernce BW trong mode Router
 		
@@ -218,13 +216,10 @@ ____________________________________
 		Router(config-acl)#permit tcp   172.16.10.0 0.0.0.255 any eq www
 		Router(config-acl)#permit icmp 172.16.10.0  0.0.0.255 any 
 		Router(config-acl)#deny   ip   172.16.10.0  0.0.0.255 any
-		
 		Router(config-acl)#permit ip   172.16.20.0 0.0.0.255  any
-		
 		Router(config-acl)#deny   tcp  172.16.30.0 0.0.0.255  any eq www
 		Router(config-acl)#deny   icmp 172.16.30.0 0.0.0.255  any traceroute
 		Router(config-acl)#permit ip   172.16.30.0 0.0.0.255  any
-		
 		Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
 		```
 4.  **Network Address Translation (NAT):** 
@@ -241,30 +236,27 @@ ____________________________________
 			- Source:      n IP-A > 1 -> định nghĩa ACL
 			- Destination: n IP-B > 1 -> định nghĩa Pool
 			172.16.1.1 - 172.16.1.12 sang IP 100.0.0.2 - 100.0.0.13
-			```bash
+				```bash
 				Router(config)#ip access-list standard NAT-1.1-1.12
 				Router(config-acl)#permit 172.16.1.0 0.0.0.15
 				Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 subnet-mask 255.255.255.240
 				Router(config-acl)#ip nat pool MY_POOL 100.0.0.2 100.0.0.13 prefix-length 28
 				Router(config)#ip nat inside source list NAT-1.1-1.12 MY_POOL 
-			```
+				```
 		- c. NAT overload: n IP-A -> 1 IP-B
 			- Source:       n IP-A > 1 -> định nghĩa ACL
 			- Destination:  n IP-B = 1 -> không định nghĩa Pool
 	
 				- 172.16.1.0/24 NAT ra ngoài với interface g0/0 kết nối với nhà mạng
 				- 172.16.2.0/24 NAT ra ngoài với IP Public còn lại 100.0.0.14
-				  ```bash
+				  	```bash
 					Router(config)#ip access-list standard Internet_1.0
 					Router(config-acl)#permit 172.16.1.0 0.0.0.255
-	
 					Router(config)#ip nat inside source list Internet_1.0 interface g0/0 overload
-	
 					Router(config)#ip access-list standard Internet_2.0
 					Router(config-acl)#permit 172.16.1.0 0.0.0.255
-	
 					Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
-				  ```
+				  	```
 5. **IPv6:** 
 	- Trên interface sẽ có 2 IPv6
 	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC --> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface --> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
@@ -283,8 +275,8 @@ ____________________________________
 		```
 	
 	- Dynamic Route:
-	  ```bash
-	  R1(config)#ipv6 router ospf 1
+	```bash
+	R1(config)#ipv6 router ospf 1
 	R1(config-router)#router-id 1.1.1.1
 	
 	R1(config)#int g0/0
@@ -301,20 +293,19 @@ ____________________________________
 		- Tunnel Source
 		- Tunnel Destination
 		- IP của Tunnel --> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
-		  ```bash
+		  	```bash
 		  	R1(config)#int tunnel 12
 			R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
 			R1(config-if)#tunnel destination 200.0.0.1
 			R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
 			R1(config-if)#ip address 192.168.12.1 255.255.255.0
 			
-			
 			R2(config)#int tunnel 12
 			R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
 			R2(config-if)#tunnel destination 100.0.0.1
 			R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
 			R2(config-if)#ip address 192.168.12.2 255.255.255.0
-```
+			```
 
 
 
