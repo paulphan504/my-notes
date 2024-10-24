@@ -43,7 +43,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 			. Nếu Router biên (Border Router) của Area khác Area 0 thì sẽ không liên lạc được với nhau
 			. Các Router thuộc các Area khác Area 0 muốn giao tiếp được với nhau phải thông qua Area 0
 			
-<mark style="background: #BBFABBA6;">2. Các thông số OSPF</mark>
+	<mark style="background: #BBFABBA6;">2. Các thông số OSPF</mark>
 
 	A. Router-id: đại diện khi các Router khác kết nối và thiết lập neighbor với nó.
 		a. Auto: Chọn Router-ID dựa vào IP lớn nhất trên các Interface.
@@ -87,9 +87,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 
 3. <mark style="background: #BBFABBA6;">Các môi trường trong OSPD:</mark> ****
    
-	<mark style="background: #FF5582A6;">A. Broadcast MultiAccess:</mark>
-	
-	 các router được kết nối với nhau bằng Switch/Hub (> 2 router tham gia OSPF)-> sẽ có bầu chọn 1 Router chính (DR = Designated Router), 1 Router backup cho Router chính (BDR = Backup Designated Router) và các Router còn lại sẽ gửi thông tin LSA cho DR và BDR (không gửi LSA cho nhau).
+	<mark style="background: #FF5582A6;">A. Broadcast MultiAccess:</mark> các router được kết nối với nhau bằng Switch/Hub (> 2 router tham gia OSPF)-> sẽ có bầu chọn 1 Router chính (DR = Designated Router), 1 Router backup cho Router chính (BDR = Backup Designated Router) và các Router còn lại sẽ gửi thông tin LSA cho DR và BDR (không gửi LSA cho nhau).
 	- DR: nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5, và trả lời cho các Router thông qua Multicast 224.0.0.6
 	- BDR: chỉ nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5 và không trả lời gì cả (chỉ trả lời khi DR bị Down).
 	- DR được bầu chọn khi có Priority lớn nhất (thông số này thay đổi để bình chọn DR cho phân đoạn) -> vào interface tăng Priority lên hoặc các Router cùng Priority thì sẽ chọn Router nào có Router-ID lớn nhất làm DR
@@ -97,6 +95,4 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 	- Priority Maximun = 255 (luôn là DR)
 	- Priority = 0 (không được tham gia bầu chọn DR)
 
-	<mark style="background: #FF5582A6;">B. Point-to-Point (P2P):</mark> 
-	
-	đoạn kết nối chỉ có 2 Router (kết nối bằng cáp Serial, PPP hoặc HDLC) Cáp Serial, PPP hoặc HDLC hiện nay không còn nữa nên phân đoạn P2P này thường kết nối bằng cáp Ethernet và khai báo inteface này theo P2P --> không có sự bầu chọn trong phân đoạn này.
+	<mark style="background: #FF5582A6;">B. Point-to-Point (P2P):</mark> đoạn kết nối chỉ có 2 Router (kết nối bằng cáp Serial, PPP hoặc HDLC) Cáp Serial, PPP hoặc HDLC hiện nay không còn nữa nên phân đoạn P2P này thường kết nối bằng cáp Ethernet và khai báo inteface này theo P2P --> không có sự bầu chọn trong phân đoạn này.
