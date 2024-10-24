@@ -137,7 +137,10 @@ Show all process with terminal on mac.
 top -o cpu "show all services running on you macbook, you can type top --help show more about infomation "
 ```
 
-How to change multiple files name with terminal on macos.
+[How to change multiple files name with terminal on macos.](https://iboysoft.com/tips/rename-file-macos-terminal.html)
 ```bash
+for file in *; do                                                                                                
+  mv "$file" "${file%.txt}.md"
 
+done
 ```

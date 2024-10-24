@@ -1,5 +1,4 @@
-**Open link safe**
-https://youtube.com/shorts/ElQxbbNBayI?si=SYOIFyCQ8Y9axI7o
+- **[Open link safe](https://youtube.com/shorts/ElQxbbNBayI?si=SYOIFyCQ8Y9axI7o)**
 
 ```
 wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz
@@ -9,15 +8,12 @@ cd node_exporter-*.*-amd64
 ./node_exporter
 ```
 
-**Cartoon energy:** [link](https://motchilltc.us/xem/robot-hoang-da-the-wild-robot/full)
+- **[Cartoon energy (The Wild Robot):](https://motchilltc.us/xem/robot-hoang-da-the-wild-robot/full)** [link](https://motchilltc.us/xem/robot-hoang-da-the-wild-robot/full)
 
-list start container project grafpromnodecadvisor. ![[Pasted image 20241018113632.png]]
+- [Orbstack intruduce method for replace Docker Desktop](https://www.youtube.com/watch?v=aJe7CvQ-aM8)
 
-Orbstack
-https://www.youtube.com/watch?v=aJe7CvQ-aM8
+- [VScode intruduce](https://www.youtube.com/watch?v=1ZfO149BJvg&t=208s)
 
-VScode
-https://www.youtube.com/watch?v=1ZfO149BJvg&t=208s
+- [Intruduce youself trainer by youtuber Lucy](https://www.youtube.com/watch?v=QgjkjsqAzvo)
 
-Intruduce youself trainer by youtuber Lucy
-https://www.youtube.com/watch?v=QgjkjsqAzvo
+- [improve lisening english skill native](https://youtube.com/watch?v=D6_qpaSxAQc&si=x7c1gERtsJ7j5B96 )
