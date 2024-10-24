@@ -35,11 +35,12 @@ ____________________________________
 		Switch(config)#switchport mode trunk
 		```
 	
-	- c. VTP: đồng bộ VLAN trên switch Cisco
+	- c. VTP: 
+		- đồng bộ VLAN trên switch Cisco
 	  ```bash
-	  	Switch(config)#vtp domain abc.com
+		Switch(config)#vtp domain abc.com
 		Switch(config)#vtp mode server/client
-	```
+		```
 		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
 	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
