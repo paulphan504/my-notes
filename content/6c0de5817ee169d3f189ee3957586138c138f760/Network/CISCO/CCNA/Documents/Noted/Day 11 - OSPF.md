@@ -26,14 +26,14 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 
 ------------------------------------------------------------------------------------------------------------------------
 1. **<mark style="background: #BBFABBA6;">Giới thiệu giao thức định tuyến OSPF:</mark>** 
-- Giao thức thuộc họ Link-State
-	+ Các Router sẽ gửi thông tin trạng thái của các interface tham gia vào OSPF cho các Router khác bằng gói LSA 
-	+ Khi nhận LSA đầy đủ từ tất cả các Router sẽ đưa vào bảng Topological Database để tính toán.
-	+ Sử dụng thuật toán Dijktra để tính toán ra được thông tin định tuyến tốt nhất đến tất cả các Destination. --> Việc tính toán sử dụng Cost để tính ra thông tin bảng định tuyến
-	- AD: 110
-	- Thuật toán: Dijktra để tính toán Best Route
-	- LSA - LinkState Advertise (quảng bá thông tin trạng thái cổng)
-	- LSU - LinkState Update (Update bảng định tuyến dựa vào các thông số của LSA bằng thuật toán Dijktra)
+	- Giao thức thuộc họ Link-State
+		+ Các Router sẽ gửi thông tin trạng thái của các interface tham gia vào OSPF cho các Router khác bằng gói LSA 
+		+ Khi nhận LSA đầy đủ từ tất cả các Router sẽ đưa vào bảng Topological Database để tính toán.
+		+ Sử dụng thuật toán Dijktra để tính toán ra được thông tin định tuyến tốt nhất đến tất cả các Destination. --> Việc tính toán sử dụng Cost để tính ra thông tin bảng định tuyến
+		- AD: 110
+		- Thuật toán: Dijktra để tính toán Best Route
+		- LSA - LinkState Advertise (quảng bá thông tin trạng thái cổng)
+		- LSU - LinkState Update (Update bảng định tuyến dựa vào các thông số của LSA bằng thuật toán Dijktra)
 
 	Link-State OSPF:
 	- Network của subnet (Ip interface) tham gia vào OSPF
