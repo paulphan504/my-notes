@@ -86,6 +86,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 		Cost = 10^11/ 10^10 = 10
 
 3. <mark style="background: #BBFABBA6;">Các môi trường trong OSPD:</mark> ****
+   
 	<mark style="background: #FF5582A6;">A. Broadcast MultiAccess:</mark> các router được kết nối với nhau bằng Switch/Hub (> 2 router tham gia OSPF)-> sẽ có bầu chọn 1 Router chính (DR = Designated Router), 1 Router backup cho Router chính (BDR = Backup Designated Router)
 	và các Router còn lại sẽ gửi thông tin LSA cho DR và BDR (không gửi LSA cho nhau).
 	- DR: nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5, và trả lời cho các Router thông qua Multicast 224.0.0.6
