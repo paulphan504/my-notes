@@ -56,7 +56,7 @@ ____________________________________
 		Router(config)#lldp run
 		Router#show cdp neighbor
 	```
-3. DHCP: 1 tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
+3. DHCP: tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
@@ -131,18 +131,22 @@ ____________________________________
 		- Restrict: không tác động lên port, nhưng có gửi cảnh báo về cho người quản trị.
 		- Shutdown: tác động lên port (err-disable: muốn enable lại thì shutdown port trước và no shutdown lại), và gửi cảnh báo về cho người quản trị.
 		
-		Default của port Security:
-		Switch(config)#switchport port-security
+		- Default của port Security:
+		  ```bash
+		  Switch(config)#switchport port-security
+		  ```
 		- Số lượng MAC tối đa: 1
 		- Học MAC: Dynamic
 		- Action: Shutdown
 
-	- b. VLAN Hopping: biến đổi thành port Trunk và dùng VLAN Native để dò thông tin người dùng/Server trong các VLAN khác. Trunk ------ Access = N/A --> cấu hình tất cả các port không sử dụng là port Access và shutdown các port không sử dụng.
+	- b. VLAN Hopping:
+	  -  biến đổi thành port Trunk và dùng VLAN Native để dò thông tin người dùng/Server trong các VLAN khác. Trunk ------ Access = N/A --> cấu hình tất cả các port không sử dụng là port Access và shutdown các port không sử dụng.
 
-	- c. Thay đổi STP: gắn 1 SW có MAC và Priority thấp nhất vào port mạng (sẽ trở thành Root Switch) làm tất cả traffic trong mạng đều đi qua Switch này (để capture thông tin người dùng). -> Gây ảnh hưởng đến truy cập trong mạng và làm chậm mạng. --> Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
+	- c. Thay đổi STP: 
+	  - gắn 1 SW có MAC và Priority thấp nhất vào port mạng (sẽ trở thành Root Switch) làm tất cả traffic trong mạng đều đi qua Switch này (để capture thông tin người dùng). -> Gây ảnh hưởng đến truy cập trong mạng và làm chậm mạng. --> Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
 	
-	- d. DHCP snooping - ARP spoofing: giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP 
-	(cấm đặt IP tĩnh trên các port cấu hình dhcp snooping - khi vi phạm sẽ tác động Err-disable). --> Trusted port trunk để nhận DHCP từ uplink, không nhận DHCP từ downlink.
+	- d. DHCP snooping - ARP spoofing: 
+	  - giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP (cấm đặt IP tĩnh trên các port cấu hình dhcp snooping - khi vi phạm sẽ tác động Err-disable). --> Trusted port trunk để nhận DHCP từ uplink, không nhận DHCP từ downlink.
 
 <mark style="background: #BBFABBA6;">Module3: Routing</mark>
 
