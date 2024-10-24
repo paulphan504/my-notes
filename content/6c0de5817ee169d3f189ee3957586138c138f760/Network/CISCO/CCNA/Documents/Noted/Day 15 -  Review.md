@@ -1,4 +1,4 @@
-**Module 1: Network Basic (Foundation)**
+**<mark style="background: #BBFABBA6;">Module 1: Network Basic (Foundation)</mark>**
 - Mô hình TCP/IP - OSI:
 + Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
 + Góc nhìn tổng thể của tất cả lĩnh vực của IT.
@@ -10,36 +10,36 @@ OSI mô hình 7 lớp:
 | 7. Application  <br>6. Presentation  <br>5. Session	  <br>4. Transport     <br>3. Network       <br>2. Datalink      <br>1. Physical | <br>Application<br><br>Transport<br>Internet<br>Network Access |
 
 ____________________________________
-Hub n port    = 1 Broadcast Domain, 1 Collision Domain
-Switch n port = 1 Broadcast Domain, n Collision Domain
-Router n port = n Broadcast Domain, n Collision Domain
+- Hub n port    = 1 Broadcast Domain, 1 Collision Domain
+- Switch n port = 1 Broadcast Domain, n Collision Domain
+- Router n port = n Broadcast Domain, n Collision Domain
 
-ARP phân giải IP thành MAC: trong toàn bộ quá trình thì IP không đổi chỉ có MAC là thay đổi trong từng phân đoạn.
+- ARP phân giải IP thành MAC: trong toàn bộ quá trình thì IP không đổi chỉ có MAC là thay đổi trong từng phân đoạn.
 
-Module 2: Switching
+**<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
 1. VLAN, Trunking:
-a. VLAN	
-Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
-	Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
-Switch(config)#switchport mode access
-Switch(config)#switchport access vlan vlan-id
-
-b. Trunking
-- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
-Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
-Trunking: ISL (Cisco), Dot1q (Standard)
-Switch(config)#switchport trunk encapsulation dot1q
-Switch(config)#switchport mode trunk
-
-c. VTP: đồng bộ VLAN trên switch Cisco
-Switch(config)#vtp domain abc.com
-Switch(config)#vtp mode server/client
-VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
-
-d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
-Router(config)#interface f0/0.10
-Router(config)#encapsulation dot1q 10
-Router(config)#ip address 172.16.10.1 255.255.255.0
+	a. VLAN	
+	Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
+		Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
+	Switch(config)#switchport mode access
+	Switch(config)#switchport access vlan vlan-id
+	
+	b. Trunking
+	- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
+	Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
+	Trunking: ISL (Cisco), Dot1q (Standard)
+	Switch(config)#switchport trunk encapsulation dot1q
+	Switch(config)#switchport mode trunk
+	
+	c. VTP: đồng bộ VLAN trên switch Cisco
+	Switch(config)#vtp domain abc.com
+	Switch(config)#vtp mode server/client
+	VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
+	
+	d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
+	Router(config)#interface f0/0.10
+	Router(config)#encapsulation dot1q 10
+	Router(config)#ip address 172.16.10.1 255.255.255.0
 
 2. CDP - LLDP: dùng để xem thông tin của thiết bị 
 Router(config)#cdp run
