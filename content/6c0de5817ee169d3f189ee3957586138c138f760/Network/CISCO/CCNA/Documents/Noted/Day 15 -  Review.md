@@ -58,23 +58,22 @@ ____________________________________
 	```
 3. DHCP: 1 tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
-	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address <IP-DHCP-Server>)
+	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
-   4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng.
+4. Interface VLAN thường đóng vai trò làm Gateway cho toàn mạng.
     - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
 5. STP: chống loop trong môi trường Layer 2.
 	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
-	-> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
+	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
 	Bước 1: bầu chọn Root Switch
 	1. Priority: thấp nhất là tốt nhất (cách nhau n +/- 4096, mặc định priority Switch = 32768)
-	2. MAC: thấp nhất là tốt nhất.
-	--> Toàn bộ port của Root Switch là DP (Designated Port)
+	2. MAC: thấp nhất là tốt nhất. --> Toàn bộ port của Root Switch là DP (Designated Port)
 	
 	Bước 2: bầu chọn Root Port
-	Tính theo Cost: Cost tính từ Root Switch đến các port còn lại, Cost nào thấp nhất là tốt nhất (Root Port - RP).
+	- Tính theo Cost: Cost tính từ Root Switch đến các port còn lại, Cost nào thấp nhất là tốt nhất (Root Port - RP).
 	
 	Bước 3: Block port (port tệ nhất) - Block all VLAN trên phân đoạn này.
 	- Cost: thấp nhất là tốt nhất
@@ -85,36 +84,39 @@ ____________________________________
 	1. Từ port bình thường sang port Forwarding: 30s (Listening ->(15s) Learning ->(15s) Forwarding)
 	2. Từ port Block sang port Forwarding: 50s (Blocking ->(20s) Listening ->(15s) Learning ->(15s) Forwarding)
 	
-	STP portfast: dùng để port Access hội tụ nhanh hơn (chỉ có tác động trên port Access, k tác động trên port trunk)
-	- Vào từng interface port access để cấu hình portfast
-	Switch(config-if)#spanning-tree portfast
+	- STP portfast: dùng để port Access hội tụ nhanh hơn (chỉ có tác động trên port Access, k tác động trên port trunk)
+		- Vào từng interface port access để cấu hình portfast
+		```bash
+		Switch(config-if)#spanning-tree portfast
+		```
 	
-	- Cấu hình portfast trên mode config (apply trên toàn bộ port access, ngoại trừ port trunk)
-	Switch(config)#spanning-tree portfast default.
-	
-	Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
+		- Cấu hình portfast trên mode config (apply trên toàn bộ port access, ngoại trừ port trunk)
+		```bash
+		Switch(config)#spanning-tree portfast default.
+		```
+		- Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
 
 6. Tăng tính dự phòng (High Redundancy):
-	a. Cable: Etherchannel - port channel
-	- Cisco: PAgP (desirable - auto)
-	- Standard: LaCP (active - passive)
-	- no protocol: on - off
+	- a. Cable: Etherchannel - port channel
+		- Cisco: PAgP (desirable - auto)
+		- Standard: LaCP (active - passive)
+		- no protocol: on - off
 	
-	b. Switch: stackwise
-	- Mở rộng: không nhất thiết các Switch phải giống nhau về thiết bị, cấu hình, số port
-	- Backup: bắt buộc Switch phải giống nhau về thiết bị, cấu hình và số port.
+	- b. Switch: stackwise
+		- Mở rộng: không nhất thiết các Switch phải giống nhau về thiết bị, cấu hình, số port
+		- Backup: bắt buộc Switch phải giống nhau về thiết bị, cấu hình và số port.
 	
-	c. Dự phòng Layer3 (Switch Layer3 / Router) - FHRP:
-	- Cisco: HSRP chỉ hỗ trợ 2 thiết bị ( 1 Active - 1 Standby)
-	- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
-	--> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
+	- c. Dự phòng Layer3 (Switch Layer3 / Router) - FHRP:
+		- Cisco: HSRP chỉ hỗ trợ 2 thiết bị ( 1 Active - 1 Standby)
+		- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
+		- --> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
 
 7. Security Layer2 (bắt nguồn tại ngay công ty)
-	a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
-	Mục tiêu:
-	- Chuyển Switch thành Hub để capture thông tin.
-	- Làm Switch bị Down (tấn công phá hoại).
-	--> Giới hạn lại tốc độ của port, và dùng port Security để giới hạn số lượng MAC trên 1 port.
+	- a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
+		Mục tiêu:
+		- Chuyển Switch thành Hub để capture thông tin.
+		- Làm Switch bị Down (tấn công phá hoại).
+		- --> Giới hạn lại tốc độ của port, và dùng port Security để giới hạn số lượng MAC trên 1 port.
 
 		Port Security:
 		1. Học MAC: default 1 MAC khi bật port Security
@@ -125,8 +127,7 @@ ____________________________________
 		2. Tác động: Protect, Restrict, Shutdown
 		- Protect: không gửi thông tin gì về cho người quản trị, không tác động lên port.
 		- Restrict: không tác động lên port, nhưng có gửi cảnh báo về cho người quản trị.
-		- Shutdown: tác động lên port (err-disable: muốn enable lại thì shutdown port trước và no shutdown lại),
-		và gửi cảnh báo về cho người quản trị.
+		- Shutdown: tác động lên port (err-disable: muốn enable lại thì shutdown port trước và no shutdown lại), và gửi cảnh báo về cho người quản trị.
 		
 		Default của port Security:
 		Switch(config)#switchport port-security
@@ -134,56 +135,60 @@ ____________________________________
 		- Học MAC: Dynamic
 		- Action: Shutdown
 
-	b. VLAN Hopping: biến đổi thành port Trunk và dùng VLAN Native để dò thông tin người dùng/Server trong các VLAN khác. Trunk ------ Access = N/A --> cấu hình tất cả các port không sử dụng là port Access và shutdown các port không sử dụng.
+	- b. VLAN Hopping: biến đổi thành port Trunk và dùng VLAN Native để dò thông tin người dùng/Server trong các VLAN khác. Trunk ------ Access = N/A --> cấu hình tất cả các port không sử dụng là port Access và shutdown các port không sử dụng.
 
-	c. Thay đổi STP: gắn 1 SW có MAC và Priority thấp nhất vào port mạng (sẽ trở thành Root Switch) làm tất cả traffic trong mạng đều đi qua Switch này (để capture thông tin người dùng). -> Gây ảnh hưởng đến truy cập trong mạng và làm chậm mạng. --> Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
+	- c. Thay đổi STP: gắn 1 SW có MAC và Priority thấp nhất vào port mạng (sẽ trở thành Root Switch) làm tất cả traffic trong mạng đều đi qua Switch này (để capture thông tin người dùng). -> Gây ảnh hưởng đến truy cập trong mạng và làm chậm mạng. --> Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
 	
-	d. DHCP snooping - ARP spoofing: giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP 
+	- d. DHCP snooping - ARP spoofing: giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP 
 	(cấm đặt IP tĩnh trên các port cấu hình dhcp snooping - khi vi phạm sẽ tác động Err-disable). --> Trusted port trunk để nhận DHCP từ uplink, không nhận DHCP từ downlink.
 
-Module3: Routing
-	1. Static Route: việc định tuyến hoàn toàn chủ động theo ý muốn của người quản trị.
-	-> dễ cấu hình cho các mô hạng nhỏ và vừa 
-	-> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
+<mark style="background: #BBFABBA6;">Module3: Routing</mark>
+
+1. Static Route: 
+   - việc định tuyến hoàn toàn chủ động theo ý muốn của người quản trị.
+	- -> dễ cấu hình cho các mô hạng nhỏ và vừa 
+	- -> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
 	
-	--> khó khăn cấu hình cho các mô hình mạng lớn.
-	--> bị rác Static Route (có những Routing không còn nữa nhưng chưa xóa) 
-	nhưng chưa dám xóa vì không biết có ảnh hưởng đến các phần khác hay không.
-		Khắc phục:
-	- Luôn marking lại câu lệnh static route.
+	- --> khó khăn cấu hình cho các mô hình mạng lớn.
+	- --> bị rác Static Route (có những Routing không còn nữa nhưng chưa xóa) nhưng chưa dám xóa vì không biết có ảnh hưởng đến các phần khác hay không.
+	- Khắc phục:
+		- Luôn marking lại câu lệnh static route.
 	
-	2. Dynamic Route: OSPF
-	a. Router-id: IP đại diện cho Router khi thiết lập neighbor giữa các Router tham gia OSPF
-	(chọn ra IP lớn nhất trong các interface để làm router-id khi không cấu hình router-id).
-	b. DR-BDR: trong phân đoạn Broadcast MultiAccess thì sẽ có bầu chọn DR và BDR
-	DR: đảm nhiệm nhận toàn bộ LSA từ các DR-OTHER (224.0.0.5) và trả lời lại thông tin định tuyến cho các DR-OTHER (224.0.0.6)
-	BDR: chỉ nhận LSA từ các DR-OTHER (224.0.0.5) và chỉ trả lời khi DR bị Down.
+2. Dynamic Route: OSPF
+	- a. Router-id: 
+	  - IP đại diện cho Router khi thiết lập neighbor giữa các Router tham gia OSPF (chọn ra IP lớn nhất trong các interface để làm router-id khi không cấu hình router-id).
+	- b. DR-BDR: 
+	  - trong phân đoạn Broadcast MultiAccess thì sẽ có bầu chọn DR và BDR
+		- DR: đảm nhiệm nhận toàn bộ LSA từ các DR-OTHER (224.0.0.5) và trả lời lại thông tin định tuyến cho các DR-OTHER (224.0.0.6)
+		- BDR: chỉ nhận LSA từ các DR-OTHER (224.0.0.5) và chỉ trả lời khi DR bị Down.
+		
+		- DR chỉ có giá trị trong 1 phân đoạn mạng, nên việc cấu hình DR và BDR là vào interface để chỉnh Priority.
+		- Priority Default = 1
+		- Priority = 0 (không được tham gia bình chọn DR)
+		- Priority = 255 (giá trị lớn nhất)
+		
+		- Router(config-if)#ip ospf priority 255 (chắc chắn là DR)
+		- Router(config-if)#ip ospf priority 0  (không được tham gia bầu chọn DR)
 	
-	DR chỉ có giá trị trong 1 phân đoạn mạng, nên việc cấu hình DR và BDR là vào interface để chỉnh Priority.
-	Priority Default = 1
-	Priority = 0 (không được tham gia bình chọn DR)
-	Priority = 255 (giá trị lớn nhất)
+	- c. Point-to-Point: 
+	  - môi trường ngang hàng thì không có bầu chọn DR/BDR trong môi trường này các Router gửi LSA cho nhau và tự tính toàn định tuyến rồi gửi cho nhau thông tin định tuyến. 
+	    ```bash
+	    Router(config-if)#ip ospf network point-to-point
+	    ```
 	
-	Router(config-if)#ip ospf priority 255 (chắc chắn là DR)
-	Router(config-if)#ip ospf priority 0  (không được tham gia bầu chọn DR)
+	- d. Cost của OSPF: ````
+			reference BW (10^8)
+		Cost = _____________________
+			Interface BW
+		
+		Có thể thay đổi Refernce BW trong mode Router
+		Router(config)#router ospf 1
+		Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
+		
+		Việc thay đổi Cost để tối ưu định tuyến theo 1 đường naò đó thì vào interface để cấu hình.
+		Router(config-if)#ip ospf cost 10 ```
 	
-	c. Point-to-Point: môi trường ngang hàng thì không có bầu chọn DR/BDR
-	trong môi trường này các Router gửi LSA cho nhau và tự tính toàn định tuyến rồi gửi cho nhau thông tin định tuyến.
-	Router(config-if)#ip ospf network point-to-point
-	
-	d. Cost của OSPF: 
-		reference BW (10^8)
-	Cost = _____________________
-		Interface BW
-	
-	Có thể thay đổi Refernce BW trong mode Router
-	Router(config)#router ospf 1
-	Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
-	
-	Việc thay đổi Cost để tối ưu định tuyến theo 1 đường naò đó thì vào interface để cấu hình.
-	Router(config-if)#ip ospf cost 10
-	
-	3. Access Control List (ACL):
+3. Access Control List (ACL):
 	Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng 
 	theo mong muốn của người quản trị.
 	a. Tác động của ACL: Cấm (Deny) và Cho phép (Permit)
@@ -212,7 +217,7 @@ Module3: Routing
 	
 	Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
 	
-	4. Network Address Translation (NAT): chuyển đổi IP/port-A sang IP/port-B
+4. Network Address Translation (NAT): chuyển đổi IP/port-A sang IP/port-B
 	Source NAT: nếu >1 thì định nghĩa = ACL
 	Destination NAT: nếu >1 thì định nghĩa = POOL
 	
@@ -250,7 +255,7 @@ Module3: Routing
 	
 	Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
 	
-	5. IPv6: 
+5. IPv6: 
 	Trên interface sẽ có 2 IPv6
 	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64
 	EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC
@@ -266,7 +271,7 @@ Module3: Routing
 	sau khi gõ câu lệnh này thì các interface của Router sẽ sinh ra địa chỉ Link-Local EUI-64
 	
 	Static Route:
-	Router(config)#ipv6 route <destination IPv6> /subnet <ipv6-next-hop>
+	Router(config)#ipv6 route <destination IPv6> /subnet "ipv6-next-hop"
 	
 	Dynamic Route:
 	R1(config)#ipv6 router ospf 1
@@ -281,7 +286,7 @@ Module3: Routing
 	R2(config)#int g0/0
 	R2(config-if)#ipv6 ospf 1 area 0
 	
-	6. VPN (GRE Tunnel):
+6. VPN (GRE Tunnel):
 	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel
 	1 inteface tunnel bao gồm:
 	- Tunnel Source
