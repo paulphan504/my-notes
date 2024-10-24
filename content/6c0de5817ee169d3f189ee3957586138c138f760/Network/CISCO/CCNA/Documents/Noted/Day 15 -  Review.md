@@ -42,12 +42,12 @@ ____________________________________
 	```
 		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
-	d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
-	```bash
-	Router(config)#interface f0/0.10
-	Router(config)#encapsulation dot1q 10
-	Router(config)#ip address 172.16.10.1 255.255.255.0
-```
+	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk) - gán vlan (layer 2) lên port của Router (Layer 3)
+		```bash
+		Router(config)#interface f0/0.10
+		Router(config)#encapsulation dot1q 10
+		Router(config)#ip address 172.16.10.1 255.255.255.0
+		```
 
 2. CDP - LLDP: dùng để xem thông tin của thiết bị 
 	```bash
