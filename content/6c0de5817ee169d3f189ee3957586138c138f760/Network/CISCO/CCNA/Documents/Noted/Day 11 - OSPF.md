@@ -25,7 +25,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 		-  Khi các Router nhận thông tin của toàn bộ Router trong mạng, sẽ thực hiện việc tính toán để tìm ra đường Route tốt nhất  đến các Subnet (đường có Metric thấp nhất -> là best Route)
 
 ------------------------------------------------------------------------------------------------------------------------
-<mark style="background: #BBFABBA6;">1. **Giới thiệu giao thức định tuyến OSPF:** </mark>
+1. **<mark style="background: #BBFABBA6;">Giới thiệu giao thức định tuyến OSPF:</mark>** 
 - Giao thức thuộc họ Link-State
 	+ Các Router sẽ gửi thông tin trạng thái của các interface tham gia vào OSPF cho các Router khác bằng gói LSA 
 	+ Khi nhận LSA đầy đủ từ tất cả các Router sẽ đưa vào bảng Topological Database để tính toán.
@@ -44,9 +44,8 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 			. Các Router thuộc các Area khác Area 0 muốn giao tiếp được với nhau phải thông qua Area 0
 			
 <mark style="background: #BBFABBA6;">2. Các thông số OSPF</mark>
-   
+
 	A. Router-id: đại diện khi các Router khác kết nối và thiết lập neighbor với nó.
-	
 		a. Auto: Chọn Router-ID dựa vào IP lớn nhất trên các Interface.
 		Ví dụ cho trường hợp Auto: có 2 trường hợp
 		TH1: không có interface Loopback 0
@@ -65,8 +64,7 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 
 		b. Manual: Router-id tùy vào người cấu hình
 		Ví dụ cho trường hợp  Manual --> Router1: router-id 1.1.1.1
-	
-
+		
 	B. Thiết lập Neighbor: 10s Update định kỳ/ 40s Time out bỏ Route 
 	- 10s sẽ gửi LSA
 	- 40s sẽ delete Route nếu không có phản hồi
@@ -80,26 +78,23 @@ Dynamic Routing: incloude 2 kind Distance Vector & Link-State
 		+ chỉ gửi Multicast 224.0.0.6 để update cho DRother khi DR bị Down
 	- Router còn lại (DRother): gửi Multicast 224.0.0.5 đến DR và BDR
 
-Cost = BW(Referrence) 10^8 / BW(Interface)
-Có thể thay đổi BW(Referrence) trên mode Router ospf
-Ví dụ: tính Cost cho cổng Fast Ethernet 100Mb = 10^8
-Cost = 10^11/ 10^8 = 1000
-Ví dụ: tính Cost cho cổng TenGiga Ethernet 10Gb= 10^10
-Cost = 10^11/ 10^10 = 10
+		Cost = BW(Referrence) 10^8 / BW(Interface)
+		Có thể thay đổi BW(Referrence) trên mode Router ospf
+		Ví dụ: tính Cost cho cổng Fast Ethernet 100Mb = 10^8
+		Cost = 10^11/ 10^8 = 1000
+		Ví dụ: tính Cost cho cổng TenGiga Ethernet 10Gb= 10^10
+		Cost = 10^11/ 10^10 = 10
 
-3. Các môi trường trong OSPD: 
-	A. Broadcast MultiAccess: các router được kết nối với nhau bằng Switch/Hub (> 2 router tham gia OSPF)
-	-> sẽ có bầu chọn 1 Router chính (DR = Designated Router), 1 Router backup cho Router chính (BDR = Backup Designated Router)
+3. <mark style="background: #BBFABBA6;">Các môi trường trong OSPD:</mark> ****
+	<mark style="background: #FF5582A6;">A. Broadcast MultiAccess:</mark> các router được kết nối với nhau bằng Switch/Hub (> 2 router tham gia OSPF)-> sẽ có bầu chọn 1 Router chính (DR = Designated Router), 1 Router backup cho Router chính (BDR = Backup Designated Router)
 	và các Router còn lại sẽ gửi thông tin LSA cho DR và BDR (không gửi LSA cho nhau).
-- DR: nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5, và trả lời cho các Router thông qua Multicast 224.0.0.6
-- BDR: chỉ nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5 và không trả lời gì cả (chỉ trả lời khi DR bị Down).
+	- DR: nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5, và trả lời cho các Router thông qua Multicast 224.0.0.6
+	- BDR: chỉ nhận thông tin LSA từ các Router thông qua Multicast 224.0.0.5 và không trả lời gì cả (chỉ trả lời khi DR bị Down).
 
-DR được bầu chọn khi có Priority lớn nhất (thông số này thay đổi để bình chọn DR cho phân đoạn) -> vào interface tăng Priority lên 
-hoặc các Router cùng Priority thì sẽ chọn Router nào có Router-ID lớn nhất làm DR
-Priority default = 1
-Priority Maximun = 255 (luôn là DR)
-Priority = 0 (không được tham gia bầu chọn DR)
+	DR được bầu chọn khi có Priority lớn nhất (thông số này thay đổi để bình chọn DR cho phân đoạn) -> vào interface tăng Priority lên 
+	hoặc các Router cùng Priority thì sẽ chọn Router nào có Router-ID lớn nhất làm DR
+	Priority default = 1
+	Priority Maximun = 255 (luôn là DR)
+	Priority = 0 (không được tham gia bầu chọn DR)
 
-	B. Point-to-Point (P2P): đoạn kết nối chỉ có 2 Router (kết nối bằng cáp Serial, PPP hoặc HDLC)
-Cáp Serial, PPP hoặc HDLC hiện nay không còn nữa nên phân đoạn P2P này thường kết nối bằng cáp Ethernet và khai báo inteface này theo P2P
---> không có sự bầu chọn trong phân đoạn này.
+	<mark style="background: #FF5582A6;">B. Point-to-Point (P2P):</mark> đoạn kết nối chỉ có 2 Router (kết nối bằng cáp Serial, PPP hoặc HDLC) Cáp Serial, PPP hoặc HDLC hiện nay không còn nữa nên phân đoạn P2P này thường kết nối bằng cáp Ethernet và khai báo inteface này theo P2P --> không có sự bầu chọn trong phân đoạn này.
