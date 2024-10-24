@@ -51,13 +51,12 @@ ____________________________________
 		Router(config)#ip address 172.16.10.1 255.255.255.0
 		```
 
-2. **CDP - LLDP:** dùng để xem thông tin của thiết bị.
-   ```bash
-		Router(config)#cdp run
-		Router(config)#lldp run
-		Router#show cdp neighbor
-	```
-
+2. **CDP - LLDP:** dùng để xem thông tin của thiết bị
+    ```bash
+ Router(config)#cdp run
+ Router(config)#lldp run
+ Router#show cdp neighbor
+ ```
 
 4. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
