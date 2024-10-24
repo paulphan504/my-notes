@@ -67,7 +67,12 @@ title: Welcome to My Notes
 
 ##### **<mark style="background: #BBFABBA6;">CCNA</mark>**
 	[[Day 15 -  Review]]
+	
 	[[CCNA 200-301 Official Cert Guide - Volume 1.pdf]]
+	
+	[[CCNA 200-301 vol2.pdf]] 
+	
+	
 	 
 ## <mark style="background: #CACFD9A6;">**SQL Compare:**</mark>
 
