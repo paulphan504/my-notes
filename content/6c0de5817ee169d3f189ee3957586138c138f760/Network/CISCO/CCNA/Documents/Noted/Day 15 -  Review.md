@@ -20,12 +20,13 @@ ____________________________________
 1. **VLAN, Trunking:**
 	- a. VLAN	
 		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
-		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id)
-	  	```bash
+		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id
+		  ```bash
 		Switch(config)#switchport mode access
 		Switch(config)#switchport access vlan vlan-id
 		```
 
+		
 	- b. Trunking
 		- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
 		- Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
@@ -37,10 +38,12 @@ ____________________________________
 	
 	- c. VTP: 
 		- đồng bộ VLAN trên switch Cisco
-	  	```bash
+	  ```bash
 		Switch(config)#vtp domain abc.com
-		Switch(config)#vtp mode server/client
-		```
+		Switch(config)#vtp mode server/client 
+```
+
+		
 		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
 	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk):
@@ -231,9 +234,9 @@ ____________________________________
 		- a. Static NAT: 1 -> 1
 			- Source:       n IP-A = 1 -> không định nghĩa ACL
 			- Destination:  n IP-B = 1 -> không định nghĩa Pool
-			  ```bash
-			  Router(config)#ip nat inside source static 172.16.1.1 100.0.0.1
-			  ```
+		```bash
+		Router(config)#ip nat inside source static 172.16.1.1 100.0.0.1
+		```
 		- b. Dynamic NAT: n IP-A -> n IP-B
 			- Source:      n IP-A > 1 -> định nghĩa ACL
 			- Destination: n IP-B > 1 -> định nghĩa Pool
@@ -251,14 +254,14 @@ ____________________________________
 	
 				- 172.16.1.0/24 NAT ra ngoài với interface g0/0 kết nối với nhà mạng
 				- 172.16.2.0/24 NAT ra ngoài với IP Public còn lại 100.0.0.14
-				  	```bash
-					Router(config)#ip access-list standard Internet_1.0
-					Router(config-acl)#permit 172.16.1.0 0.0.0.255
-					Router(config)#ip nat inside source list Internet_1.0 interface g0/0 overload
-					Router(config)#ip access-list standard Internet_2.0
-					Router(config-acl)#permit 172.16.1.0 0.0.0.255
-					Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
-				  	```
+		```bash
+		Router(config)#ip access-list standard Internet_1.0
+		Router(config-acl)#permit 172.16.1.0 0.0.0.255
+		Router(config)#ip nat inside source list Internet_1.0 interface g0/0 overload
+		Router(config)#ip access-list standard Internet_2.0
+		Router(config-acl)#permit 172.16.1.0 0.0.0.255
+		Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
+		```
 5. **IPv6:** 
 	- Trên interface sẽ có 2 IPv6
 	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC --> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface --> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
@@ -277,34 +280,34 @@ ____________________________________
 		```
 	
 	- Dynamic Route:
-	```bash
-	R1(config)#ipv6 router ospf 1
-	R1(config-router)#router-id 1.1.1.1
+```bash
+R1(config)#ipv6 router ospf 1
+R1(config-router)#router-id 1.1.1.1
 	
-	R1(config)#int g0/0
-	R1(config-if)#ipv6 ospf 1 area 0
+R1(config)#int g0/0
+R1(config-if)#ipv6 ospf 1 area 0
 	
-	R2(config)#ipv6 router ospf 1
-	R2(config-router)#router-id 2.2.2.2
+R2(config)#ipv6 router ospf 1
+R2(config-router)#router-id 2.2.2.2
 	
-	R2(config)#int g0/0
-	R2(config-if)#ipv6 ospf 1 area 0
-	```
+R2(config)#int g0/0
+R2(config-if)#ipv6 ospf 1 area 0
+```
 6. **VPN (GRE Tunnel):**
 	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel 1 inteface tunnel bao gồm:
 		- Tunnel Source
 		- Tunnel Destination
 		- IP của Tunnel --> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
-		  ```bash
-		  	R1(config)#int tunnel 12
-			R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
-			R1(config-if)#tunnel destination 200.0.0.1
-			R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
-			R1(config-if)#ip address 192.168.12.1 255.255.255.0
+```bash
+R1(config)#int tunnel 12
+R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
+R1(config-if)#tunnel destination 200.0.0.1
+R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+R1(config-if)#ip address 192.168.12.1 255.255.255.0
 			
-			R2(config)#int tunnel 12
-			R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
-			R2(config-if)#tunnel destination 100.0.0.1
-			R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
-			R2(config-if)#ip address 192.168.12.2 255.255.255.0
-			```
+R2(config)#int tunnel 12
+R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
+R2(config-if)#tunnel destination 100.0.0.1
+R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+R2(config-if)#ip address 192.168.12.2 255.255.255.0
+```
