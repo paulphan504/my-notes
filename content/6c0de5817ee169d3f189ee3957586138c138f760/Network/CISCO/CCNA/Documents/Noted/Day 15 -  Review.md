@@ -59,8 +59,8 @@ ____________________________________
 	```
    
 3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
-	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
-	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
+	- --> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
+	- --> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
 4. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
     - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
@@ -154,8 +154,8 @@ ____________________________________
 
 1. **Static Route:** 
    - việc định tuyến hoàn toàn chủ động theo ý muốn của người quản trị.
-	- -> dễ cấu hình cho các mô hạng nhỏ và vừa 
-	- -> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
+	- --> dễ cấu hình cho các mô hạng nhỏ và vừa 
+	- --> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
 	
 	- --> khó khăn cấu hình cho các mô hình mạng lớn.
 	- --> bị rác Static Route (có những Routing không còn nữa nhưng chưa xóa) nhưng chưa dám xóa vì không biết có ảnh hưởng đến các phần khác hay không.
