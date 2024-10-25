@@ -57,17 +57,16 @@ ____________________________________
    Router(config)#lldp run
    Router(config)#show cdp neighbor
 ```
-   
-3. 
-4. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
+    
+3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
 	- -> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
 	- -> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
 
-5. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
+4. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
     - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
 	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
 
-6. **STP:** chống loop trong môi trường Layer 2.
+5. **STP:** chống loop trong môi trường Layer 2.
 	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
 	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
 
@@ -101,7 +100,7 @@ ____________________________________
 		```
 		- Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
 
-7. **Tăng tính dự phòng (High Redundancy):**
+6. **Tăng tính dự phòng (High Redundancy):**
 	- a. Cable: Etherchannel - port channel
 		- Cisco: PAgP (desirable - auto)
 		- Standard: LaCP (active - passive)
@@ -116,7 +115,7 @@ ____________________________________
 		- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
 		- --> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
 
-8. **Security Layer2** (bắt nguồn tại ngay công ty)
+7. **Security Layer2** (bắt nguồn tại ngay công ty)
 	- a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
 		Mục tiêu:
 		- Chuyển Switch thành Hub để capture thông tin.
