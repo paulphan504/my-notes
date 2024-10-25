@@ -14,21 +14,21 @@ ____________________________________
 - Switch n port = 1 Broadcast Domain, n Collision Domain
 - Router n port = n Broadcast Domain, n Collision Domain
 
-- ARP phân giải IP thành MAC: trong toàn bộ quá trình thì IP không đổi chỉ có MAC là thay đổi trong từng phân đoạn.
+- ARP resolves IP to MAC: throughout the entire process, the IP remains unchanged, only the MAC changes in each segment.
 
 **<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
 1. **VLAN, Trunking:**
 	- a. VLAN	
-		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
-		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id
+		- The switch can only be plugged in and used, it cannot be configured and only has 1 VLAN
+		- Switches with VLAN configuration have 4096 - 2 = 4094 VLANs (switchport access vlan vlan-id)
 		```bash
 		Switch(config)#switchport mode access
 		Switch(config)#switchport access vlan vlan-id
 		```
 
 	- b. Trunking
-		- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
-		- Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
+		- To conduct a VLAN, the two switches must access 1 VLAN at both ends (10 VLANs require 10 cables to conduct 10 VLANs).
+		- Trunking was born to conduct 4094 VLANs on 1 wire (only costs 1 cable for 4094 VLANs).
 		- Trunking: ISL (Cisco), Dot1q (Standard)
 		```bash
 		Switch(config)#switchport trunk encapsulation dot1q
