@@ -21,12 +21,11 @@ ____________________________________
 	- a. VLAN	
 		- Switch chỉ cắm vào xài, không cấu hình được là chỉ có 1 VLAN
 		- Switch có cấu hình VLAN thì có 4096 - 2 = 4094 VLAN (switchport access vlan vlan-id
-		  ```bash
+		```bash
 		Switch(config)#switchport mode access
 		Switch(config)#switchport access vlan vlan-id
 		```
 
-		
 	- b. Trunking
 		- Muốn dẫn VLAN thì giữa 2 switch phải access 2 đầu 1 VLAN (10 VLAN thì tốn 10 dây cáp để dẫn 10 VLAN).
 		- Trunking ra đời để dẫn 4094 VLAN trên 1 dây (chỉ tốn kém 1 dây cáp cho 4094 VLAN).
