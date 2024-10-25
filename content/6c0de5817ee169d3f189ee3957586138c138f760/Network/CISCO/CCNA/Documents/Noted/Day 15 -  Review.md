@@ -1,9 +1,9 @@
 **<mark style="background: #BBFABBA6;">Module 1: Network Basic (Foundation)</mark>**
-- **Mô hình TCP/IP - OSI:**
-	+ Cô lập sự việc hay đánh giá sự việc để đưa ra phương án xử lý chính xác.
-	+ Góc nhìn tổng thể của tất cả lĩnh vực của IT.
+- **Model TCP/IP - OSI:**
+	+ Isolate the incident or evaluate the incident to come up with the correct treatment plan.
+	+ Overall perspective of all IT fields.
 
-**OSI mô hình 7 lớp:**
+**OSI 7 layer model:**
 
 | OSI	        <br>                                                                                                                     | TCP/IP                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
