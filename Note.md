@@ -17,3 +17,10 @@ cd node_exporter-*.*-amd64
 - [Intruduce youself trainer by youtuber Lucy](https://www.youtube.com/watch?v=QgjkjsqAzvo)
 
 - [improve lisening english skill native](https://youtube.com/watch?v=D6_qpaSxAQc&si=x7c1gERtsJ7j5B96 )
+  
+- Pi-Hole vs Adguard
+
+- PFSence
+
+- Zabbix
+
