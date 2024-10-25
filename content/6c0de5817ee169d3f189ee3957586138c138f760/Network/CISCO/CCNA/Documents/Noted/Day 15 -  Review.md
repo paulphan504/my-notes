@@ -295,7 +295,7 @@ ____________________________________
 		- Tunnel Source
 		- Tunnel Destination
 		- IP của Tunnel --> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
-		  	```bash
+		  ```bash
 		  	R1(config)#int tunnel 12
 			R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
 			R1(config-if)#tunnel destination 200.0.0.1
@@ -308,6 +308,3 @@ ____________________________________
 			R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
 			R2(config-if)#ip address 192.168.12.2 255.255.255.0
 			```
-
-
-
