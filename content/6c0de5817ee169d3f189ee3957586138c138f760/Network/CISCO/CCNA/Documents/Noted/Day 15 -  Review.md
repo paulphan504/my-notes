@@ -41,9 +41,8 @@ ____________________________________
 	  ```bash
 		Switch(config)#vtp domain abc.com
 		Switch(config)#vtp mode server/client 
-```
+		```
 
-		
 		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
 	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk):
@@ -280,19 +279,19 @@ ____________________________________
 		```
 	
 	- Dynamic Route:
-```bash
-R1(config)#ipv6 router ospf 1
-R1(config-router)#router-id 1.1.1.1
+		```bash
+		R1(config)#ipv6 router ospf 1
+		R1(config-router)#router-id 1.1.1.1
 	
-R1(config)#int g0/0
-R1(config-if)#ipv6 ospf 1 area 0
+		R1(config)#int g0/0
+		R1(config-if)#ipv6 ospf 1 area 0
 	
-R2(config)#ipv6 router ospf 1
-R2(config-router)#router-id 2.2.2.2
+		R2(config)#ipv6 router ospf 1
+		R2(config-router)#router-id 2.2.2.2
 	
-R2(config)#int g0/0
-R2(config-if)#ipv6 ospf 1 area 0
-```
+		R2(config)#int g0/0
+		R2(config-if)#ipv6 ospf 1 area 0
+		```
 6. **VPN (GRE Tunnel):**
 	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel 1 inteface tunnel bao gồm:
 		- Tunnel Source
