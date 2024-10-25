@@ -36,149 +36,147 @@ ____________________________________
 		```
 	
 	- c. VTP: 
-		- đồng bộ VLAN trên switch Cisco
+		- VLAN synchronization on Cisco switches
 	  ```bash
 		Switch(config)#vtp domain abc.com
 		Switch(config)#vtp mode server/client 
 		```
 
-		- VTP có 3 mode: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
+		- VTP has 3 modes: Server (Create VLAN, Sync VLAN), Transparent (Create VLAN, Not Sync VLAN), Client (Not Create VLAN, Sync VLAN).
 	
-	- d. Sub-interface trên Router (Router giao tiếp với Switch port Trunk):
-		 - gán vlan (layer 2) lên port của Router (Layer 3)
+	- d. Sub-Interface on Router (Router communicate with Switch port Trunk):
+		 - assign vlan (layer 2) to router port (layer 3)
 		```bash
 		Router(config)#interface f0/0.10
 		Router(config)#encapsulation dot1q 10
 		Router(config)#ip address 172.16.10.1 255.255.255.0
 		```
 
-2. **CDP - LLDP:** dùng để xem thông tin của thiết bị
+2. **CDP - LLDP:** Used to view device information
 	```bash
 	   Router(config)#cdp run
 	   Router(config)#lldp run
 	   Router(config)#show cdp neighbor
 	```
 
-3. **DHCP:** tính năng cấp IP 1 cách tự động cho 1 VLAN nào đó.
-	- --> điều kiện đầu tiên để DHCP hoạt động là Routing đã hoàn tất.
-	- --> Đối với DHCP Relay Agent thì vào đúng Gateway (mà DHCP Server cấu hình thông số Gateway) để trỏ về DHCP Server (ip helpder-address "IP-DHCP-Server")
+3. **DHCP:** Automatic IP allocation feature for a certain VLAN.
+	- --> The first condition for DHCP to work is that Routing is completed.
+	- --> For DHCP Relay Agent, go to the correct Gateway (where the DHCP Server configures the Gateway parameters) to point to the DHCP Server. (ip helpder-address "IP-DHCP-Server")
 
-4. **Interface VLAN**: thường đóng vai trò làm Gateway cho toàn mạng.
-    - Mô hình 2 lớp: Interface-vlan được cấu hình ở Switch-Core
-	- Mô hình 3 lớp: Interface-vlan thường được cấu hình ở Switch-Distribution (có thể cấu hình trên Switch-Core)
+4. **Interface VLAN**: Usually acts as a Gateway for the entire network.
+    	- 2-layer model: Interface-vlan is configured at Switch-Core
+	- 3-layer model: Interface-vlan is usually configured at Switch-Distribution (can be configured on Switch-Core)
 
-5. **STP:** chống loop trong môi trường Layer 2.
-	- Khi Switch được đấu nối thành vòng kín thì sẽ xảy ra hiện tượng loop.
-	- -> Block tạm thời 1 port bất kỳ để kết nối không còn thành vòng kín.
+5. **STP:** Anti-loop in Layer 2 environment.
+	- When the Switch is connected in a closed loop, a loop phenomenon will occur. _Solution:_ Temporarily block any port so that the connection is no longer a closed loop.
 
-	Bước 1: 
-	-  bầu chọn Root Switch
-	-  Priority: thấp nhất là tốt nhất (cách nhau n +/- 4096, mặc định priority Switch = 32768)
-	-  MAC: thấp nhất là tốt nhất. --> Toàn bộ port của Root Switch là DP (Designated Port)
+	Step 1: 
+	-  Vote Root Switch
+	-  Priority: lowest is best (n +/- 4096 apart, default priority Switch = 32768)
+	-  MAC: lowest is best. --> All ports of Root Switch are DP (Designated Port)
 	
-	Bước 2:
-	-  bầu chọn Root Port
-	- Tính theo Cost: Cost tính từ Root Switch đến các port còn lại, Cost nào thấp nhất là tốt nhất (Root Port - RP).
+	Step 2:
+	-  Vote Root Port
+	- Calculated by Cost: Cost is calculated from the Root Switch to the remaining ports, the lowest Cost is the best (Root Port - RP).
 	
-	Bước 3: Block port (port tệ nhất) - Block all VLAN trên phân đoạn này.
-	- Cost: thấp nhất là tốt nhất
-	- Priority của Sender-ID: thấp nhất là tốt nhất
-	- MAC: thấp nhất là tốt nhất.
+	Step 3: Block port (worst port) - Block all VLANs on this segment.
+	- Cost: lowest is best
+	- Priority of Sender-ID: lowest is best
+	- MAC: lowest is best.
 
-	Trạng thái của port:
-	1. Từ port bình thường sang port Forwarding: 30s (Listening ->(15s) Learning ->(15s) Forwarding)
-	2. Từ port Block sang port Forwarding: 50s (Blocking ->(20s) Listening ->(15s) Learning ->(15s) Forwarding)
+	Port status:
+	1. From normal port to port Forwarding: 30s (Listening ->(15s) Learning ->(15s) Forwarding)
+	2. From port Block to port Forwarding: 50s (Blocking ->(20s) Listening ->(15s) Learning ->(15s) Forwarding)
 	
-	- STP portfast: dùng để port Access hội tụ nhanh hơn (chỉ có tác động trên port Access, k tác động trên port trunk)
-		- Vào từng interface port access để cấu hình portfast
+	- STP portfast: Used to make the Access port converge faster (only affects the Access port, does not affect the trunk port)
+		- Go to each port access interface to configure portfast
 		```bash
 		Switch(config-if)#spanning-tree portfast
 		```
 	
-		- Cấu hình portfast trên mode config (apply trên toàn bộ port access, ngoại trừ port trunk)
+		- Configure portfast in config mode (apply on all access ports, except trunk port)
 		```bash
 		Switch(config)#spanning-tree portfast default.
 		```
-		- Per-Vlan-STP (Cisco mới hỗ trợ): PVSTP+ mỗi VLAN sẽ có 1 STP riêng
+		- Per-Vlan-STP (just Cisco support): PVSTP+ Each VLAN will have its own STP
 
-6. **Tăng tính dự phòng (High Redundancy):**
+6. **Increase redundancy (High Redundancy):**
 	- a. Cable: Etherchannel - port channel
 		- Cisco: PAgP (desirable - auto)
 		- Standard: LaCP (active - passive)
 		- no protocol: on - off
 	
 	- b. Switch: stackwise
-		- Mở rộng: không nhất thiết các Switch phải giống nhau về thiết bị, cấu hình, số port
-		- Backup: bắt buộc Switch phải giống nhau về thiết bị, cấu hình và số port.
+		- Expansion: Switches do not necessarily have to be the same in terms of equipment, configuration, and port number
+		- Backup: Switches must be the same in terms of device, configuration and port number.
 	
-	- c. Dự phòng Layer3 (Switch Layer3 / Router) - FHRP:
-		- Cisco: HSRP chỉ hỗ trợ 2 thiết bị ( 1 Active - 1 Standby)
-		- Standard: VRRP hỗ trợ tối đa khoảng 16 thiết bị ( 1 Active - còn lại là Passive)
-		- --> Sinh ra 1 GW ảo đại diện cho 2 Router (trong đó chỉ có Router Active là hoạt động).
+	- c. Preventive Layer3 (Switch Layer3 / Router) - FHRP:
+		- Cisco: HSRP Only supports 2 devices ( 1 Active - 1 Standby)
+		- Standard: VRRP Supports up to about 16 devices (1 Active - the rest are Passive)
+		- _Solution_: Generate 1 virtual GW representing 2 Routers (of which only Active Router is active).
 
-7. **Security Layer2** (bắt nguồn tại ngay công ty)
-	- a. Tấn công bảng MAC: tràn bảng MAC của Switch (Switch khi tràn MAC sẽ trở thành Hub)
-		Mục tiêu:
-		- Chuyển Switch thành Hub để capture thông tin.
-		- Làm Switch bị Down (tấn công phá hoại).
-		- --> Giới hạn lại tốc độ của port, và dùng port Security để giới hạn số lượng MAC trên 1 port.
+7. **Security Layer2** (originates right from the company)
+	- a. MAC table attack: overflow the Switch's MAC table (When the Switch overflows the MAC, it will become a Hub)
+		Target:
+		- Convert Switch into Hub to capture information.
+		- Causes the Switch to be Down (destructive attack).
+		- _Solution_: Limit the port speed, and use port Security to limit the number of MACs on a port.
 
 		Port Security:
-		1. Học MAC: default 1 MAC khi bật port Security
-		- Static: gán thẳng địa chỉ MAC vào port
-		- Dynamic (default): học MAC, khi reset lại thì học lại -> mất địa chỉ MAC khi Switch reset hoặc clear bảng MAC. 
-		- Sticky: học MAC xong sẽ lưu mãi mãi (ngoài khi Admin delete MAC) kết hợp giữa học MAC theo Dynamic và lưu MAC theo Static.
+		1. MAC learning: default 1 MAC when port Security is enabled
+		- Static: Assign the MAC address directly to the port
+		- Dynamic (default): Learn MAC, when reset, learn again -> lose MAC address when Switch resets or clears MAC table.
+		- Sticky: After learning the MAC, it will be saved forever (except when Admin deletes the MAC), combining learning MAC Dynamically and saving MAC Static.
 		
-		2. Tác động: Protect, Restrict, Shutdown
-		- Protect: không gửi thông tin gì về cho người quản trị, không tác động lên port.
-		- Restrict: không tác động lên port, nhưng có gửi cảnh báo về cho người quản trị.
-		- Shutdown: tác động lên port (err-disable: muốn enable lại thì shutdown port trước và no shutdown lại), và gửi cảnh báo về cho người quản trị.
+		2. Impact: Protect, Restrict, Shutdown
+		- Protect: Does not send any information to the administrator, does not affect the port.
+		- Restrict: Does not affect the port, but does send a warning to the administrator.
+		- Shutdown: impact the port (err-disable: if you want to enable it again, shut down the port first and no shutdown again), and send a warning to the administrator.
 		
-		- Default của port Security:
+		- Default of port Security:
 		  ```bash
 		  Switch(config)#switchport port-security
 		  ```
-		- Số lượng MAC tối đa: 1
-		- Học MAC: Dynamic
+		- Maximum number of MACs: 1
+		- Learn MAC: Dynamic
 		- Action: Shutdown
 
 	- b. VLAN Hopping:
-	  -  biến đổi thành port Trunk và dùng VLAN Native để dò thông tin người dùng/Server trong các VLAN khác. Trunk ------ Access = N/A --> cấu hình tất cả các port không sử dụng là port Access và shutdown các port không sử dụng.
-
-	- c. Thay đổi STP: 
-	  - gắn 1 SW có MAC và Priority thấp nhất vào port mạng (sẽ trở thành Root Switch) làm tất cả traffic trong mạng đều đi qua Switch này (để capture thông tin người dùng). -> Gây ảnh hưởng đến truy cập trong mạng và làm chậm mạng. --> Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
+	  -  Transform into Trunk port and use VLAN Native to detect user/Server information in other VLANs. Trunk ------ Access = N/A. _Solution:_ configure all unused ports as Access ports and shutdown unused ports.
+	- c. Change STP: 
+	  - Attach a SW with the lowest MAC and Priority to the network port (will become the Root Switch), making all traffic in the network go through this Switch (to capture user information). -> Affects network access and slows down the network. _Solutoin:_ Bật BPDU Guard trên port Access (Không nhận BPDU từ port ACcess)
 	
 	- d. DHCP snooping - ARP spoofing: 
-	  - giả mạo DHCP hoặc 1 server nào đó để capture thông tin người dùng. --> bật dhcp snooping trên port Access để chống giả mạo DHCP (cấm đặt IP tĩnh trên các port cấu hình dhcp snooping - khi vi phạm sẽ tác động Err-disable). --> Trusted port trunk để nhận DHCP từ uplink, không nhận DHCP từ downlink.
+	  - impersonate DHCP or a server to capture user information. --> _Solution:_ Enable dhcp snooping on Access port to prevent DHCP spoofing (prohibit setting static IP on dhcp snooping configuration ports - violation will result in Err-disable). --> Trusted port trunk to receive DHCP from uplink, not receive DHCP from downlink.
 
 **<mark style="background: #BBFABBA6;">Module3: Routing</mark>**
 
 1. **Static Route:** 
-   - việc định tuyến hoàn toàn chủ động theo ý muốn của người quản trị.
-	- --> dễ cấu hình cho các mô hạng nhỏ và vừa 
-	- --> dễ xử lý sự cố (do hoàn toàn chủ động theo ý muốn của người quản trị)
+   - Routing is completely proactive at the discretion of the administrator.
+	- --> Easy to configure for small and medium sized models 
+	- --> Easy to handle problems (due to complete initiative according to the administrator's wishes)
 	
-	- --> khó khăn cấu hình cho các mô hình mạng lớn.
-	- --> bị rác Static Route (có những Routing không còn nữa nhưng chưa xóa) nhưng chưa dám xóa vì không biết có ảnh hưởng đến các phần khác hay không.
-	- Khắc phục:
-		- Luôn marking lại câu lệnh static route.
+	- --> Difficult configuration for large network models.
+	- --> Static Route is trashed (there are Routings that are no longer available but have not been deleted) but have not dared to delete them because I don't know if it will affect other parts or not.
+	- Fix:
+		- Always re-mark the static route statement.
 	
 2. **Dynamic Route: OSPF**
 	- a. Router-id: 
-	  - IP đại diện cho Router khi thiết lập neighbor giữa các Router tham gia OSPF (chọn ra IP lớn nhất trong các interface để làm router-id khi không cấu hình router-id).
+	  - IP Represents the Router when establishing neighbors between Routers participating in OSPF (selects the largest IP among the interfaces to be the router-id when not configuring the router-id).
 	- b. DR-BDR: 
-	  - trong phân đoạn Broadcast MultiAccess thì sẽ có bầu chọn DR và BDR
-		- DR: đảm nhiệm nhận toàn bộ LSA từ các DR-OTHER (224.0.0.5) và trả lời lại thông tin định tuyến cho các DR-OTHER (224.0.0.6)
-		- BDR: chỉ nhận LSA từ các DR-OTHER (224.0.0.5) và chỉ trả lời khi DR bị Down.
-		- DR chỉ có giá trị trong 1 phân đoạn mạng, nên việc cấu hình DR và BDR là vào interface để chỉnh Priority.
+	  - In the Broadcast MultiAccess segment, there will be DR and BDR elections
+		- DR: undertakes to receive all LSA from the DR-OTHER (224.0.0.5) and return routing information to the DR-OTHER (224.0.0.6)
+		- BDR: only receive LSA from the DR-OTHER (224.0.0.5) and only respond when DR suffers Down.
+		- DR Only valid in 1 network segment, so configuring DR and BDR is to go to the interface to adjust Priority.
 		- Priority Default = 1
-		- Priority = 0 (không được tham gia bình chọn DR)
-		- Priority = 255 (giá trị lớn nhất)
-		- Router(config-if)#ip ospf priority 255 (chắc chắn là DR)
-		- Router(config-if)#ip ospf priority 0  (không được tham gia bầu chọn DR)
+		- Priority = 0 (cannot participate in DR voting)
+		- Priority = 255 (greatest value)
+		- Router(config-if)#ip ospf priority 255 (definitely DR)
+		- Router(config-if)#ip ospf priority 0  (cannot participate in the election DR)
 	
 	- c. Point-to-Point: 
-	  - môi trường ngang hàng thì không có bầu chọn DR/BDR trong môi trường này các Router gửi LSA cho nhau và tự tính toàn định tuyến rồi gửi cho nhau thông tin định tuyến. 
+	  - In a peer-to-peer environment, there is no DR/BDR election. In this environment, Routers send LSAs to each other and calculate their own routes and then send each other routing information.
 	    ```bash
 	    Router(config-if)#ip ospf network point-to-point
 	    ```
@@ -190,29 +188,27 @@ ____________________________________
 			Interface BW
 		```
 			
-		Có thể thay đổi Refernce BW trong mode Router
+		Refernce BW can be changed in Router mode
 		
 		```bash
 		Router(config)#router ospf 1
 		Router(config-router)#ospf auto-cost reference-bandwidth 10000 (10GB)
 		```
-		Việc thay đổi Cost để tối ưu định tuyến theo 1 đường naò đó thì vào interface để cấu hình.
+		To change Cost to optimize routing along a certain route, go to the interface to configure.
 		```bash
 		Router(config-if)#ip ospf cost 10 
 		```
 3. **Access Control List (ACL):**
-	- Dùng để lọc traffic (Filter) hoặc phân loại traffic (Classification) trong mạng theo mong muốn của người quản trị.
-	- a. Tác động của ACL: Cấm (Deny) và Cho phép (Permit)
-	- b. Dạng của ACL: 
-		- Standard: chỉ có thể định nghĩa duy nhất source IP (destination IP mặc định là ANY)
-		--> thường dùng để phân loại subnet, phân loại VLAN (Classification)
-		- Extended: định nghĩa bao gồm: protocol (ip/icmp/tcp/udp), source IP, destination IP, port-ID/ping/time-exceeded/...
-		--> thường dùng để lọc traffic (Filter)
+	- Used to filter traffic (Filter) or classify traffic (Classification) in the network according to the administrator's wishes.
+	- a. Impact of ACL: Deny and Permit
+	- b. Form of ACL: 
+		- Standard: Can only define a single source IP (default destination IP is ANY) --> often used for subnet classification, VLAN classification (Classification)
+		- Extended: Definition includes: protocol (ip/icmp/tcp/udp), source IP, destination IP, port-ID/ping/time-exceeded/... --> traffic (Filter)
 		
-		VD: viết ACL để thực hiện các nội dung sau:
-		- VLAN10: được truy cập web và ping (các phần còn lại k được truy cập).
-		- VLAN20: được truy cập tất cả dịch vụ.
-		- VLAN30: cấm truy cập web và traceroute.
+		For example: write ACL to do the following:
+		- VLAN10: can access the web and ping (the rest cannot be accessed).
+		- VLAN20: have access to all services.
+		- VLAN30: prohibit web access and traceroute.
 		172.16.VLAN-ID.0/24
 		```bash
 		Router(config)#ip access-list extended Local_LAN
@@ -226,19 +222,19 @@ ____________________________________
 		Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
 		```
 4.  **Network Address Translation (NAT):** 
-   - chuyển đổi IP/port-A sang IP/port-B
-	- Source NAT: nếu >1 thì định nghĩa = ACL
-	- Destination NAT: nếu >1 thì định nghĩa = POOL
+   - convert IP/port-A to IP/port-B
+	- Source NAT: if >1 then define = ACL
+	- Destination NAT: if >1 then define = POOL
 		- a. Static NAT: 1 -> 1
-			- Source:       n IP-A = 1 -> không định nghĩa ACL
-			- Destination:  n IP-B = 1 -> không định nghĩa Pool
+			- Source:       n IP-A = 1 -> not defined ACL
+			- Destination:  n IP-B = 1 -> not defined Pool
 		```bash
 		Router(config)#ip nat inside source static 172.16.1.1 100.0.0.1
 		```
 		- b. Dynamic NAT: n IP-A -> n IP-B
-			- Source:      n IP-A > 1 -> định nghĩa ACL
-			- Destination: n IP-B > 1 -> định nghĩa Pool
-			172.16.1.1 - 172.16.1.12 sang IP 100.0.0.2 - 100.0.0.13
+			- Source:      n IP-A > 1 -> define ACL
+			- Destination: n IP-B > 1 -> define Pool
+			172.16.1.1 - 172.16.1.12 to IP 100.0.0.2 - 100.0.0.13
 				```bash
 				Router(config)#ip access-list standard NAT-1.1-1.12
 				Router(config-acl)#permit 172.16.1.0 0.0.0.15
@@ -247,11 +243,11 @@ ____________________________________
 				Router(config)#ip nat inside source list NAT-1.1-1.12 MY_POOL 
 				```
 		- c. NAT overload: n IP-A -> 1 IP-B
-			- Source:       n IP-A > 1 -> định nghĩa ACL
-			- Destination:  n IP-B = 1 -> không định nghĩa Pool
+			- Source:       n IP-A > 1 -> define ACL
+			- Destination:  n IP-B = 1 -> not defined Pool
 	
-				- 172.16.1.0/24 NAT ra ngoài với interface g0/0 kết nối với nhà mạng
-				- 172.16.2.0/24 NAT ra ngoài với IP Public còn lại 100.0.0.14
+				- 172.16.1.0/24 NAT go out with interface g0/0 connecting to the network
+				- 172.16.2.0/24 NAT go out with the remaining Public IP 100.0.0.14
 		```bash
 		Router(config)#ip access-list standard Internet_1.0
 		Router(config-acl)#permit 172.16.1.0 0.0.0.255
@@ -261,16 +257,16 @@ ____________________________________
 		Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
 		```
 5. **IPv6:** 
-	- Trên interface sẽ có 2 IPv6
-	- 1 IPv6 là địa chỉ Link-Local được tự động cấu hình bằng Link-Local EUI-64EUI-64 là tách đôi địa chỉ MAC, chèn giữa FF-FE và nghịch đảo bit số 7 của địa chỉ MAC --> Link-Local chỉ có tác động trên 1 Link thôi nên khi ping kiểm tra sẽ kèm theo Outbound-interface --> 1 Router có thể dùng 1 địa chỉ Link-Local cho toàn Interface.
-	- Mục tiêu của địa chỉ Link-Local là để nhận biết giữa các Router với nhau.
-	- 1 IPv6 cấu hình lên Interface (IPv6 này dùng để định tuyến) --> mỗi Interface phải có địa chỉ IPv6 khác nhau.
+	- On the interface there will be 2 IPv6
+	- 1 IPv6 is the Link-Local address automatically configured by Link-Local EUI-64EUI-64 is to split the MAC address, inserting between FF-FE and inverse bit number 7 of the MAC address --> Link-Local only has Only affects 1 Link, so when ping test, it will include Outbound-interface --> 1 Router can use 1 Link-Local address for the entire Interface.
+	-The goal of the Link-Local address is to identify Routers with each other.
+	- 1 IPv6 configured on the Interface (this IPv6 is used for routing) -> each Interface must have a different IPv6 address.
 	
 	- Bật IPv6: 
 	  ```bash
 	  Router(config)#ipv6 unicast routing
 	  ```
-	sau khi gõ câu lệnh này thì các interface của Router sẽ sinh ra địa chỉ Link-Local EUI-64
+	After typing this command, the Router's interfaces will generate a Link-Local EUI-64 address
 	
 	- Static Route:
 		```bash
@@ -292,20 +288,20 @@ ____________________________________
 		R2(config-if)#ipv6 ospf 1 area 0
 		```
 6. **VPN (GRE Tunnel):**
-	- Kết nối môi trường Private giữa các site thông qua môi trường internet bằng cách tạo Tunnel 1 inteface tunnel bao gồm:
+	- Connect the Private environment between sites through the internet environment by creating a Tunnel 1 interface tunnel including:
 		- Tunnel Source
 		- Tunnel Destination
-		- IP của Tunnel --> khác interface bình thường ở chỗ là có xác định tunnel-source và tunnel-destination.
+		- IP của Tunnel --> Different from a normal interface in that it defines tunnel-source and tunnel-destination.
 ```bash
 R1(config)#int tunnel 12
-R1(config-if)#tunnel source 100.0.0.1 (hoặc G0/1)
+R1(config-if)#tunnel source 100.0.0.1 (or G0/1)
 R1(config-if)#tunnel destination 200.0.0.1
-R1(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+R1(config-if)#tunnel mode gre ip (default) -> not to type configuration
 R1(config-if)#ip address 192.168.12.1 255.255.255.0
 			
 R2(config)#int tunnel 12
-R2(config-if)#tunnel source 200.0.0.1 (hoặc g0/1)
+R2(config-if)#tunnel source 200.0.0.1 (or g0/1)
 R2(config-if)#tunnel destination 100.0.0.1
-R2(config-if)#tunnel mode gre ip (default) -> không gõ cấu hình cũng được
+R2(config-if)#tunnel mode gre ip (default) -> not to type configuration
 R2(config-if)#ip address 192.168.12.2 255.255.255.0
 ```
