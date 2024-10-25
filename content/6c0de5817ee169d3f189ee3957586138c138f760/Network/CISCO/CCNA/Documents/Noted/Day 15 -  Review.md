@@ -17,7 +17,7 @@ ____________________________________
 - ARP resolves IP to MAC: throughout the entire process, the IP remains unchanged, only the MAC changes in each segment.
 
 **<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
-1. **VLAN, Trunking:**
+1. **<mark style="background: #D2B3FFA6;">VLAN, Trunking:</mark>**
 	- a. VLAN	
 		- The switch can only be plugged in and used, it cannot be configured and only has 1 VLAN
 		- Switches with VLAN configuration have 4096 - 2 = 4094 VLANs (switchport access vlan vlan-id)
@@ -52,22 +52,22 @@ ____________________________________
 		Router(config)#ip address 172.16.10.1 255.255.255.0
 		```
 
-2. **CDP - LLDP:** Used to view device information
+2. **<mark style="background: #D2B3FFA6;">CDP - LLDP:</mark>** Used to view device information
 	```bash
 	   Router(config)#cdp run
 	   Router(config)#lldp run
 	   Router(config)#show cdp neighbor
 	```
 
-3. **DHCP:** Automatic IP allocation feature for a certain VLAN.
+3. **<mark style="background: #D2B3FFA6;">DHCP:</mark>** Automatic IP allocation feature for a certain VLAN.
 	- --> The first condition for DHCP to work is that Routing is completed.
 	- --> For DHCP Relay Agent, go to the correct Gateway (where the DHCP Server configures the Gateway parameters) to point to the DHCP Server. (ip helpder-address "IP-DHCP-Server")
 
-4. **Interface VLAN**: Usually acts as a Gateway for the entire network.
+4. **<mark style="background: #D2B3FFA6;">Interface VLAN</mark>**: Usually acts as a Gateway for the entire network.
     	- 2-layer model: Interface-vlan is configured at Switch-Core
 	- 3-layer model: Interface-vlan is usually configured at Switch-Distribution (can be configured on Switch-Core)
 
-5. **STP:** Anti-loop in Layer 2 environment.
+5. **<mark style="background: #D2B3FFA6;">STP</mark>:** Anti-loop in Layer 2 environment.
 	- When the Switch is connected in a closed loop, a loop phenomenon will occur. _Solution:_ Temporarily block any port so that the connection is no longer a closed loop.
 
 	Step 1: 
