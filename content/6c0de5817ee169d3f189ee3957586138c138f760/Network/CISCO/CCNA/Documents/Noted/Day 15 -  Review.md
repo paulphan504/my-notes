@@ -100,7 +100,7 @@ ____________________________________
 		```
 		- Per-Vlan-STP (just Cisco support): PVSTP+ Each VLAN will have its own STP
 
-6. **Increase redundancy (High Redundancy):**
+6. **<mark style="background: #D2B3FFA6;">Increase redundancy (High Redundancy):</mark>**
 	- a. Cable: Etherchannel - port channel
 		- Cisco: PAgP (desirable - auto)
 		- Standard: LaCP (active - passive)
@@ -115,7 +115,7 @@ ____________________________________
 		- Standard: VRRP Supports up to about 16 devices (1 Active - the rest are Passive)
 		- _Solution_: Generate 1 virtual GW representing 2 Routers (of which only Active Router is active).
 
-7. **Security Layer2** (originates right from the company)
+7. **<mark style="background: #D2B3FFA6;">Security Layer2</mark>** (originates right from the company)
 	- a. MAC table attack: overflow the Switch's MAC table (When the Switch overflows the MAC, it will become a Hub)
 		Target:
 		- Convert Switch into Hub to capture information.
@@ -151,7 +151,7 @@ ____________________________________
 
 **<mark style="background: #BBFABBA6;">Module3: Routing</mark>**
 
-1. **Static Route:** 
+1. **<mark style="background: #D2B3FFA6;">Static Route:</mark>** 
    - Routing is completely proactive at the discretion of the administrator.
 	- --> Easy to configure for small and medium sized models 
 	- --> Easy to handle problems (due to complete initiative according to the administrator's wishes)
@@ -161,7 +161,7 @@ ____________________________________
 	- Fix:
 		- Always re-mark the static route statement.
 	
-2. **Dynamic Route: OSPF**
+2. **<mark style="background: #D2B3FFA6;">Dynamic Route: OSPF</mark>**
 	- a. Router-id: 
 	  - IP Represents the Router when establishing neighbors between Routers participating in OSPF (selects the largest IP among the interfaces to be the router-id when not configuring the router-id).
 	- b. DR-BDR: 
@@ -198,7 +198,7 @@ ____________________________________
 		```bash
 		Router(config-if)#ip ospf cost 10 
 		```
-3. **Access Control List (ACL):**
+3. **<mark style="background: #D2B3FFA6;">Access Control List (ACL):</mark>**
 	- Used to filter traffic (Filter) or classify traffic (Classification) in the network according to the administrator's wishes.
 	- a. Impact of ACL: Deny and Permit
 	- b. Form of ACL: 
@@ -221,7 +221,7 @@ ____________________________________
 		Router(config-acl)#permit ip   172.16.30.0 0.0.0.255  any
 		Router(config-acl)#deny ip any any (implicit deny - HIDDEN)
 		```
-4.  **Network Address Translation (NAT):** 
+4.  **<mark style="background: #D2B3FFA6;">Network Address Translation (NAT):</mark>** 
    - convert IP/port-A to IP/port-B
 	- Source NAT: if >1 then define = ACL
 	- Destination NAT: if >1 then define = POOL
@@ -256,7 +256,7 @@ ____________________________________
 		Router(config-acl)#permit 172.16.1.0 0.0.0.255
 		Router(config)#ip nat inside source list Internet_2.0 100.0.0.14 
 		```
-5. **IPv6:** 
+5. **<mark style="background: #D2B3FFA6;">IPv6:</mark>** 
 	- On the interface there will be 2 IPv6
 	- 1 IPv6 is the Link-Local address automatically configured by Link-Local EUI-64EUI-64 is to split the MAC address, inserting between FF-FE and inverse bit number 7 of the MAC address --> Link-Local only has Only affects 1 Link, so when ping test, it will include Outbound-interface --> 1 Router can use 1 Link-Local address for the entire Interface.
 	-The goal of the Link-Local address is to identify Routers with each other.
@@ -287,7 +287,7 @@ ____________________________________
 		R2(config)#int g0/0
 		R2(config-if)#ipv6 ospf 1 area 0
 		```
-6. **VPN (GRE Tunnel):**
+6. **<mark style="background: #D2B3FFA6;">VPN (GRE Tunnel):</mark>**
 	- Connect the Private environment between sites through the internet environment by creating a Tunnel 1 interface tunnel including:
 		- Tunnel Source
 		- Tunnel Destination
