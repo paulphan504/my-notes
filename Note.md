@@ -20,7 +20,8 @@ cd node_exporter-*.*-amd64
   
 - Pi-Hole vs Adguard
 
-- PFSence
+- PFSence https://youtube.com/watch?v=lUzSsX4T4WQ&si=uFU0_d0-VQN4MRJK
+
 
 - Zabbix
 
