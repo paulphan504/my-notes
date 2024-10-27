@@ -24,4 +24,3 @@ cd node_exporter-*.*-amd64
 
 
 - Zabbix
-
