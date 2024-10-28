@@ -24,3 +24,5 @@ cd node_exporter-*.*-amd64
 
 
 - Zabbix
+
+![[Pasted image 20241028110555.png]]!
