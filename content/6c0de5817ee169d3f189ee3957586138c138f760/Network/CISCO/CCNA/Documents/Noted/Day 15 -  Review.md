@@ -64,7 +64,7 @@ ____________________________________
 	- --> For DHCP Relay Agent, go to the correct Gateway (where the DHCP Server configures the Gateway parameters) to point to the DHCP Server. (ip helpder-address "IP-DHCP-Server")
 
 4. **<mark style="background: #D2B3FFA6;">Interface VLAN</mark>**: Usually acts as a Gateway for the entire network.
-    	- 2-layer model: Interface-vlan is configured at Switch-Core
+    - 2-layer model: Interface-vlan is configured at Switch-Core
 	- 3-layer model: Interface-vlan is usually configured at Switch-Distribution (can be configured on Switch-Core)
 
 5. **<mark style="background: #D2B3FFA6;">STP</mark>:** Anti-loop in Layer 2 environment.
@@ -122,24 +122,24 @@ ____________________________________
 		- Causes the Switch to be Down (destructive attack).
 		- _Solution_: Limit the port speed, and use port Security to limit the number of MACs on a port.
 
-		Port Security:
+		 Port Security:
 		1. MAC learning: default 1 MAC when port Security is enabled
-		- Static: Assign the MAC address directly to the port
-		- Dynamic (default): Learn MAC, when reset, learn again -> lose MAC address when Switch resets or clears MAC table.
-		- Sticky: After learning the MAC, it will be saved forever (except when Admin deletes the MAC), combining learning MAC Dynamically and saving MAC Static.
+		    - Static: Assign the MAC address directly to the port
+		    - Dynamic (default): Learn MAC, when reset, learn again -> lose MAC address when Switch resets or clears MAC table.
+		    - Sticky: After learning the MAC, it will be saved forever (except when Admin deletes the MAC), combining learning MAC Dynamically and saving MAC Static.
 		
 		2. Impact: Protect, Restrict, Shutdown
-		- Protect: Does not send any information to the administrator, does not affect the port.
-		- Restrict: Does not affect the port, but does send a warning to the administrator.
-		- Shutdown: impact the port (err-disable: if you want to enable it again, shut down the port first and no shutdown again), and send a warning to the administrator.
-		
-		- Default of port Security:
-		  ```bash
-		  Switch(config)#switchport port-security
-		  ```
-		- Maximum number of MACs: 1
-		- Learn MAC: Dynamic
-		- Action: Shutdown
+			- Protect: Does not send any information to the administrator, does not affect the port.
+			- Restrict: Does not affect the port, but does send a warning to the administrator.
+			- Shutdown: impact the port (err-disable: if you want to enable it again, shut down the port first and no shutdown again), and send a warning to the administrator.
+			
+			- Default of port Security:
+			  ```bash
+			  Switch(config)#switchport port-security
+			  ```
+			- Maximum number of MACs: 1
+			- Learn MAC: Dynamic
+			- Action: Shutdown
 
 	- b. VLAN Hopping:
 	  -  Transform into Trunk port and use VLAN Native to detect user/Server information in other VLANs. Trunk ------ Access = N/A. _Solution:_ configure all unused ports as Access ports and shutdown unused ports.
