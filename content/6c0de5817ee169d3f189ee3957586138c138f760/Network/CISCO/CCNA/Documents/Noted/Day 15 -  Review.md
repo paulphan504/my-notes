@@ -258,7 +258,7 @@ ____________________________________
 5. **<mark style="background: #D2B3FFA6;">IPv6:</mark>** 
 	- On the interface there will be 2 IPv6
 	- 1 IPv6 is the Link-Local address automatically configured by Link-Local EUI-64EUI-64 is to split the MAC address, inserting between FF-FE and inverse bit number 7 of the MAC address --> Link-Local only has Only affects 1 Link, so when ping test, it will include Outbound-interface --> 1 Router can use 1 Link-Local address for the entire Interface.
-	-The goal of the Link-Local address is to identify Routers with each other.
+	- The goal of the Link-Local address is to identify Routers with each other.
 	- 1 IPv6 configured on the Interface (this IPv6 is used for routing) -> each Interface must have a different IPv6 address.
 	
 	- Bật IPv6: 
