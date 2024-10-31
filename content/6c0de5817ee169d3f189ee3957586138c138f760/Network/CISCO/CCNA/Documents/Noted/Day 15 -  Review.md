@@ -158,8 +158,7 @@ ____________________________________
 	
 	- --> Difficult configuration for large network models.
 	- --> Static Route is trashed (there are Routings that are no longer available but have not been deleted) but have not dared to delete them because I don't know if it will affect other parts or not.
-	- Fix:
-		- Always re-mark the static route statement.
+	- Fix: Always re-mark the static route statement.
 	
 2. **<mark style="background: #D2B3FFA6;">Dynamic Route: OSPF</mark>**
 	- a. Router-id: 
