@@ -475,7 +475,11 @@ Go back to Settings > Pages on GitHub and under the _Custom domain_ section, t
 	
 	You can now use npm to install gulp or any other modules as npm and nodejs are part of the node package.
 
-- Need help with Quartz 4.0 logo [LinkRefer](https://www.reddit.com/r/ObsidianMD/comments/1dpfz77/need_help_with_quartz_40_logo/?rdt=45668) ![[Pasted image 20241018152918.png|300]] ![[Pasted image 20241018153024.png|300]]
+- Need help with Quartz 4.0 logo [LinkRefer](https://www.reddit.com/r/ObsidianMD/comments/1dpfz77/need_help_with_quartz_40_logo/?rdt=45668) 
+  
+  ![[Pasted image 20241018152918.png|300]]
+  
+   ![[Pasted image 20241018153024.png|300]]
 
 - lỗi không thể push thay đổi lên web online 
   
