@@ -3,8 +3,7 @@
 	+ Isolate the incident or evaluate the incident to come up with the correct treatment plan.
 	+ Overall perspective of all IT fields.
 
-**OSI 7 layer model vs Tcp/ip 4 layer model:**
-![[osi vs tcp ip.png|200]]
+**OSI 7 layer model vs Tcp/ip 4 layer model:**  ![[osi vs tcp ip.png|300]]
 
 ____________________________________
 - Hub n port    = 1 Broadcast Domain, 1 Collision Domain
