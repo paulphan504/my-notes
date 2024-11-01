@@ -4,7 +4,7 @@
 	+ Overall perspective of all IT fields.
 
 **OSI 7 layer model vs Tcp/ip 4 layer model:**
-![[osi vs tcp ip.png]]
+![[osi vs tcp ip.png|200]]
 
 ____________________________________
 - Hub n port    = 1 Broadcast Domain, 1 Collision Domain
