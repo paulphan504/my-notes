@@ -24,5 +24,5 @@ cd node_exporter-*.*-amd64
 
 
 - Zabbix
-
-
+- [ ] go to home (@2024-11-01 11:59)
+- [ ] Relax (@2024-11-01 11:58)
