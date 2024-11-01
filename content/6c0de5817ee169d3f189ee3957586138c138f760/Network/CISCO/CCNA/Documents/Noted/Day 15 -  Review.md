@@ -8,10 +8,9 @@
 ![[osi vs tcp ip.png|300]]
 
 ____________________________________
-- Hub n port    = 1 Broadcast Domain, 1 Collision Domain
+- Hub n port    = 1 Broadcast Domain, 1 Collision Domain 
 - Switch n port = 1 Broadcast Domain, n Collision Domain
 - Router n port = n Broadcast Domain, n Collision Domain
-
 - ARP resolves IP to MAC: throughout the entire process, the IP remains unchanged, only the MAC changes in each segment.
 
 **<mark style="background: #BBFABBA6;">Module 2: Switching</mark>**
