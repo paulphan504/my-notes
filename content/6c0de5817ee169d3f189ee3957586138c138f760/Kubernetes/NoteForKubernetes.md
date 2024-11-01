@@ -1,3 +1,4 @@
+- [ ] Time for learning Kubernet (Devops) (@2024-11-01 21:00)
 ##### **Refer:**
 1. ***Kubernetes for homelab:***
 -  https://www.youtube.com/watch?v=n-fAf2mte6M
