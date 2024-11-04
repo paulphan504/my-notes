@@ -9,5 +9,5 @@
 2. Router:
    - Router chỉ quan tâm đến Subnet không quan tâm IP (trường hợp khai IP đúng khai Subnet sai router vẫn không thể định tuyến)
    - sử dụng thuật toán AND trên các Subnet để định tuyến các mạng với nhau
-   - Subnet /24 sẽ tiêu tốn ít tài nguyên của router trong việc định tuyến sơ với /8 việc kết nối và truyền tải thông tin nhanh hơn (quy hoạch subnet hợp lý để tránh làm giảm hiệu năng thiết bị)
+   - Subnet /24 sẽ tiêu tốn ít tài nguyên của router trong việc định tuyến so với /8 việc kết nối và truyền tải thông tin nhanh hơn (quy hoạch subnet hợp lý để tránh làm giảm hiệu năng thiết bị)
 3. FW: 
