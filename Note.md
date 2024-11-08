@@ -26,3 +26,16 @@ cd node_exporter-*.*-amd64
 - Zabbix
 - [ ] go to home (@2024-11-01 11:59)
 - [ ] Relax (@2024-11-01 11:58)
+
+  docker run -d \
+  --name=linux \
+  --security-opt seccomp=unconfined \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -p 3001:3001 \
+  --shm-size="1gb" \
+  --restart unless-stopped \
+adguard/adguardhome:latest
+lscr.io/linuxserver/kali-linux:latest
+- []Practice mounth and void sound (@)

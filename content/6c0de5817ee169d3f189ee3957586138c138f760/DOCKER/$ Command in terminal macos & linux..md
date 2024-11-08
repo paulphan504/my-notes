@@ -144,3 +144,19 @@ for file in *; do                                          
 
 done
 ```
+
+[How to delete folder & file error <mark style="background: #FFF3A3A6;">not permission</mark> at terminal:](https://unix.stackexchange.com/questions/555493/permission-denied-from-sudo-rm-r-filedirectory-file-on-macos)
+
+1. Reboot your Mac to enter recovery mode - see [Mac startup key combinations](https://support.apple.com/HT201255) to find out how to do this on your Mac
+2. When in recovery mode, select _Terminal_ from the _Utilities_ menu
+3. Enter `csrutil disable` and confirm the warning, then wait until the command has finished
+4. Enter `shutdown -r now` to reboot into normal operating mode
+5. When in normal mode, again open _Terminal_ and remove the file(s) using `sudo rm` - this time it should succeed
+6. Reboot again to enter recovery mode
+7. When in recovery mode, again select _Terminal_ from the Utilities menu
+8. Enter `csrutil enable` and confirm, then wait until the command has finished
+9. Enter `shutdown -r now` to reboot into normal operating mode
+
+When back in normal mode, you may verify that SIP protection has been successfully re-enabled by entering `csrutil status` in _Terminal_.
+
+Please note that is absolutely recommended to immediately re-enable SIP. You should not run your Mac without SIP unless you know exactly what you are doing.
