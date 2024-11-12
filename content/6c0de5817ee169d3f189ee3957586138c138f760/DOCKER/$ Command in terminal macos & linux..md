@@ -112,7 +112,7 @@ Delete apps on terminal.
 ```bash
 cd /
 cd Applications
-rm -r Google\ Docs.app/ "remove google doc on applications"
+sudo rm -r Google\ Docs.app/ "remove google doc on applications, use sudo equal root account"
 ```
 
 [Install nvim editor.](https://github.com/neovim/neovim/blob/master/INSTALL.md)
@@ -160,3 +160,18 @@ done
 When back in normal mode, you may verify that SIP protection has been successfully re-enabled by entering `csrutil status` in _Terminal_.
 
 Please note that is absolutely recommended to immediately re-enable SIP. You should not run your Mac without SIP unless you know exactly what you are doing.
+
+[How to change DNS with terminal on macos](https://cleanbrowsing.org/help/docs/manually-change-dns-on-a-mac-terminal/)
+- Change for wifi card ```bash
+```bash
+sudo networksetup -setdnsservers Wi-Fi 127.0.0.1
+```
+- Check dns active
+```bash
+networksetup -getdnsservers Wi-Fi
+nslookup cnn.com
+```
+- Reset DNS to default form DHCP server
+```bash
+networksetup -setdnsservers Wi-Fi
+```
