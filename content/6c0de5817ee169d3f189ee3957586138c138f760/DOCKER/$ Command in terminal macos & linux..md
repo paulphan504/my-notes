@@ -175,3 +175,6 @@ nslookup cnn.com
 ```bash
 networksetup -setdnsservers Wi-Fi
 ```
+
+- **How to open path in macos:** <mark style="background: #FFF3A3A6;">command + shift + g</mark>
+- 
