@@ -177,4 +177,7 @@ networksetup -setdnsservers Wi-Fi
 ```
 
 - **How to open path in macos:** <mark style="background: #FFF3A3A6;">command + shift + g</mark>
-- 
+- [How to set time schedule auto turn on &  turn off](https://support.apple.com/en-vn/guide/mac-help/mchl40376151/13.0/mac/13.0) 
+```bash 
+sudo pmset repeat wakeorpoweron MTWRFSU 7:00:00 sleep MTWRFSU 23:30:00
+```
