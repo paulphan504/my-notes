@@ -44,6 +44,8 @@ title: Welcome to My Notes
 
 [[$ MODULE 3 Scanning Networks]].
 
+[[$ All in one Cybersecurity Mindmap.pdf|All in one Cybersecurity Mindmap]]
+
 ## <mark style="background: #ADCCFFA6;">**Excalidraw:**</mark>
 
 [[Drawing 2024-08-30 14.53.32]].
