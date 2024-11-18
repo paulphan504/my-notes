@@ -27,17 +27,14 @@ cd node_exporter-*.*-amd64
 - [ ] go to home (@2024-11-01 11:59)
 - [ ] Relax (@2024-11-01 11:58)
 
-  docker run -d \
-  --name=kali \
-  --security-opt seccomp=unconfined \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=Etc/UTC \
-  -p 3000:3000 \
-   -p 3001:3001 \
-  --shm-size="1gb" \
-  --restart unless-stopped \
-lscr.io/linuxserver/kali-linux:latest
+docker run -d \
+--name=ubuntu \
+--security-opt seccomp=unconfined \
+-e PUID=1000 \
+-e PGID=1000 \
+-e TZ=Etc/UTC \
+--restart unless-stopped \
+ubuntu:latest
 - [ ] Practice mounth and void sound(@2024-11-08 09:00) [link](https://www.youtube.com/watch?v=l69yZ5xabbo&t=3s)
 
 # Minimal command
@@ -46,6 +43,9 @@ docker run -d --name pihole --network=host -e WEBPASSWORD="YourPassword" -e DNS1
 # Recommended command
 docker run -d --name pihole -e ServerIP=172.16.18.86 -e TZ=Europe/Helsinki -e WEBPASSWORD=SecretAgent007 -e DNS1=1.1.1.1 -e DNS2=1.0.0.1 -p 80:80 -p 53:53/tcp -p 53:53/udp -p 443:443 -v ~/pihole/:/etc/pihole/ --dns=127.0.0.1 --dns=1.1.1.1 --cap-add=NET_ADMIN --restart=unless-stopped pihole/pihole:latest
 
+marker_single -h --batch_multiplier 2 --max_pages 10 Tiêu Chuẩn An Toàn Thông Tin /CATTT_CAM NANG RANSOMWARE.pdf Slides
+marker_single /Users/ptp/Desktop/1/1.pdf /Users/ptp/Desktop/2 --batch_multiplier 2 --max_pages 10 --langs English
+.
 
 
 

@@ -21,7 +21,7 @@ title: Welcome to My Notes
 
 [[$ Install  Docker Containers on Docker Desktop.]].
 
-[[$ Command in terminal macos & linux.]].
+[[$ Comman in terminal macos & linux.]].
 
 [[$ Server Monitoring with Prometheus and Grafana in linux with docker compose file .yml.]].
 
