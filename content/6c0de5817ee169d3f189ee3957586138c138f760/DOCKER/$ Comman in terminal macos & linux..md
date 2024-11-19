@@ -10,7 +10,7 @@ Have you tried using the -a flag for ls?
 
 Use `ls --help` in your terminal to review all available flags.
 
-#### [How to CD (move, delete, show) to Your iCloud Drive on a Mac](https://www.wikihow.com/CD-to-iCloud-Drive-on-Mac)
+##### **[How to CD (move, delete, show) to Your iCloud Drive on a Mac](https://www.wikihow.com/CD-to-iCloud-Drive-on-Mac)**
 
 ```bash
 cd ~/Library/Mobile\ Documents/
@@ -94,12 +94,12 @@ Open List tree directory  and show all infomation.
 ls -1 -la "you can show ls --help for many"
 ```
 
-[Install wget service on terminal with brew.](https://www.cyberciti.biz/faq/howto-install-wget-om-mac-os-x-mountain-lion-mavericks-snow-leopard/)
+##### **[Install wget service on terminal with brew.](https://www.cyberciti.biz/faq/howto-install-wget-om-mac-os-x-mountain-lion-mavericks-snow-leopard/)**
 ```bash
 brew install wget
 ```
 
-Open file and applications in terminal.
+##### **Open file and applications in terminal.**
 
 ```bash
 open -a Google\ chrome "open app chrome"
@@ -108,36 +108,36 @@ cd Downloads
 open -a Google\ Chrome phan\ tan-phong-cv.pdf "open file pdf with google chrome"
 ```
 
-Delete apps on terminal.
+##### **Delete apps on terminal.**
 ```bash
 cd /
 cd Applications
 sudo rm -r Google\ Docs.app/ "remove google doc on applications, use sudo equal root account"
 ```
 
-[Install nvim editor.](https://github.com/neovim/neovim/blob/master/INSTALL.md)
+##### **[Install nvim editor.](https://github.com/neovim/neovim/blob/master/INSTALL.md)**
 ```bash
 brew install neovim
 ```
 
-Shutdown macos with terminal command.
+##### **Shutdown macos with terminal command.**
 ```bash
 sudo shutdown -r now
 ```
 
-Close apps with terminal.
+##### **Close apps with terminal.**
 ```bash
 killall firefox "close app firefox"
 killall Google\ Chrome "close app chrome"
 killall Activity\ Monitor "close service Monitor on macos"
 ```
 
-Show all process with terminal on mac.
+##### **Show all process with terminal on mac.**
 ```bash
 top -o cpu "show all services running on you macbook, you can type top --help show more about infomation "
 ```
 
-[How to change multiple files name with terminal on macos.](https://iboysoft.com/tips/rename-file-macos-terminal.html)
+##### **[How to change multiple files name with terminal on macos.](https://iboysoft.com/tips/rename-file-macos-terminal.html)**
 ```bash
 for file in *; do                                                                                                
   mv "$file" "${file%.txt}.md"
@@ -145,7 +145,7 @@ for file in *; do                                          
 done
 ```
 
-[How to delete folder & file error <mark style="background: #FFF3A3A6;">not permission</mark> at terminal:](https://unix.stackexchange.com/questions/555493/permission-denied-from-sudo-rm-r-filedirectory-file-on-macos)
+##### **[How to delete folder & file error <mark style="background: #FFF3A3A6;">not permission</mark> at terminal:](https://unix.stackexchange.com/questions/555493/permission-denied-from-sudo-rm-r-filedirectory-file-on-macos)**
 
 1. Reboot your Mac to enter recovery mode - see [Mac startup key combinations](https://support.apple.com/HT201255) to find out how to do this on your Mac
 2. When in recovery mode, select _Terminal_ from the _Utilities_ menu
@@ -161,7 +161,7 @@ When back in normal mode, you may verify that SIP protection has been successful
 
 Please note that is absolutely recommended to immediately re-enable SIP. You should not run your Mac without SIP unless you know exactly what you are doing.
 
-[How to change DNS with terminal on macos](https://cleanbrowsing.org/help/docs/manually-change-dns-on-a-mac-terminal/)
+##### **[How to change DNS with terminal on macos](https://cleanbrowsing.org/help/docs/manually-change-dns-on-a-mac-terminal/)**
 - Change for wifi card ```bash
 ```bash
 sudo networksetup -setdnsservers Wi-Fi 127.0.0.1
@@ -176,8 +176,9 @@ nslookup cnn.com
 networksetup -setdnsservers Wi-Fi
 ```
 
-- **How to open path in macos:** <mark style="background: #FFF3A3A6;">command + shift + g</mark>
-- [How to set time schedule auto turn on &  turn off](https://support.apple.com/en-vn/guide/mac-help/mchl40376151/13.0/mac/13.0) 
+##### **How to open path in macos:** <mark style="background: #FFF3A3A6;">command + shift + g</mark>
+##### [How to set time schedule auto turn on &  turn off](https://support.apple.com/en-vn/guide/mac-help/mchl40376151/13.0/mac/13.0) 
 ```bash 
 sudo pmset repeat wakeorpoweron MTWRFSU 7:00:00 sleep MTWRFSU 23:30:00
 ```
+##### **[ Brew Uninstall Package](https://www.warp.dev/terminus/brew-uninstall-package)**
